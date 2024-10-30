@@ -1,7 +1,17 @@
+using Access.Abstract.GenericDal;
+using Access.Context;
+using Access.EntityFramework.GenericRepository;
+using System.Configuration;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>));
+
 
 var app = builder.Build();
 
@@ -9,16 +19,23 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseStatusCodePagesWithReExecute("/Home/Error", "?code={0}");
+
 app.UseRouting();
 
 app.UseAuthorization();
+
+
+app.MapControllerRoute(
+  name: "areas",
+  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
 
 app.MapControllerRoute(
     name: "default",
