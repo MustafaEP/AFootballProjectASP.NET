@@ -16,3 +16,5 @@ C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Busin
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Business\obj\Debug\net8.0\Business.csproj.Up2Date
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Business\bin\Debug\net8.0\Access.dll
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Business\bin\Debug\net8.0\Access.pdb
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Business\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Business\bin\Debug\net8.0\appsettings.json

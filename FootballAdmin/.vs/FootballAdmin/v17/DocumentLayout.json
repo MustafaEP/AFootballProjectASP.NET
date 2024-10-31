@@ -7,20 +7,12 @@
       "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\admin\\views\\player\\listplayers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E61616DC-6D1F-475C-8CD6-4851641593F3}|Entities\\Entities.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\entities\\concrete\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E61616DC-6D1F-475C-8CD6-4851641593F3}|Entities\\Entities.csproj|solutionrelative:entities\\concrete\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\admin\\controllers\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\admin\\controllers\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E61616DC-6D1F-475C-8CD6-4851641593F3}|Entities\\Entities.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\entities\\concrete\\generics\\base.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E61616DC-6D1F-475C-8CD6-4851641593F3}|Entities\\Entities.csproj|solutionrelative:entities\\concrete\\generics\\base.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\wwwroot\\corona-free-dark-bootstrap-admin-template-1.0.0\\template\\pages\\tables\\basic-table.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\wwwroot\\corona-free-dark-bootstrap-admin-template-1.0.0\\template\\pages\\tables\\basic-table.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\admin\\models\\playerupdateviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\admin\\models\\playerupdateviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,54 +30,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "basic-table.html",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\corona-free-dark-bootstrap-admin-template-1.0.0\\template\\pages\\tables\\basic-table.html",
-              "RelativeDocumentMoniker": "WebUI\\wwwroot\\corona-free-dark-bootstrap-admin-template-1.0.0\\template\\pages\\tables\\basic-table.html",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\corona-free-dark-bootstrap-admin-template-1.0.0\\template\\pages\\tables\\basic-table.html",
-              "RelativeToolTip": "WebUI\\wwwroot\\corona-free-dark-bootstrap-admin-template-1.0.0\\template\\pages\\tables\\basic-table.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoDAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-10-25T15:12:43.006Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WebUI\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WebUI\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-25T14:39:56.785Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Base.cs",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\Entities\\Concrete\\Generics\\Base.cs",
-              "RelativeDocumentMoniker": "Entities\\Concrete\\Generics\\Base.cs",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\Entities\\Concrete\\Generics\\Base.cs",
-              "RelativeToolTip": "Entities\\Concrete\\Generics\\Base.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Title": "PlayerUpdateViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Models\\PlayerUpdateViewModel.cs",
+              "RelativeDocumentMoniker": "WebUI\\Areas\\Admin\\Models\\PlayerUpdateViewModel.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Models\\PlayerUpdateViewModel.cs",
+              "RelativeToolTip": "WebUI\\Areas\\Admin\\Models\\PlayerUpdateViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T14:35:45.234Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\Entities\\Concrete\\Player.cs",
-              "RelativeDocumentMoniker": "Entities\\Concrete\\Player.cs",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\Entities\\Concrete\\Player.cs",
-              "RelativeToolTip": "Entities\\Concrete\\Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T14:36:52.298Z",
+              "WhenOpened": "2024-10-30T13:49:36.33Z",
               "EditorCaption": ""
             },
             {
@@ -96,9 +49,22 @@
               "RelativeDocumentMoniker": "WebUI\\Areas\\Admin\\Views\\Player\\ListPlayers.cshtml",
               "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Player\\ListPlayers.cshtml",
               "RelativeToolTip": "WebUI\\Areas\\Admin\\Views\\Player\\ListPlayers.cshtml",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAcwG0AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-25T14:09:07.997Z",
+              "WhenOpened": "2024-10-30T08:49:42.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Controllers\\PlayerController.cs",
+              "RelativeDocumentMoniker": "WebUI\\Areas\\Admin\\Controllers\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Controllers\\PlayerController.cs",
+              "RelativeToolTip": "WebUI\\Areas\\Admin\\Controllers\\PlayerController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAiwFYAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T08:49:37.949Z",
               "EditorCaption": ""
             }
           ]

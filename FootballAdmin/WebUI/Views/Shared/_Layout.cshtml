@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/favicon.png" />
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+
 
     @RenderSection("styles", required: false)
 
@@ -89,7 +93,7 @@
                     <span class="nav-link">Navigation</span>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="Admin/Home/Index">
                         <span class="menu-icon">
                             <i class="mdi mdi-speedometer"></i>
                         </span>
@@ -400,6 +404,9 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/dashboard.js"></script>
+
+    <!-- SweetAlert JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <!-- End custom js for this page -->
     @RenderSection("scripts", required: false)
 

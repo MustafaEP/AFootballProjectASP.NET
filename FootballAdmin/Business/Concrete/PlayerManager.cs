@@ -43,5 +43,10 @@ namespace Business.Concrete
         {
             _playerDal.Update(entity);
         }
+
+        public int TCount()
+        {
+            return _playerDal.GetListAll().Count();
+        }
     }
 }

@@ -265,6 +265,4 @@ C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\WebUI
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\WebUI\bin\Debug\net8.0\Access.pdb
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\WebUI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\WebUI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
-C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\WebUI\bin\Debug\net8.0\Areas\inspinia-gh-pages\js\api\typehead_collection.json
-C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\WebUI\bin\Debug\net8.0\Areas\inspinia-gh-pages\locales\en.json
-C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\WebUI\bin\Debug\net8.0\Areas\inspinia-gh-pages\locales\es.json
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\WebUI\bin\Debug\net8.0\SweetAlert2.dll

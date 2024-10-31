@@ -10,7 +10,11 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Oyuncular</h4>
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <h4 class="card-title">Oyuncular</h4>
+                        <button class="btn btn-info">Yeni Oyuncu</button>
+                    </div>
+                    <span id ="downloadDanger" class="text-danger"></span>
                     <div class="ibox-content">
 
                         <div class="table-responsive">
@@ -31,7 +35,16 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
+                                        <tr class="player-row" id="player-row" data-id="@item.Id"
+                                            data-name="@item.Name"
+                                            data-surname="@item.SurName"
+                                            data-email="@item.Email"
+                                            data-phone="@item.Phone"
+                                            data-country="@item.County"
+                                            data-team="@item.TeamId"
+                                            data-position="@item.PlayerPosition"
+                                            data-second-position="@item.PlayerSecondPositions"
+                                            data-strong-foot="@item.StrongFoot">
                                             <td>@item.Name</td>
                                             <td>@item.SurName</td>
                                             <td>@item.Email</td>
@@ -46,6 +59,10 @@
                                 </tbody>
                             </table>
                         </div>
+
+
+
+
 
                     </div>
                 </div>
@@ -91,10 +108,39 @@
             color: #ffffff;
         }
 
-        table.dataTable tbody tr:nth-child(even) {
-            background-color: #3c3c3c;
+            table.dataTable tbody tr:nth-child(even) {
+                background-color: #3c3c3c;
+            }
+
+        .buttons-html5 {
+            background-color: #2C2C2C;
+            margin-right: 1rem;
+            width: 100px;
+            border-radius: 5px;
         }
+
+        .buttons-print {
+            background-color: #2C2C2C;
+            width: 100px;
+            border-radius: 5px;
+        }
+
+        .swal2-html-container {
+            max-width: 1000px !important;
+            width: 100% !important;
+        }
+
+        .pop-up-button {
+            min-width: 120px;
+        }
+
+        .bradius{
+            border-radius: 5px;
+        }
+
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
 
 }
 
@@ -107,12 +153,13 @@
             $('.dataTables-example').DataTable({
                 pageLength: 25,
                 responsive: true,
+                paging: false,
                 dom: '<"html5buttons"B>lTfgitp',
                 buttons: [
-                    { extend: 'copy', text: 'Kopyala' },
+                    { extend: 'copy', text: 'Kopyala', },
                     { extend: 'csv', text: 'CSV' },
-                    { extend: 'excel', text: 'Excel', title: 'OrnekDosya' },
-                    { extend: 'pdf', text: 'PDF', title: 'OrnekDosya' },
+                    { extend: 'excel', text: 'Excel', title: 'Oyuncular' },
+                    { extend: 'pdf', text: 'PDF', title: 'Oyuncular' },
                     {
                         extend: 'print',
                         text: 'Yazdır',
@@ -153,9 +200,314 @@
             });
         });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script>
+
+        document.querySelectorAll('.player-row').forEach(function (row) {
+            row.addEventListener('click', function () {
+
+
+                const data_id = this.dataset.id;
+
+                // data-id'yi kullanarak doğru tablo satırını seçiyoruz
+                const rowData = document.querySelector(`tr[data-id='${data_id}']`);
+
+                var name = "", surname = "", email = "", phone = "", country = "", team = "", position = "", secondPosition = "", strongFoot = "";
+
+                if (rowData) {
+                    name = rowData.querySelector("td:nth-child(1)").textContent;
+                    surname = rowData.querySelector("td:nth-child(2)").textContent;
+                    email = rowData.querySelector("td:nth-child(3)").textContent;
+                    phone = rowData.querySelector("td:nth-child(4)").textContent;
+                    country = rowData.querySelector("td:nth-child(5)").textContent;
+                    team = rowData.querySelector("td:nth-child(6)").textContent;
+                    position = rowData.querySelector("td:nth-child(7)").textContent;
+                    secondPosition = rowData.querySelector("td:nth-child(8)").textContent;
+                    strongFoot = rowData.querySelector("td:nth-child(9)").textContent;
+                }
+
+
+                const row = document.querySelector(`tr[data-id='${data_id}']`);
+
+                const swalInfo = Swal.mixin({
+
+                });
+
+                swalInfo.fire({
+                    title: `${name} ${surname}`,
+                    html: `
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h5>Oyuncu Bilgileri</h5>
+                                                                    <div class="row pb-2 pt-2">
+                                                                        <div class="col-6"><strong>İsim:</strong></div>
+                                                                        <div class="col-6">${name}</div>
+                                                                    </div>
+                                                                    <hr class="border border-white border-2 opacity-25">
+                                                                    <div class="row pb-2 pt-2">
+                                                                        <div class="col-6"><strong>Soyisim:</strong></div>
+                                                                        <div class="col-6">${surname}</div>
+                                                                    </div>
+                                                                    <hr class="border border-white border-2 opacity-25">
+                                                                    <div class="row pb-2 pt-2">
+                                                                        <div class="col-6"><strong>Email:</strong></div>
+                                                                        <div class="col-6">${email}</div>
+                                                                    </div>
+                                                                    <hr class="border border-white border-2 opacity-25">
+                                                                    <div class="row pb-2 pt-2">
+                                                                        <div class="col-6"><strong>Telefon:</strong></div>
+                                                                        <div class="col-6">${phone}</div>
+                                                                    </div>
+                                                                    <hr class="border border-white border-2 opacity-25">
+                                                                    <div class="row pb-2 pt-2">
+                                                                        <div class="col-6"><strong>Ülke:</strong></div>
+                                                                        <div class="col-6">${country}</div>
+                                                                    </div>
+                                                                    <hr class="border border-white border-2 opacity-25">
+                                                                    <div class="row pb-2 pt-2">
+                                                                        <div class="col-6"><strong>Takım:</strong></div>
+                                                                        <div class="col-6">${team}</div>
+                                                                    </div>
+                                                                    <hr class="border border-white border-2 opacity-25">
+                                                                    <div class="row pb-2 pt-2">
+                                                                        <div class="col-6"><strong>Pozisyon:</strong></div>
+                                                                        <div class="col-6">${position}</div>
+                                                                    </div>
+                                                                    <hr class="border border-white border-2 opacity-25">
+                                                                    <div class="row pb-2 pt-2">
+                                                                        <div class="col-6"><strong>2. Pozisyon:</strong></div>
+                                                                        <div class="col-6">${secondPosition}</div>
+                                                                    </div>
+                                                                    <hr class="border border-white border-2 opacity-25">
+                                                                    <div class="row pb-2 pt-2">
+                                                                        <div class="col-6"><strong>Güçlü Ayak:</strong></div>
+                                                                        <div class="col-6">${strongFoot}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    `,
+                    background: "#111111",
+                    width: 1000,
+                    icon: 'null',
+                    confirmButtonText: 'Güncelle',
+                    showCancelButton: true,
+                    cancelButtonText: 'Sil',
+                    cancelButtonColor: "#d33",
+                    showDenyButton: true,
+                    denyButtonText: 'Çık',
+                    returnInputValueOnDeny: false,
+                    customClass: {
+                        denyButton: 'pop-up-button btn-success',
+                        confirmButton: 'pop-up-button btn-primary',
+                        cancelButton: 'pop-up-button btn-danger',
+                    }
+                }).then((result) => {
+                    //Silme İşlemi
+                    if (result.dismiss === Swal.DismissReason.cancel) {
+                        swalInfo.fire({
+                            background: "#111111",
+                            icon: "error",
+                            text: "Silmek İstediğinizden Emin Misiniz?",
+                            showCancelButton: true,
+                            confirmButtonText: "Sil",
+                            cancelButtonText: "Çık",
+                            customClass: {
+                                confirmButton: 'pop-up-button btn-danger',
+                                cancelButton: 'pop-up-button btn-success'
+                            }
+                        }).then((deleteResult) => {
+                            //Silmeyi Onaylama
+                            if (deleteResult.isConfirmed) {
+                                $.ajax({
+                                    url: '/Admin/Player/DeletePlayer/' + data_id,
+                                    type: 'POST',
+                                    success: function (response) {
+                                        if (response.success) {
+                                            if (row) {
+                                                row.style.display = 'none';
+                                            }
+                                            swalInfo.fire({
+                                                background: "#111111",
+                                                icon: "success",
+                                                title: "Silme İşlemi Başarılı",
+                                            });
+                                        }
+                                        else {
+                                            swalInfo.fire({
+                                                background: "#111111",
+                                                icon: "error",
+                                                title: "Silme İşlemi Gerçekleştirilemedi",
+                                            });
+                                        }
+                                    },
+                                    error: function () {
+                                        swalInfo.fire({
+                                            background: "#111111",
+                                            icon: "error",
+                                            title: "Sistemsel Bir Hata Oluştu",
+                                        });
+                                    }
+                                });
+
+
+                            }
+                            else if (deleteResult.dismiss === Swal.DismissReason.cancel) {
+                                swalInfo.fire({
+                                    background: "#111111",
+                                    icon: "success",
+                                    title: "İşlem İptal Edildi",
+                                    showConfirmButton: false,
+                                    timer: 1000
+                                });
+                            }
+                        });
+                    }
+                    else if (result.isDenied) {
+                        swalInfo.fire({
+                            background: "#111111",
+                            icon: "success",
+                            title: "İşlem İptal Edildi",
+                            showConfirmButton: false,
+                            timer: 1000
+                        });
+                    }
+                    //Güncelleme Sayfası
+                    else if (result.isConfirmed) {
+                        swalInfo.fire({
+                            background: "#111111",
+                            icon: "null",
+                            width: 1000,
+                            title: "Güncelleme Sayfası",
+                            showConfirmButton: true,
+                            confirmButtonText: "Güncelle",
+                            html: `
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <form class="forms-sample" id="updateForm">
+                                                                <div class="form-group">
+                                                                    <label for="name" style="color: #fff;">Ad:</label>
+                                                                    <input type="text" id="name" class="form-control" placeholder="Ad" value="${name}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="surname" style="color: #fff;">Soyad:</label>
+                                                                    <input type="text" id="surname" class="form-control" placeholder="Soyad" value="${surname}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="email" style="color: #fff;">Email:</label>
+                                                                    <input type="email" id="email" class="form-control" placeholder="Email" value="${email}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="phone" style="color: #fff;">Telefon:</label>
+                                                                    <input type="text" id="phone" class="form-control" placeholder="Telefon" value="${phone}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="country" style="color: #fff;">Ülke:</label>
+                                                                    <input type="text" id="country" class="form-control" placeholder="Ülke" value="${country}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="team" style="color: #fff;">Takım ID:</label>
+                                                                    <input type="text" id="team" class="form-control" placeholder="Takım ID" value="${team}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="position" style="color: #fff;">Pozisyon:</label>
+                                                                    <input type="text" id="position" class="form-control" placeholder="Pozisyon" value="${position}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="secondPosition" style="color: #fff;">İkinci Pozisyon:</label>
+                                                                    <input type="text" id="secondPosition" class="form-control" placeholder="İkinci Pozisyon" value="${secondPosition}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="strongFoot" style="color: #fff;">Güçlü Ayak:</label>
+                                                                    <input type="text" id="strongFoot" class="form-control" placeholder="Güçlü Ayak" value="${strongFoot}" required>
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+
+                                            `,
+                            preConfirm: () => {
+                                const updatedData = {
+                                    id: data_id,
+                                    name: document.getElementById('name').value,
+                                    surname: document.getElementById('surname').value,
+                                    email: document.getElementById('email').value,
+                                    phone: document.getElementById('phone').value,
+                                    country: document.getElementById('country').value,
+                                    team: document.getElementById('team').value,
+                                    position: document.getElementById('position').value,
+                                    secondPosition: document.getElementById('secondPosition').value,
+                                    strongFoot: document.getElementById('strongFoot').value
+                                };
+
+                                if (Object.values(updatedData).some(field => !field)) {
+                                    Swal.showValidationMessage("Lütfen tüm alanları doldurun.");
+                                } else {
+                                    return updatedData;
+                                }
+                            }
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                const updatedData = result.value;
+                                $.ajax({
+                                    url: '/Admin/Player/UpdatePlayer/',
+                                    data: JSON.stringify(updatedData),
+                                    contentType: "application/json; charset=utf-8",
+                                    type: 'POST',
+                                    success: function (response) {
+                                        if (response.success) {
+                                            // Tabloyu güncelleme
+                                            updateTableRow(updatedData);
+                                            swalInfo.fire({
+                                                background: "#111111",
+                                                icon: "success",
+                                                title: "Güncelleme İşlemi Başarılı",
+                                            });
+                                            document.getElementById('downloadDanger').innerHTML = "<small><button class='btn btn-danger mr-1 mb-2 bradius' href='Admin/Player/PlayerList'>Yenile</button><p class='mb-2'> Herhangi bir indirme işlemi yapmadan sayfayı yenileyiniz.</p></small> ";
+                                        }
+                                        else {
+                                            swalInfo.fire({
+                                                background: "#111111",
+                                                icon: "error",
+                                                title: "Güncelleme İşlemi Gerçekleştirilemedi",
+                                            });
+                                        }
+                                    },
+                                    error: function () {
+                                        swalInfo.fire({
+                                            background: "#111111",
+                                            icon: "error",
+                                            title: "Sistemsel Bir Hata Oluştu",
+                                        });
+                                    }
+                                });
+
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+
+        function updateTableRow(data) {
+            // data-id'yi kullanarak doğru tablo satırını seçiyoruz
+            const row = document.querySelector(`tr[data-id='${data.id}']`);
+
+            if (row) {
+                row.querySelector("td:nth-child(1)").textContent = data.name;
+                row.querySelector("td:nth-child(2)").textContent = data.surname;
+                row.querySelector("td:nth-child(3)").textContent = data.email;
+                row.querySelector("td:nth-child(4)").textContent = data.phone;
+                row.querySelector("td:nth-child(5)").textContent = data.country;
+                row.querySelector("td:nth-child(6)").textContent = data.team;
+                row.querySelector("td:nth-child(7)").textContent = data.position;
+                row.querySelector("td:nth-child(8)").textContent = data.secondPosition;
+                row.querySelector("td:nth-child(9)").textContent = data.strongFoot;
+            }
+        }
+
+
+    </script>
 }
-
-
-
-
-
