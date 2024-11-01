@@ -2,6 +2,8 @@
 using Business.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 using WebUI.Areas.Admin.Models;
 
 namespace WebUI.Areas.Admin.Controllers
@@ -70,6 +72,8 @@ namespace WebUI.Areas.Admin.Controllers
             {
                 var player = new Player
                 {
+                    Id = 0,
+                    UserName = model.UserName,
                     Name = model.Name,
                     SurName = model.Surname,
                     TeamId = model.Team,
@@ -78,7 +82,8 @@ namespace WebUI.Areas.Admin.Controllers
                     Email = model.Email,
                     Phone = model.Phone,
                     PlayerPosition = model.Position,
-                    PlayerSecondPositions = model.SecondPosition
+                    PlayerSecondPositions = model.SecondPosition,
+                    Password = model.TemporaryPassword != null ? model.TemporaryPassword : "123"
                 };
 
                 _playerManager.TAdd(player);

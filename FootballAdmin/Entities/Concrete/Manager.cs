@@ -10,5 +10,6 @@ namespace Entities.Concrete
     public class Manager : Base
     {
         public string PreferredLineUp {  get; set; }
+        public int? TeamId { get; set; }
     }
 }

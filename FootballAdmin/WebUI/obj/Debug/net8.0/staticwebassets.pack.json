@@ -3713,8 +3713,8 @@
       "PackagePath": "staticwebassets\\corona-free-dark-bootstrap-admin-template-1.0.0\\template\\partials\\_sidebar.html"
     },
     {
-      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\css\\playerDataTable.css",
+      "PackagePath": "staticwebassets\\css\\playerDataTable.css"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\favicon.ico",
@@ -10025,8 +10025,12 @@
       "PackagePath": "staticwebassets\\inspinia-gh-pages\\widgets.html"
     },
     {
-      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\managerDataTable.js",
+      "PackagePath": "staticwebassets\\js\\managerDataTable.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\playerDataTable.js",
+      "PackagePath": "staticwebassets\\js\\playerDataTable.js"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\lib\\bootstrap\\LICENSE",
