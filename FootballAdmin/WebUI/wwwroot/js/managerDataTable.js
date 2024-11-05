@@ -24,6 +24,7 @@ $(document).ready(function () {
             { extend: 'pdf', text: 'PDF', title: 'Oyuncular' },
             {
                 extend: 'print',
+                className: 'buttons-html5',
                 text: 'Yazdır',
                 customize: function (win) {
                     $(win.document.body)
@@ -33,7 +34,7 @@ $(document).ready(function () {
                         .css('color', '#f0f0f0');
 
                     $(win.document.body).find('table')
-                        .addClass('compact buttons-html5')
+                        .addClass('compact')
                         .css('font-size', 'inherit')
                         .css('margin', '2rem')
                         .css('color', '#000000')
@@ -44,7 +45,7 @@ $(document).ready(function () {
                 text: 'Yeni Menejer',
                 className: 'ml-3 btn btn-success',
                 action: function (e, dt, node, config) {
-                    newManagerFunc();
+                    NewManagerFunc();
                 }
             }
         ],
@@ -53,7 +54,7 @@ $(document).ready(function () {
             sLengthMenu: "Göster _MENU_ Oyuncu",
             sZeroRecords: "Menejerler Aranıyor...",
             sInfo: "Gösterilen: _START_ - _END_, Toplam Menejer: _TOTAL_",
-            sInfoEmpty: "Gösterilen: 0 - 0, Toplam Meneher: 0",
+            sInfoEmpty: "Gösterilen: 0 - 0, Toplam Menejer: 0",
             sInfoFiltered: "( _MAX_ kayıt içinde bulundu)",
             sSearch: "Ara:",
             oPaginate: {
@@ -66,20 +67,8 @@ $(document).ready(function () {
         responsive: true
     });
 
-    // AJAX ile verileri yükle
-    $.ajax({
-        url: '/Admin/Manager/GetManagers',
-        method: 'GET',
-        success: function (data) {
-            table.clear(); // DataTable'daki verileri temizle
-            table.rows.add(data); // Yeni verileri ekle
-            table.draw(); // DataTable'ı güncelle
-
-        },
-        error: function () {
-            alert('Veriler alınırken hata oluştu');
-        }
-    });
+    //Verileri Tabloya Ekle
+    GetTables();
 
     $('.dataTables-example tbody').on('click', 'tr', function () {
         var data = table.row(this).data(); // Tıklanan satırdaki veriyi al
@@ -159,19 +148,22 @@ $(document).ready(function () {
                             type: 'POST',
                             success: function (response) {
                                 if (response.success) {
-                                    //Table Yenilenecek.
-
                                     Swal.fire({
                                         background: "#111111",
                                         icon: "success",
                                         title: "Silme İşlemi Başarılı",
-                                    });
+                                        showConfirmButton: false,
+                                        timer: 1000
+                                    }); 
+                                    GetTables();
                                 }
                                 else {
                                     Swal.fire({
                                         background: "#111111",
                                         icon: "error",
-                                        title: "Silme İşlemi Gerçekleştirilemedi"
+                                        title: "Silme İşlemi Gerçekleştirilemedi",
+                                        showConfirmButton: false,
+                                        timer: 1500
                                     });
                                 }
 
@@ -206,14 +198,21 @@ $(document).ready(function () {
                 });
             }
             else if (result.isConfirmed) {
-                Swal.fire({
-                    background: "#111111",
-                    icon: "null",
-                    width: 1000,
-                    title: "Güncelleme Sayfası",
-                    showConfirmButton: true,
-                    confirmButtonText: "Güncelle",
-                    html: `<div class="card">
+                $.ajax({
+                    url: "/Admin/Manager/GetTeams",
+                    method: "GET",
+                    success: function (teams) {
+
+                        let teamOptions = teams.map((team) =>
+                            `<option value="${team.id}" ${team.id === data.teamId ? 'selected' : ''}>${team.name}</option>`
+                        ).join('');
+                        Swal.fire({
+                            background: "#111111",
+                            width: 1000,
+                            title: "Güncelleme Sayfası",
+                            showConfirmButton: true,
+                            confirmButtonText: "Güncelle",
+                            html: `<div class="card">
                             <div class="card-body">
                                 <form class="forms-sample" id="updateForm">
                                     <div class="form-group">
@@ -238,7 +237,7 @@ $(document).ready(function () {
                                     </div>
                                     <div class="form-group">
                                         <label for="teamid" style="color: #fff;">Takım Id:</label>
-                                        <input type="text" id="teamid" class="form-control" placeholder="Takım Id" value="${data.teamId}" required>
+                                        <select id="teamid" placeholder="teamid" class="form-control">${teamOptions}</select>
                                     </div>
                                     <div class="form-group">
                                         <label for="preferredLineUp" style="color: #fff;">Favori Diziliş:</label>
@@ -247,16 +246,195 @@ $(document).ready(function () {
                                 </form>
                             </div>
                         </div>`,
+                            preConfirm: () => {
+                                const updatedData = {
+                                    id: data.id,
+                                    name: document.getElementById('name').value,
+                                    surname: document.getElementById('surname').value,
+                                    email: document.getElementById('email').value,
+                                    phone: document.getElementById('phone').value,
+                                    country: document.getElementById('country').value,
+                                    preferredLineUp: document.getElementById('preferredLineUp').value,
+                                    teamId: document.getElementById('teamid').value
+                                };
+
+                                // Validation koşulları
+                                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                const phonePattern = /^\d{10,15}$/; // Telefon numarası için örnek uzunluk
+
+                                if (Object.values(updatedData).some(field => !field)) {
+                                    Swal.showValidationMessage("Lütfen tüm alanları doldurun.");
+                                    return false;
+                                }
+                                if (!emailPattern.test(updatedData.email)) {
+                                    Swal.showValidationMessage("Geçerli bir email adresi girin.");
+                                    return false;
+                                }
+                                if (!phonePattern.test(updatedData.phone)) {
+                                    Swal.showValidationMessage("Geçerli bir telefon numarası girin.");
+                                    return false;
+                                }
+
+                               
+                                    return updatedData;
+                                
+                            }
+                        }).then((result) => {
+                            console.log("result");
+
+                            if (result.isConfirmed) {
+                                console.log("confirmed");
+                                const updatedData = result.value;
+                                $.ajax({
+                                    url: '/Admin/Manager/UpdateManager/',
+                                    data: JSON.stringify(updatedData),
+                                    contentType: "application/json; charset=utf-8",
+                                    type: 'POST',
+                                    success: function (response) {
+                                        if (response.success) {
+                                            // Tabloyu güncelleme
+                                            Swal.fire({
+                                                background: "#111111",
+                                                icon: "success",
+                                                title: "Güncelleme İşlemi Başarılı",
+                                                showConfirmButton: true,
+                                            }).then((result) => {
+                                                if (response.changed && result.isConfirmed) {
+                                                    Swal.fire({
+                                                        background: "#111111",
+                                                        icon: "warning",
+                                                        title: "Değişiklik",
+                                                        text: response.changed + " Görevden Alındı",
+                                                        showConfirmButton: false,
+                                                        timer: 2000
+                                                    });
+                                                }
+                                            });
+                                            GetTables();
+                                        }
+                                        else {
+                                            Swal.fire({
+                                                background: "#111111",
+                                                icon: "error",
+                                                title: "Güncelleme İşlemi Gerçekleştirilemedi",
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            });
+                                        }
+                                    },
+                                    error: function () {
+                                        Swal.fire({
+                                            background: "#111111",
+                                            icon: "error",
+                                            title: "Sistemsel Bir Hata Oluştu",
+                                        });
+                                    }
+                                });
+                            }
+                        })
+                    },
+
+                    error: function () {
+                        Swal.fire({
+                            background: "#111111",
+                            icon: "error",
+                            title: "Takımlara Ulaşılamıyor!",
+                        });
+                    }
+                });
+            }
+        });
+    });
+
+    function GetTables() {
+        $.ajax({
+            url: '/Admin/Manager/GetManagers',
+            method: 'GET',
+            success: function (data) {
+                table.clear(); // DataTable'daki verileri temizle
+                table.rows.add(data); // Yeni verileri ekle
+                table.draw(); // DataTable'ı güncelle
+
+            },
+            error: function () {
+                alert('Veriler alınırken hata oluştu');
+            }
+        });
+    }
+
+    function NewManagerFunc() {
+        $.ajax({
+            url: '/Admin/Manager/GetTeams',
+            method: 'GET',
+            success: function (teams) {
+                let teamOptions = teams.map((team) =>
+                    `<option value = "${team.id}" ${team.id === 0 ? 'selected' : ''}> ${team.name} </option>` 
+                ).join('');
+
+                Swal.fire({
+                    title: 'Yeni Menajer Ekle',
+                    background: '#111111',
+                    html: `<div class="card">
+                            <div class="card-body">
+                                <form class="forms-sample" id="updateForm">
+                                    <div class="form-group">
+                                        <label for="name" style="color: #fff;">Kullanıcı Adı:</label>
+                                        <input type="text" id="username" class="form-control" placeholder="Kullanıcı Adı" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" style="color: #fff;">Ad:</label>
+                                        <input type="text" id="name" class="form-control" placeholder="Ad" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="surname" style="color: #fff;">Soyad:</label>
+                                        <input type="text" id="surname" class="form-control" placeholder="Soyad" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" style="color: #fff;">Email:</label>
+                                        <input type="email" id="email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone" style="color: #fff;">Telefon:</label>
+                                        <input type="text" id="phone" class="form-control" placeholder="Telefon" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country" style="color: #fff;">Ülke:</label>
+                                        <input type="text" id="country" class="form-control" placeholder="Ülke" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="teamid" style="color: #fff;">Takım Id:</label>
+                                        <select id="teamid" placeholder="teamid" class="form-control">${teamOptions}</select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="preferredLineUp" style="color: #fff;">Favori Diziliş:</label>
+                                        <input type="text" id="preferredLineUp" class="form-control" placeholder="Favori Diziliş" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="temporaryPassword" style="color: #fff;">Geçici Şifre:</label>
+                                        <input type="text" id="temporaryPassword" class="form-control" placeholder="Geçici Şifre" required>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>`,
+                    showConfirmButton: true,
+                    confirmButtonText: "Ekle",
+                    showCancelButton: true,
+                    cancelButtonText: 'Çık',
+                    customClass: {
+                        confirmButton: 'pop-up-button btn-primary',
+                        cancelButton: 'pop-up-button btn-danger',
+                    },
                     preConfirm: () => {
                         const updatedData = {
-                            id: data.id,
+                            username: document.getElementById('username').value,
                             name: document.getElementById('name').value,
                             surname: document.getElementById('surname').value,
                             email: document.getElementById('email').value,
                             phone: document.getElementById('phone').value,
                             country: document.getElementById('country').value,
                             preferredLineUp: document.getElementById('preferredLineUp').value,
-                            teamId: document.getElementById('teamid').value
+                            teamId: document.getElementById('teamid').value,
+                            temporaryPassword: document.getElementById('temporaryPassword').value
                         };
 
                         if (Object.values(updatedData).some(field => !field)) {
@@ -267,46 +445,51 @@ $(document).ready(function () {
                         }
                     }
                 }).then((result) => {
-                    console.log("result");
-
                     if (result.isConfirmed) {
-                        console.log("confirmed");
-                        const updatedData = result.value;
+                        var updatedData = result.value;
                         $.ajax({
-                            url: '/Admin/Manager/UpdateManager/',
+                            url: '/Admin/Manager/AddManager',
+                            method: 'POST',
                             data: JSON.stringify(updatedData),
                             contentType: "application/json; charset=utf-8",
-                            type: 'POST',
-                            success: function (response) {
-                                if (response.success) {
-                                    // Tabloyu güncelleme
-                                    updateTableRow(updatedData);
-                                    swalInfo.fire({
-                                        background: "#111111",
-                                        icon: "success",
-                                        title: "Güncelleme İşlemi Başarılı",
-                                    });
-                                    becareful();
-                                }
-                                else {
-                                    swalInfo.fire({
-                                        background: "#111111",
-                                        icon: "error",
-                                        title: "Güncelleme İşlemi Gerçekleştirilemedi",
-                                    });
-                                }
+                            success: function () {
+                                Swal.fire({
+                                    icon: 'success',
+                                    background: '#111111',
+                                    title: 'Yeni Menejer Eklendi!',
+                                    showConfirmButton: false,
+                                    timer: 1000
+                                });
+                                GetTables();
                             },
                             error: function () {
-                                swalInfo.fire({
-                                    background: "#111111",
-                                    icon: "error",
-                                    title: "Sistemsel Bir Hata Oluştu",
+                                Swal.fire({
+                                    icon: 'error',
+                                    background: '#111111',
+                                    title: 'Hata, Veri Gönderilemedi!',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 });
                             }
                         });
                     }
-                })
+                    else if (deleteResult.dismiss === Swal.DismissReason.cancel) {
+                        Swal.fire({
+                            icon: 'success',
+                            background: '#111111',
+                            title: 'Çıkış Gerçekleştirildi',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
+                    }
+                });
+            },
+            error: function () {
+                Swal.fire({
+                    background: "#111111",
+                    title: 'Hata, Takımlara Getirilemedi'
+                });
             }
         });
-    });
+    }
 });

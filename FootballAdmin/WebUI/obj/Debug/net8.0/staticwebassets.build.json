@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RKEl9jxEbcQkwB8ug1jtpDQpZGQQnV7+QlP9yhoPkzc=",
+  "Hash": "9SOUkitumiE/7Egct80g4VEwOOLuVtyH2spcDvyYnYc=",
   "Source": "WebUI",
   "BasePath": "_content/WebUI",
   "Mode": "Default",
@@ -18314,12 +18314,12 @@
       "OriginalItemSpec": "wwwroot\\corona-free-dark-bootstrap-admin-template-1.0.0\\template\\partials\\_sidebar.html"
     },
     {
-      "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\css\\playerDataTable.css",
+      "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\css\\myTableStyles.css",
       "SourceId": "WebUI",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\",
       "BasePath": "_content/WebUI",
-      "RelativePath": "css/playerDataTable.css",
+      "RelativePath": "css/myTableStyles.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -18330,7 +18330,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\playerDataTable.css"
+      "OriginalItemSpec": "wwwroot\\css\\myTableStyles.css"
     },
     {
       "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\favicon.ico",
@@ -48315,6 +48315,25 @@
       "OriginalItemSpec": "wwwroot\\js\\managerDataTable.js"
     },
     {
+      "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\matcCards.js",
+      "SourceId": "WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\",
+      "BasePath": "_content/WebUI",
+      "RelativePath": "js/matcCards.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\matcCards.js"
+    },
+    {
       "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\playerDataTable.js",
       "SourceId": "WebUI",
       "SourceType": "Discovered",
@@ -48332,6 +48351,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\playerDataTable.js"
+    },
+    {
+      "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\teamDataTable.js",
+      "SourceId": "WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\",
+      "BasePath": "_content/WebUI",
+      "RelativePath": "js/teamDataTable.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\teamDataTable.js"
     },
     {
       "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

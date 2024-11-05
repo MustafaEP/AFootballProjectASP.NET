@@ -4,6 +4,7 @@
     color: #ffffff;
 }
 
+
 .dataTables_wrapper .dataTables_filter input,
 .dataTables_wrapper .dataTables_length select {
     background-color: #3c3c3c;
@@ -20,8 +21,12 @@
 .dataTables_wrapper .pagination .page-item.active .page-link {
     background-color: #666;
 }
+table.dataTables-example tbody tr {
+    cursor: pointer !important;
+}
 
 table.dataTable tbody tr {
+    cursor: pointer !important;
     background-color: #2c2c2c;
     color: #ffffff;
 }
@@ -55,4 +60,18 @@ table.dataTable tbody tr {
 .bradius {
     border-radius: 5px;
 }
+.swal2-popup {
+    max-width: 1000px !important;
+    width: 100% !important;
+}
 
+.swal2-modal {
+    max-width: 1000px !important;
+    width: 100% !important;
+}
+
+
+swal2-show {
+    max-width: 1000px !important;
+    width: 100% !important;
+}
