@@ -13,7 +13,7 @@ namespace WebUI.Areas.Admin.Controllers
         TeamManager _teamManager = new TeamManager(new EfTeamRepository());
         ManagerManager _managerManager = new ManagerManager(new EfManagerRepository());
         PlayerManager _playerManager = new PlayerManager(new EfPlayerRepository());
-
+        AdminNotificationManager _adminNotificationManager = new AdminNotificationManager(new EfAdminNotificationRepository());
         public IActionResult ListTeams()
         {
             return View();
@@ -101,6 +101,12 @@ namespace WebUI.Areas.Admin.Controllers
             {
                 team.ManagerId = 1;
                 _teamManager.TAdd(team);
+                _adminNotificationManager.TAdd(new AdminNotification
+                {
+                    Type = "AddPlayer",
+                    Message = team.TeamName + " adlı bir takım eklendi.",
+                    CreatedTime = DateTime.Now
+                });
                 return Json(new { success = true, message = "Ekleme başarılı!" });
             }
             else
@@ -110,12 +116,18 @@ namespace WebUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteTeam(int playerId)
+        public IActionResult DeleteTeam(int teamId)
         {
-            var player = _playerManager.TGetById(playerId);
-            if(player != null)
+            var team = _teamManager.TGetById(teamId);
+            if(team != null)
             {
-                _playerManager.TDelete(player);
+                _teamManager.TDelete(team);
+                _adminNotificationManager.TAdd(new AdminNotification
+                {
+                    Type = "AddPlayer",
+                    Message = team.TeamName + " adlı bir takım eklendi.",
+                    CreatedTime = DateTime.Now
+                });
                 return Json(new { success = true, message = "Güncelleme başarılı!" });
             }
             else

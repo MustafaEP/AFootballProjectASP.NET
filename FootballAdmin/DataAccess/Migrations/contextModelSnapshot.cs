@@ -43,6 +43,30 @@ namespace DataAccess.Migrations
                     b.ToTable("Admins");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.AdminNotification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdminNotifications");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Manager", b =>
                 {
                     b.Property<int>("Id")

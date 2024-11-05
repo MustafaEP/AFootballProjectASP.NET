@@ -33,7 +33,7 @@ namespace Access.Context
 
         public DbSet<Match> Matches { get; set; }
         public DbSet<TrainingSession> TrainingSessions { get; set; }
-
+        public DbSet<AdminNotification> AdminNotifications { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // HomeTeam ve AwayTeam ilişkileri

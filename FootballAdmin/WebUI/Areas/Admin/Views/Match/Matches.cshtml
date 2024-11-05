@@ -3,20 +3,24 @@
     ViewData["Title"] = "Matches";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container">
-    <h1 class="text-center my-4">Futbol Maçları</h1>
-    <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4" id="Cards">
-            <div class="card bg-info border-0">
-                <div class="card-body">
-                    <h5 class="card-title">Takım A vs Takım B</h5>
-                    <p class="card-text">Skor: 3 - 1</p>
-                </div>
-            </div>
-        </div>
+<div class="container m-4">
+
+    <div class="mb-4" id="Buttons">
+        
+    </div>
+
+    <div class="row" id="Cards">
+        Maçlar Getiriliyor...
     </div>
 </div>
 
+
+
+@section styles {
+    <link href="~/css/myTableStyles.css" rel="stylesheet">
+}
+
 @section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="~/js/matchCards.js"></script>
 }

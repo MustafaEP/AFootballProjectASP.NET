@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9SOUkitumiE/7Egct80g4VEwOOLuVtyH2spcDvyYnYc=",
+  "Hash": "TaCy5OfBFU4fJQisE0Kn0jJFq9npwl099lGjnGyczGE=",
   "Source": "WebUI",
   "BasePath": "_content/WebUI",
   "Mode": "Default",
@@ -48315,12 +48315,12 @@
       "OriginalItemSpec": "wwwroot\\js\\managerDataTable.js"
     },
     {
-      "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\matcCards.js",
+      "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\matchCards.js",
       "SourceId": "WebUI",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\",
       "BasePath": "_content/WebUI",
-      "RelativePath": "js/matcCards.js",
+      "RelativePath": "js/matchCards.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48331,7 +48331,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\matcCards.js"
+      "OriginalItemSpec": "wwwroot\\js\\matchCards.js"
     },
     {
       "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\playerDataTable.js",

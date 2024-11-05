@@ -53,14 +53,10 @@ table.dataTable tbody tr {
     width: 100% !important;
 }
 
-.pop-up-button {
-    min-width: 120px;
-}
-
 .bradius {
     border-radius: 5px;
 }
-.swal2-popup {
+/*.swal2-popup {
     max-width: 1000px !important;
     width: 100% !important;
 }
@@ -74,4 +70,14 @@ table.dataTable tbody tr {
 swal2-show {
     max-width: 1000px !important;
     width: 100% !important;
+}*/
+.swal2-icon-content {
+    margin-top: 5px !important;
+}
+.swal2-modal .swal2-icon, .swal2-modal .swal2-success-ring {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.cursor-pointer {
+    cursor: pointer;
 }

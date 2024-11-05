@@ -10,7 +10,7 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public DateTime? MatchDate { get; set; }
-        public string? Result { get; set; }  // Maç sonucu (örn. 3-1)
+        public string? Result { get; set; }  
 
         public int HomeTeamId { get; set; }
         public Team HomeTeam { get; set; }

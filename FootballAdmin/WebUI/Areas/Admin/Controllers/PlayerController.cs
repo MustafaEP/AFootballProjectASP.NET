@@ -12,6 +12,7 @@ namespace WebUI.Areas.Admin.Controllers
     public class PlayerController : Controller
     {
         PlayerManager _playerManager = new PlayerManager(new EfPlayerRepository());
+        AdminNotificationManager _adminNotificationManager = new AdminNotificationManager(new EfAdminNotificationRepository());
         public IActionResult ListPlayers()
         {
             var values = _playerManager.GetList();
@@ -27,6 +28,12 @@ namespace WebUI.Areas.Admin.Controllers
                 if (player != null)
                 {
                     _playerManager.TDelete(player);
+                    _adminNotificationManager.TAdd(new AdminNotification
+                    {
+                        Type = "DeletePlayer",
+                        Message = player.Name + " " + player.SurName + " adlı bir oyuncu Silindi.",
+                        CreatedTime = DateTime.Now
+                    });
                     return Json(new { success = true, message = "Silme işlemi başarılı." });
                 }
                 else
@@ -60,6 +67,13 @@ namespace WebUI.Areas.Admin.Controllers
 
                 _playerManager.TUpdate(oldObject);
                 // Güncelleme işlemlerini burada yapabilirsiniz
+
+                _adminNotificationManager.TAdd(new AdminNotification
+                {
+                    Type = "UpdatePlayer",
+                    Message = model.Name + " " + model.Surname + " adlı bir oyuncu güncellendi.",
+                    CreatedTime = DateTime.Now
+                });
                 return Json(new { success = true, message = "Güncelleme başarılı!" });
             }
             return Json(new { success = false, message = "Güncelleme başarısız." });
@@ -87,6 +101,12 @@ namespace WebUI.Areas.Admin.Controllers
                 };
 
                 _playerManager.TAdd(player);
+                _adminNotificationManager.TAdd(new AdminNotification
+                {
+                    Type = "AddPlayer",
+                    Message = model.Name + " " + model.Surname + " adlı bir oyuncu eklendi.",
+                    CreatedTime = DateTime.Now
+                });
                 return Json(new { success = true, message = "Ekleme başarılı!" });
             }
             return Json(new { success = false, message = "Ekleme başarısız." });

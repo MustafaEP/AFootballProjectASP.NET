@@ -4,6 +4,7 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Areas.Admin.Models;
 using WebUI.Areas.Admin.Models.MiniModels;
+using WebUI.Areas.Admin.Models.Scripts;
 
 namespace WebUI.Areas.Admin.Controllers
 {
@@ -12,6 +13,7 @@ namespace WebUI.Areas.Admin.Controllers
     {
         ManagerManager _managerManager = new ManagerManager(new EfManagerRepository());
         TeamManager _teamManager = new TeamManager(new EfTeamRepository());
+        AdminNotificationManager _adminNotificationManager = new AdminNotificationManager(new EfAdminNotificationRepository());
         public IActionResult ListManagers()
         {
             return View();
@@ -75,6 +77,12 @@ namespace WebUI.Areas.Admin.Controllers
                 if (player != null)
                 {
                     _managerManager.TDelete(player);
+                    _adminNotificationManager.TAdd(new AdminNotification
+                    {
+                        Type = "DeleteManager",
+                        Message = player.Name + " " + player.SurName + " adlı bir menejer silindi.",
+                        CreatedTime = DateTime.Now
+                    });
                     return Json(new { success = true, message = "Silme işlemi başarılı." });
                 }
                 else
@@ -135,13 +143,23 @@ namespace WebUI.Areas.Admin.Controllers
                 objectManager.PreferredLineUp = model.PreferredLineUp;
 
                 _managerManager.TUpdate(objectManager);
+
+                _adminNotificationManager.TAdd(new AdminNotification
+                {
+                    Type = "UpdateManager",
+                    Message = model.Name + " " + model.SurName + " adlı bir menejer güncellendi.",
+                    CreatedTime = DateTime.Now
+                });
+
                 // Güncelleme işlemlerini burada yapabilirsiniz
                 if (changedPerson != "")
                 {
+                   
                     return Json(new { success = true, message = "Güncelleme başarılı!", changed = changedPerson });
                 }
                 else
                 {
+                    
                     return Json(new { success = true, message = "Güncelleme başarılı!" });
                 }
             }
@@ -167,6 +185,14 @@ namespace WebUI.Areas.Admin.Controllers
                 };
 
                 _managerManager.TAdd(manager);
+
+                _adminNotificationManager.TAdd(new AdminNotification
+                {
+                    Type = "AddManager",
+                    Message = manager.Name + " " + manager.SurName + " adlı bir menejer eklendi.",
+                    CreatedTime = DateTime.Now
+                });
+
                 return Json(new { success = true, message = "Ekleme başarılı!" });
             }
             return Json(new { success = false, message = "Ekleme başarısız." });
