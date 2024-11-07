@@ -4,7 +4,7 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Areas.Admin.Models;
 using WebUI.Areas.Admin.Models.MiniModels;
-using WebUI.Areas.Admin.Models.Scripts;
+
 
 namespace WebUI.Areas.Admin.Controllers
 {

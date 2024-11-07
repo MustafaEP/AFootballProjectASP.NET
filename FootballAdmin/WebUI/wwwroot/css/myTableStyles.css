@@ -81,3 +81,13 @@ swal2-show {
 .cursor-pointer {
     cursor: pointer;
 }
+
+.table, .jsgrid .jsgrid-table {
+    margin-bottom: 0;
+    color: white;
+}
+
+.table-hover tbody tr:hover {
+    color: #dddddd !important;
+    background-color: #6c6c6c !important;
+}

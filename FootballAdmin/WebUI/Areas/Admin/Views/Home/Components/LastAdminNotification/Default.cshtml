@@ -16,15 +16,15 @@
                             var type = item.Type;
                             var color = "";
 
-                            if (type == "AddManager")
+                            if (type == "AddManager" || type == "AddPlayer" || type == "AddTeam" || type == "AddMatch")
                             {
                                 color = "bg-primary";
                             }
-                            else if (type == "UpdateManager")
+                            else if (type == "UpdateManager" || type == "UpdatePlayer" || type == "UpdateTeam" || type == "UpdateMatch")
                             {
                                 color = "bg-success";
                             }
-                            else if (type == "DeleteManager")
+                            else if (type == "DeleteManager" || type == "DeletePlayer" || type == "DeleteTeam" || type == "DeleteMatch")
                             {
                                 color = "bg-danger";
                             }
@@ -36,15 +36,15 @@
                             <div class="preview-item border-bottom">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon @color">
-                                        @if (type == "AddManager")
+                                        @if (type == "AddManager" || type == "AddPlayer" || type == "AddTeam" || type == "AddMatch")
                                         {
                                             <i class="mdi mdi-plus-circle"></i>
                                         }
-                                        else if (type == "UpdateManager")
+                                        else if (type == "UpdateManager" || type == "UpdatePlayer" || type == "UpdateTeam" || type == "UpdateMatch")
                                         {
                                             <i class="mdi mdi-pencil"></i>
                                         }
-                                        else if (type == "DeleteManager")
+                                        else if (type == "DeleteManager" || type == "DeletePlayer" || type == "DeleteTeam" || type == "DeleteMatch")
                                         {
                                             <i class="mdi mdi-delete"></i>
                                         }
@@ -68,6 +68,43 @@
                                             else if (type == "DeleteManager")
                                             {
                                                 @:Menajer Silindi
+                                            }
+                                            else if (type == "AddPlayer")
+                                            {
+                                                @:Oyuncu Eklendi
+                                            }
+                                            else if (type == "DeletePlayer")
+                                            {
+                                                @:Oyuncu Silindi
+                                            }
+
+                                            else if (type == "UpdatePlayer")
+                                            {
+                                                @:Oyuncu Güncellendi
+                                            }
+                                            else if (type == "AddTeam")
+                                            {
+                                                @:Takım Eklendi
+                                            }
+                                            else if (type == "UpdateTeam")
+                                            {
+                                                @:Takım Güncellendi
+                                            }
+                                            else if (type == "DeleteTeam")
+                                            {
+                                                @:Takım Silindi
+                                            }
+                                            else if (type == "AddMatch")
+                                            {
+                                                @:Maç Eklendi
+                                            }
+                                            else if (type == "UpdateMatch")
+                                            {
+                                                @:Maç Güncellendi
+                                            }
+                                            else if (type == "DeleteMatch")
+                                            {
+                                                @:Maç Silindi
                                             }
                                             else
                                             {

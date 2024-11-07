@@ -10033,12 +10033,20 @@
       "PackagePath": "staticwebassets\\js\\matchCards.js"
     },
     {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\natificationDataTable.js",
+      "PackagePath": "staticwebassets\\js\\natificationDataTable.js"
+    },
+    {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\playerDataTable.js",
       "PackagePath": "staticwebassets\\js\\playerDataTable.js"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\teamDataTable.js",
       "PackagePath": "staticwebassets\\js\\teamDataTable.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\trainingDataTable.js",
+      "PackagePath": "staticwebassets\\js\\trainingDataTable.js"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\lib\\bootstrap\\LICENSE",
