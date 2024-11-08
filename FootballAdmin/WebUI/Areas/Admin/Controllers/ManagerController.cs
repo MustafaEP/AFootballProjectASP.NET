@@ -14,6 +14,7 @@ namespace WebUI.Areas.Admin.Controllers
         ManagerManager _managerManager = new ManagerManager(new EfManagerRepository());
         TeamManager _teamManager = new TeamManager(new EfTeamRepository());
         AdminNotificationManager _adminNotificationManager = new AdminNotificationManager(new EfAdminNotificationRepository());
+        PlayerManager _playerManager = new PlayerManager(new EfPlayerRepository());
         public IActionResult ListManagers()
         {
             return View();
@@ -27,7 +28,7 @@ namespace WebUI.Areas.Admin.Controllers
 
             foreach (var manager in managers)
             {
-                if(manager.Id == 1)
+                if (manager.Id == 1)
                 {
                     continue;
                 }
@@ -46,6 +47,8 @@ namespace WebUI.Areas.Admin.Controllers
                             Country = manager.County,
                             PreferredLineUp = manager.PreferredLineUp,
                             TeamName = team.TeamName,
+                            CreatedDate = manager.CreatedTime.Value,
+                            UpdatedDate = manager.UptatedTime.Value,
                             TeamId = manager.TeamId != null ? manager.TeamId.Value : 1
                         });
                     }
@@ -60,6 +63,8 @@ namespace WebUI.Areas.Admin.Controllers
                             Phone = manager.Phone,
                             Country = manager.County,
                             PreferredLineUp = manager.PreferredLineUp,
+                            CreatedDate = manager.CreatedTime.Value,
+                            UpdatedDate = manager.UptatedTime.Value,
                             TeamName = "-"
                         });
                     }
@@ -99,32 +104,43 @@ namespace WebUI.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult UpdateManager([FromBody] ManagerDataViewModel model)
         {
+            var allManagers = _managerManager.GetList().Where(manager => manager.Id != model.Id);
+            foreach (var item in allManagers) if (item.UserName == model.UserName) return Json(new { success = false, message = "Bu Kullanıcı Adında Menajer Bulunuyor." });
+
+            var allPlayers = _playerManager.GetList();
+            foreach (var item in allPlayers) if (item.UserName == model.UserName) return Json(new { success = false, message = "Bu Kullanıcı Adında Bir Oyuncu Bulunuyor" });
+
+
             String changedPerson = "";
-            
+
             if (model.TeamId == 1)
             {
                 var team = _teamManager.TGetById(model.TeamId);
                 team.ManagerId = 1;
+                team.UptatedTime = DateTime.Now;
                 _teamManager.TUpdate(team);
             }
             else
             {
                 var team = _teamManager.TGetById(model.TeamId);
                 var oldTeam = _teamManager.GetList().Where(x => x.ManagerId == model.Id);
-                foreach(var item in oldTeam)
+                foreach (var item in oldTeam)
                 {
                     item.ManagerId = 1;
+                    item.UptatedTime = DateTime.Now;
                     _teamManager.TUpdate(item);
                 }
-                if(team.ManagerId != null && team.ManagerId != 1 && team.ManagerId != model.Id)
+                if (team.ManagerId != null && team.ManagerId != 1 && team.ManagerId != model.Id)
                 {
                     var anotherManager = _managerManager.TGetById(team.ManagerId.Value);
                     anotherManager.TeamId = 1;
                     changedPerson = anotherManager.Name + " " + anotherManager.SurName;
+                    anotherManager.UptatedTime = DateTime.Now;
                     _managerManager.TUpdate(anotherManager);
                 }
 
                 team.ManagerId = model.Id;
+                team.UptatedTime = DateTime.Now;
                 _teamManager.TUpdate(team);
 
 
@@ -141,6 +157,7 @@ namespace WebUI.Areas.Admin.Controllers
                 objectManager.Email = model.Email;
                 objectManager.Phone = model.Phone;
                 objectManager.PreferredLineUp = model.PreferredLineUp;
+                objectManager.UptatedTime = DateTime.Now;
 
                 _managerManager.TUpdate(objectManager);
 
@@ -154,12 +171,12 @@ namespace WebUI.Areas.Admin.Controllers
                 // Güncelleme işlemlerini burada yapabilirsiniz
                 if (changedPerson != "")
                 {
-                   
+
                     return Json(new { success = true, message = "Güncelleme başarılı!", changed = changedPerson });
                 }
                 else
                 {
-                    
+
                     return Json(new { success = true, message = "Güncelleme başarılı!" });
                 }
             }
@@ -171,6 +188,12 @@ namespace WebUI.Areas.Admin.Controllers
         {
             if (model != null)
             {
+                var allManagers = _managerManager.GetList();
+                foreach (var item in allManagers) if (item.UserName == model.UserName) return Json(new { success = false, message = "Bu Kullanıcı Adında Menajer Bulunuyor." });
+
+                var allPlayers = _playerManager.GetList();
+                foreach (var item in allPlayers) if (item.UserName == model.UserName) return Json(new { success = false, message = "Bu Kullanıcı Adında Bir Oyuncu Bulunuyor" });
+
                 var manager = new Manager
                 {
                     UserName = model.UserName,
@@ -181,6 +204,8 @@ namespace WebUI.Areas.Admin.Controllers
                     Email = model.Email,
                     Phone = model.Phone,
                     PreferredLineUp = model.PreferredLineUp,
+                    CreatedTime = DateTime.Now,
+                    UptatedTime = DateTime.Now,
                     Password = model.TemporaryPassword != null ? model.TemporaryPassword : "123"
                 };
 

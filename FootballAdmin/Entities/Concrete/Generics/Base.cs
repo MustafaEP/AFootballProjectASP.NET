@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete.Generics
 {
-    public class Base
+    public class Base : BasePlus
     {
         [Key]
         public int Id { get; set; }
@@ -19,5 +19,6 @@ namespace Entities.Concrete.Generics
         public string Phone { get; set; }
         public string County { get; set; }
         public Team? Team { get; set; }
+
     }
 }

@@ -13,5 +13,7 @@
         public string TeamName { get; set; }
         public int TeamId { get; set; }
         public string TemporaryPassword { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

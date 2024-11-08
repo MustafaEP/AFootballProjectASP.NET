@@ -23,14 +23,21 @@ namespace WebUI.Areas.Admin.Controllers
         public IActionResult GetPlayers()
         {
             var values = _playerManager.GetList();
-            foreach(var item in values)
+            foreach (var item in values)
             {
-                if(item.TeamId != null)
+                if (item.TeamId != null)
                 {
                     item.Team = _teamManager.TGetById(item.TeamId.Value);
                 }
             }
             return Json(values);
+        }
+
+        public IActionResult GetPlayer(int id)
+        {
+            var values = _playerManager.TGetById(id);
+            if (values != null) return Json(new { success = true, value = values });
+            else return Json(new { success = false, message = "Kullanıcı Bulunamadı" });
         }
 
         [HttpPost]
@@ -78,6 +85,7 @@ namespace WebUI.Areas.Admin.Controllers
                 oldObject.Phone = model.Phone;
                 oldObject.PlayerPosition = model.Position;
                 oldObject.PlayerSecondPositions = model.SecondPosition;
+                oldObject.UptatedTime = DateTime.Now;
 
                 _playerManager.TUpdate(oldObject);
                 // Güncelleme işlemlerini burada yapabilirsiniz
@@ -96,8 +104,13 @@ namespace WebUI.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddPlayer([FromBody] PlayerUpdateViewModel model)
         {
-            if(model != null)
+            if (model != null)
             {
+                var allPlayers = _playerManager.GetList();
+                foreach (var item in allPlayers) if (item.UserName == model.UserName) return Json(new { success = false, message = "Bu Kullanıcı Adıyla Bir Oyuncu Bulunuyor" });
+                var allManagers = _playerManager.GetList();
+                foreach (var item in allManagers) if (item.UserName == model.UserName) return Json(new { success = false, message = "Bu Kullanıcı Adıyla Bir Menajer Bulunuyor" });
+
                 var player = new Player
                 {
                     Id = 0,
@@ -111,6 +124,8 @@ namespace WebUI.Areas.Admin.Controllers
                     Phone = model.Phone,
                     PlayerPosition = model.Position,
                     PlayerSecondPositions = model.SecondPosition,
+                    CreatedTime = DateTime.Now,
+                    UptatedTime = DateTime.Now,
                     Password = model.TemporaryPassword != null ? model.TemporaryPassword : "123"
                 };
 
@@ -119,7 +134,7 @@ namespace WebUI.Areas.Admin.Controllers
                 {
                     Type = "AddPlayer",
                     Message = model.Name + " " + model.Surname + " adlı bir oyuncu eklendi.",
-                    CreatedTime = DateTime.Now
+                    CreatedTime = DateTime.Now,
                 });
                 return Json(new { success = true, message = "Ekleme başarılı!" });
             }

@@ -100,7 +100,7 @@ namespace WebUI.Areas.Admin.Controllers
                 {
                     Type = "AddMatch",
                     Message = match.HomeTeam.TeamName + " " + match.AwayTeam.TeamName + "'ye karşı.",
-                    CreatedTime = DateTime.Now
+                    CreatedTime = DateTime.Now,
                 });
                 return Json(new { success = true, message = "Maç Eklendi.", teams = match.HomeTeam.TeamName + " - " + match.AwayTeam.TeamName });
             }

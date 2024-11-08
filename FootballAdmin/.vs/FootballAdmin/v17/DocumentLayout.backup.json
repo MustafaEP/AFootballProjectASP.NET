@@ -1,28 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\admin\\views\\training\\listtraining.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\admin\\views\\training\\listtraining.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\admin\\views\\notification\\listnotifications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\admin\\views\\notification\\listnotifications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\admin\\views\\match\\matches.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\admin\\views\\match\\matches.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\admin\\views\\manager\\listmanagers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\admin\\views\\manager\\listmanagers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\wwwroot\\js\\scripts\\date.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\wwwroot\\js\\scripts\\date.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,76 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ListTraining.cshtml",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Training\\ListTraining.cshtml",
-              "RelativeDocumentMoniker": "WebUI\\Areas\\Admin\\Views\\Training\\ListTraining.cshtml",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Training\\ListTraining.cshtml",
-              "RelativeToolTip": "WebUI\\Areas\\Admin\\Views\\Training\\ListTraining.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADgAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T06:31:22.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ListNotifications.cshtml",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Notification\\ListNotifications.cshtml",
-              "RelativeDocumentMoniker": "WebUI\\Areas\\Admin\\Views\\Notification\\ListNotifications.cshtml",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Notification\\ListNotifications.cshtml",
-              "RelativeToolTip": "WebUI\\Areas\\Admin\\Views\\Notification\\ListNotifications.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAC8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T06:31:05.464Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Matches.cshtml",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Match\\Matches.cshtml",
-              "RelativeDocumentMoniker": "WebUI\\Areas\\Admin\\Views\\Match\\Matches.cshtml",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Match\\Matches.cshtml",
-              "RelativeToolTip": "WebUI\\Areas\\Admin\\Views\\Match\\Matches.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T06:30:36.116Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ListManagers.cshtml",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Manager\\ListManagers.cshtml",
-              "RelativeDocumentMoniker": "WebUI\\Areas\\Admin\\Views\\Manager\\ListManagers.cshtml",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Manager\\ListManagers.cshtml",
-              "RelativeToolTip": "WebUI\\Areas\\Admin\\Views\\Manager\\ListManagers.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADgAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T06:30:06.735Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "date.js",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\date.js",
-              "RelativeDocumentMoniker": "WebUI\\wwwroot\\js\\Scripts\\date.js",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\date.js",
-              "RelativeToolTip": "WebUI\\wwwroot\\js\\Scripts\\date.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-11-08T06:29:43.264Z",
-              "EditorCaption": ""
             }
           ]
         }

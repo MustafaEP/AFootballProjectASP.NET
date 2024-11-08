@@ -43,7 +43,10 @@ namespace WebUI.Areas.Admin.Controllers
                 {
                     Id = team.Id,
                     TeamName = team.TeamName,
-                    ManagerName = manager.Name == "-" ? "Menajer Yok" : manager.Name + " " + manager.SurName
+                    ManagerName = manager.Name == "-" ? "Menajer Yok" : manager.Name + " " + manager.SurName,
+                    CreatedTime = team.CreatedTime.Value,
+                    UpdatedTime = team.UptatedTime.Value,
+
                 });
             }
             return Json(model);
@@ -89,6 +92,7 @@ namespace WebUI.Areas.Admin.Controllers
 
             var value = _playerManager.TGetById(playerId);
             value.TeamId = teamId;
+            value.UptatedTime = DateTime.Now;
             _playerManager.TUpdate(value);
 
             return Json(new { success = true, message = "Güncelleme başarılı!" });
@@ -100,6 +104,8 @@ namespace WebUI.Areas.Admin.Controllers
             if(team != null)
             {
                 team.ManagerId = 1;
+                team.CreatedTime = DateTime.Now;
+                team.UptatedTime = DateTime.Now;
                 _teamManager.TAdd(team);
                 _adminNotificationManager.TAdd(new AdminNotification
                 {

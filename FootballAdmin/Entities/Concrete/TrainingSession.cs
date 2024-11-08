@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Concrete.Generics;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace Entities.Concrete
 {
 
-    public class TrainingSession
+    public class TrainingSession : BasePlus
     {
         public int Id { get; set; }
         public string? TrainingName { get; set; }

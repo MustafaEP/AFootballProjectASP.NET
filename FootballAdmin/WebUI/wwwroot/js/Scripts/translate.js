@@ -36,6 +36,33 @@ function translateCountry(country) {
     return countries[country] || country; // Eğer çeviri yoksa orijinal ülke ismini döner
 }
 
+function reverseTranslateCountry(country) {
+    const countries = {
+        'Türkiye': 'Turkey',
+        'Amerika Birleşik Devletleri': 'United States',
+        'Birleşik Krallık': 'United Kingdom',
+        'Almanya': 'Germany',
+        'Fransa': 'France',
+        'Kanada': 'Canada',
+        'Avustralya': 'Australia',
+        'İtalya': 'Italy',
+        'İspanya': 'Spain',
+        'Hollanda': 'Netherlands',
+        'Brezilya': 'Brazil',
+        'Japonya': 'Japan',
+        'Güney Kore': 'South Korea',
+        'Hindistan': 'India',
+        'Çin': 'China',
+        'Rusya': 'Russia',
+        'Meksika': 'Mexico',
+        'İsveç': 'Sweden',
+        'İsviçre': 'Switzerland',
+        'Arjantin': 'Argentina'
+    };
+    return countries[country] || country; // Eğer çeviri yoksa orijinal ülke ismini döner
+}
+
+
 function translatePosition(playerPosition) {
     const playerPositions = {
         'Goalkeeper': 'Kaleci',

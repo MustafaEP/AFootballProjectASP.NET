@@ -13,6 +13,8 @@ $(document).ready(function () {
         columns: [
             { data: 'teamName' },
             { data: 'managerName' },
+            { data: 'createdTime' },
+            { data: 'updatedTime' }
         ],
         buttons: [
             { extend: 'copy', text: 'Kopyala' },
@@ -178,7 +180,10 @@ $(document).ready(function () {
                         managerName: item.ManagerNameSurName
                     };
                 });
-
+                data.forEach(object => {
+                    object.createdTime = formatDateWithHours(object.createdTime);
+                    object.updatedTime = formatDateWithHours(object.updatedTime);
+                });
                 table.clear(); // DataTable'daki verileri temizle
                 table.rows.add(data); // Yeni verileri ekle
                 table.draw(); // DataTable'ı güncelle

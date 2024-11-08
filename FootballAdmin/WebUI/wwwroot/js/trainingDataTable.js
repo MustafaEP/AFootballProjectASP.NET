@@ -192,8 +192,13 @@
             url: '/Admin/Training/GetTrainings',
             method: 'GET',
             success: (data) => {
-                console.log(data);
+                
                 allData = data;
+
+                data.forEach(x => {
+                    x.date = formatDateWithHours(x.date);
+                });
+                
                 table.clear(); // DataTable'daki verileri temizle
                 table.rows.add(data); // Yeni verileri ekle
                 table.draw(); // DataTable'ı güncelle 

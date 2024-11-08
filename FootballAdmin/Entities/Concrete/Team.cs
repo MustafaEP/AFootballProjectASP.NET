@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Concrete.Generics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Team
+    public class Team : BasePlus
     {
         [Key]
         public int Id { get; set; }

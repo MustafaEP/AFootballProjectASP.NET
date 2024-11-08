@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Concrete.Generics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Match
+    public class Match : BasePlus
     {
         public int Id { get; set; }
         public DateTime? MatchDate { get; set; }

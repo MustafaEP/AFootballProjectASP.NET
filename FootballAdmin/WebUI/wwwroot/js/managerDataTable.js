@@ -14,7 +14,9 @@ $(document).ready(function () {
             { data: 'phone' },
             { data: 'country' },
             { data: 'teamName' },
-            { data: 'preferredLineUp' }
+            { data: 'preferredLineUp' },
+            { data: 'createdDate' },
+            { data: 'updatedDate' }
         ],
         buttons: [
             { extend: 'copy', text: 'Kopyala' },
@@ -197,11 +199,12 @@ $(document).ready(function () {
                 });
             }
             else if (result.isConfirmed) {
+                data.country = reverseTranslateCountry(data.country);
                 $.ajax({
                     url: "/Admin/Manager/GetTeams",
                     method: "GET",
                     success: function (teams) {
-
+                        
                         let teamOptions = teams.map((team) =>
                             `<option value="${team.id}" ${team.id === data.teamId ? 'selected' : ''}>${team.name}</option>`
                         ).join('');
@@ -369,7 +372,7 @@ $(document).ready(function () {
                                             Swal.fire({
                                                 background: "#111111",
                                                 icon: "error",
-                                                title: "Güncelleme İşlemi Gerçekleştirilemedi",
+                                                title: response.message,
                                                 showConfirmButton: false,
                                                 timer: 1500
                                             });
@@ -404,11 +407,12 @@ $(document).ready(function () {
             url: '/Admin/Manager/GetManagers',
             method: 'GET',
             success: function (data) {
-                console.log(data);
                 data.forEach(object => {
                     object.country = translateCountry(object.country);
+                    object.createdDate = formatDateWithHours(object.createdDate);
+                    object.updatedDate = formatDateWithHours(object.updatedDate);
                 });
-                console.log(data);
+                
                 table.clear(); // DataTable'daki verileri temizle
                 table.rows.add(data); // Yeni verileri ekle
                 table.draw(); // DataTable'ı güncelle
@@ -584,15 +588,25 @@ $(document).ready(function () {
                             method: 'POST',
                             data: JSON.stringify(updatedData),
                             contentType: "application/json; charset=utf-8",
-                            success: function () {
-                                Swal.fire({
-                                    icon: 'success',
-                                    background: '#111111',
-                                    title: 'Yeni Menejer Eklendi!',
-                                    showConfirmButton: false,
-                                    timer: 1000
-                                });
-                                GetTables();
+                            success: function (data) {
+                                if (data.success) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        background: '#111111',
+                                        title: 'Yeni Menejer Eklendi!',
+                                        showConfirmButton: false,
+                                        timer: 1000
+                                    });
+                                    GetTables();
+                                } else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        background: '#111111',
+                                        title: data.message,
+                                        showConfirmButton: false,
+                                        timer: 2000
+                                    });
+                                }
                             },
                             error: function () {
                                 Swal.fire({

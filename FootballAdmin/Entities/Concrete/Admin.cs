@@ -8,7 +8,7 @@ using Entities.Concrete.Generics;
 
 namespace Entities.Concrete
 {
-    public class Admin
+    public class Admin : BasePlus
     {
         [Key]
         public int Id { get; set; }
