@@ -1,5 +1,4 @@
-﻿@using Entities.Concrete
-@model List<Player>
+﻿
 @{
     ViewData["Title"] = "Oyuncular";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,29 +28,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr class="player-row" id="player-row" data-id="@item.Id"
-                                            data-name="@item.Name"
-                                            data-surname="@item.SurName"
-                                            data-email="@item.Email"
-                                            data-phone="@item.Phone"
-                                            data-country="@item.County"
-                                            data-team="@item.TeamId"
-                                            data-position="@item.PlayerPosition"
-                                            data-second-position="@item.PlayerSecondPositions"
-                                            data-strong-foot="@item.StrongFoot">
-                                            <td>@item.Name</td>
-                                            <td>@item.SurName</td>
-                                            <td>@item.Email</td>
-                                            <td>@item.Phone</td>
-                                            <td>@item.County</td>
-                                            <td>@item.TeamId</td>
-                                            <td>@item.PlayerPosition</td>
-                                            <td>@item.PlayerSecondPositions</td>
-                                            <td>@item.StrongFoot</td>
-                                        </tr>
-                                    }
                                 </tbody>
                             </table>
                         </div>
@@ -82,6 +58,6 @@
     <script src="~/inspinia-gh-pages/js/plugins/dataTables/datatables.min.js"></script>
     <script src="~/inspinia-gh-pages/js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-
+    <script src="~/js/Scripts/translate.js"></script>
     <script src="~/js/playerDataTable.js"></script>
 }

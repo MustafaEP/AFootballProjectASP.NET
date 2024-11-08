@@ -309,7 +309,7 @@ $(document).ready(function () {
                                 <form class="forms-sample" id="updateForm">
                                     <div class="form-group">
                                         <label for="name" style="color: #fff;">Takım Adı:</label>
-                                        <input type="text" id="teamName" class="form-control" placeholder="Takım Adı" required>
+                                        <input type="text" id="teamName" class="form-control" placeholder="Takım Adı" maxlength="15" pattern="^[A-Za-z]" required>
                                     </div>
                                 </form>
                             </div>
@@ -329,9 +329,14 @@ $(document).ready(function () {
 
                 if (Object.values(updatedData).some(field => !field)) {
                     Swal.showValidationMessage("Lütfen tüm alanları doldurun.");
-                } else {
-                    return updatedData;
+                    return false;
                 }
+                if (updatedData.teamName.length < 2) {
+                    Swal.showValidationMessage("Takım İsmi en az 2 karakter olmalıdır.");
+                    return false;
+                }
+                    return updatedData;
+                
             }
         }).then((result) => {
             if (result.isConfirmed) {

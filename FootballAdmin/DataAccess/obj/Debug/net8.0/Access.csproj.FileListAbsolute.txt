@@ -17,4 +17,3 @@ C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\DataA
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\DataAccess\obj\Debug\net8.0\Access.genruntimeconfig.cache
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\DataAccess\obj\Debug\net8.0\ref\Access.dll
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\DataAccess\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\DataAccess\bin\Debug\net8.0\appsettings.json

@@ -3,11 +3,10 @@
 $(document).ready(function () {
     // DataTable'ı başlat
     var table = $('.dataTables-example').DataTable({
-        pageLength: 25,
         responsive: true,
         paging: false,
         ordering: true,
-        dom: '<"html5buttons"B>lTfgitp',
+        dom: '<"row"<"col-md-9 html5buttons"B><"col-md-3"f>>lTgitp',
         columns: [
             { data: 'name' },
             { data: 'surName' },
@@ -72,7 +71,7 @@ $(document).ready(function () {
 
     $('.dataTables-example tbody').on('click', 'tr', function () {
         var data = table.row(this).data(); // Tıklanan satırdaki veriyi al
-
+        //Listeleme
         Swal.fire({
             title: `${data.name} ${data.surName}`,
             html: `<div class="row">
@@ -128,7 +127,7 @@ $(document).ready(function () {
                 confirmButton: 'pop-up-button btn-primary',
                 cancelButton: 'pop-up-button btn-danger',
             }
-        }).then((result) => {
+        }).then((result) => { //Silme
             if (result.dismiss === Swal.DismissReason.cancel) {
                 Swal.fire({
                     background: "#111111",
@@ -154,7 +153,7 @@ $(document).ready(function () {
                                         title: "Silme İşlemi Başarılı",
                                         showConfirmButton: false,
                                         timer: 1000
-                                    }); 
+                                    });
                                     GetTables();
                                 }
                                 else {
@@ -217,11 +216,11 @@ $(document).ready(function () {
                                 <form class="forms-sample" id="updateForm">
                                     <div class="form-group">
                                         <label for="name" style="color: #fff;">Ad:</label>
-                                        <input type="text" id="name" class="form-control" placeholder="Ad" value="${data.name}" required>
+                                        <input type="text" id="name" class="form-control" placeholder="Ad" value="${data.name}" maxlength="15" pattern="^[A-Za-z]" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="surname" style="color: #fff;">Soyad:</label>
-                                        <input type="text" id="surname" class="form-control" placeholder="Soyad" value="${data.surName}" required>
+                                        <input type="text" id="surname" class="form-control" placeholder="Soyad" value="${data.surName}" maxlength="15" pattern="^[A-Za-z]" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="email" style="color: #fff;">Email:</label>
@@ -229,20 +228,57 @@ $(document).ready(function () {
                                     </div>
                                     <div class="form-group">
                                         <label for="phone" style="color: #fff;">Telefon:</label>
-                                        <input type="text" id="phone" class="form-control" placeholder="Telefon" value="${data.phone}" required>
+                                        <input type="text" id="phone" class="form-control" placeholder="Telefon" value="${data.phone}" maxlength="10" pattern="\d*" required>
                                     </div>
-                                    <div class="form-group">
+
+                                   <div class="form-group">
                                         <label for="country" style="color: #fff;">Ülke:</label>
-                                        <input type="text" id="country" class="form-control" placeholder="Ülke" value="${data.country}" required>
-                                    </div>
+                                        <select id="country" class="form-control" required>
+                                            <option value="" disabled selected>Ülke Seçin</option>
+                                            <option value="Turkey" ${data.country === "Turkey" ? "selected" : ""}>Türkiye</option>
+                                            <option value="United States" ${data.country === "United States" ? "selected" : ""}>Amerika Birleşik Devletleri</option>
+                                            <option value="United Kingdom" ${data.country === "United Kingdom" ? "selected" : ""}>Birleşik Krallık</option>
+                                            <option value="Germany" ${data.country === "Germany" ? "selected" : ""}>Almanya</option>
+                                            <option value="France" ${data.country === "France" ? "selected" : ""}>Fransa</option>
+                                            <option value="Canada" ${data.country === "Canada" ? "selected" : ""}>Kanada</option>
+                                            <option value="Australia" ${data.country === "Australia" ? "selected" : ""}>Avustralya</option>
+                                            <option value="Italy" ${data.country === "Italy" ? "selected" : ""}>İtalya</option>
+                                            <option value="Spain" ${data.country === "Spain" ? "selected" : ""}>İspanya</option>
+                                            <option value="Netherlands" ${data.country === "Netherlands" ? "selected" : ""}>Hollanda</option>
+                                            <option value="Brazil" ${data.country === "Brazil" ? "selected" : ""}>Brezilya</option>
+                                            <option value="Japan" ${data.country === "Japan" ? "selected" : ""}>Japonya</option>
+                                            <option value="South Korea" ${data.country === "South Korea" ? "selected" : ""}>Güney Kore</option>
+                                            <option value="India" ${data.country === "India" ? "selected" : ""}>Hindistan</option>
+                                            <option value="China" ${data.country === "China" ? "selected" : ""}>Çin</option>
+                                            <option value="Russia" ${data.country === "Russia" ? "selected" : ""}>Rusya</option>
+                                            <option value="Mexico" ${data.country === "Mexico" ? "selected" : ""}>Meksika</option>
+                                            <option value="Sweden" ${data.country === "Sweden" ? "selected" : ""}>İsveç</option>
+                                            <option value="Switzerland" ${data.country === "Switzerland" ? "selected" : ""}>İsviçre</option>
+                                            <option value="Argentina" ${data.country === "Argentina" ? "selected" : ""}>Arjantin</option>
+                                        </select>
+                                        </div>
+
                                     <div class="form-group">
-                                        <label for="teamid" style="color: #fff;">Takım Id:</label>
+                                        <label for="teamid" style="color: #fff;">Takım:</label>
                                         <select id="teamid" placeholder="teamid" class="form-control">${teamOptions}</select>
                                     </div>
                                     <div class="form-group">
                                         <label for="preferredLineUp" style="color: #fff;">Favori Diziliş:</label>
-                                        <input type="text" id="preferredLineUp" class="form-control" placeholder="Favori Diziliş" value="${data.preferredLineUp}" required>
+                                        <select id="preferredLineUp" class="form-control" required>
+                                            <option value="" disabled selected>Diziliş Seçin</option>
+                                            <option value="4-4-2" ${data.preferredLineUp === "4-4-2" ? "selected" : ""}>4-4-2</option>
+                                            <option value="4-3-3" ${data.preferredLineUp === "4-3-3" ? "selected" : ""}>4-3-3</option>
+                                            <option value="3-5-2" ${data.preferredLineUp === "3-5-2" ? "selected" : ""}>3-5-2</option>
+                                            <option value="4-2-3-1" ${data.preferredLineUp === "4-2-3-1" ? "selected" : ""}>4-2-3-1</option>
+                                            <option value="3-4-3" ${data.preferredLineUp === "3-4-3" ? "selected" : ""}>3-4-3</option>
+                                            <option value="4-1-4-1" ${data.preferredLineUp === "4-1-4-1" ? "selected" : ""}>4-1-4-1</option>
+                                            <option value="5-3-2" ${data.preferredLineUp === "5-3-2" ? "selected" : ""}>5-3-2</option>
+                                            <option value="4-5-1" ${data.preferredLineUp === "4-5-1" ? "selected" : ""}>4-5-1</option>
+                                            <option value="3-6-1" ${data.preferredLineUp === "3-6-1" ? "selected" : ""}>3-6-1</option>
+                                            <option value="4-4-1-1" ${data.preferredLineUp === "4-4-1-1" ? "selected" : ""}>4-4-1-1</option>
+                                        </select>
                                     </div>
+
                                 </form>
                             </div>
                         </div>`,
@@ -266,6 +302,23 @@ $(document).ready(function () {
                                     Swal.showValidationMessage("Lütfen tüm alanları doldurun.");
                                     return false;
                                 }
+                                if (updatedData.name.length < 2) {
+                                    Swal.showValidationMessage("İsim en az 2 karakter olmalıdır.");
+                                    return false;
+                                }
+                                if (updatedData.surname.length < 2) {
+                                    Swal.showValidationMessage("Soyisim en az 2 karakter olmalıdır.");
+                                    return false;
+                                }
+                                if (updatedData.name.length > 15) {
+                                    Swal.showValidationMessage("İsim en fazla 15 karakter olmalıdır.");
+                                    return false;
+                                }
+                                if (updatedData.surname.length > 15) {
+                                    Swal.showValidationMessage("Soyisim en fazla 15 karakter olmalıdır.");
+                                    return false;
+                                }
+
                                 if (!emailPattern.test(updatedData.email)) {
                                     Swal.showValidationMessage("Geçerli bir email adresi girin.");
                                     return false;
@@ -275,9 +328,9 @@ $(document).ready(function () {
                                     return false;
                                 }
 
-                               
-                                    return updatedData;
-                                
+
+                                return updatedData;
+
                             }
                         }).then((result) => {
                             console.log("result");
@@ -351,6 +404,11 @@ $(document).ready(function () {
             url: '/Admin/Manager/GetManagers',
             method: 'GET',
             success: function (data) {
+                console.log(data);
+                data.forEach(object => {
+                    object.country = translateCountry(object.country);
+                });
+                console.log(data);
                 table.clear(); // DataTable'daki verileri temizle
                 table.rows.add(data); // Yeni verileri ekle
                 table.draw(); // DataTable'ı güncelle
@@ -368,26 +426,27 @@ $(document).ready(function () {
             method: 'GET',
             success: function (teams) {
                 let teamOptions = teams.map((team) =>
-                    `<option value = "${team.id}" ${team.id === 0 ? 'selected' : ''}> ${team.name} </option>` 
+                    `<option value = "${team.id}" ${team.id === 0 ? 'selected' : ''}> ${team.name} </option>`
                 ).join('');
 
                 Swal.fire({
                     title: 'Yeni Menajer Ekle',
+                    width: 1000,
                     background: '#111111',
                     html: `<div class="card">
                             <div class="card-body">
                                 <form class="forms-sample" id="updateForm">
                                     <div class="form-group">
                                         <label for="name" style="color: #fff;">Kullanıcı Adı:</label>
-                                        <input type="text" id="username" class="form-control" placeholder="Kullanıcı Adı" required>
+                                        <input type="text" id="username" class="form-control" placeholder="Kullanıcı Adı"  maxlength="15" pattern="^[A-Za-z]+$" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="name" style="color: #fff;">Ad:</label>
-                                        <input type="text" id="name" class="form-control" placeholder="Ad" required>
+                                        <input type="text" id="name" class="form-control" placeholder="Ad"  maxlength="15" pattern="^[A-Za-z]" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="surname" style="color: #fff;">Soyad:</label>
-                                        <input type="text" id="surname" class="form-control" placeholder="Soyad" required>
+                                        <input type="text" id="surname" class="form-control" placeholder="Soyad"  maxlength="15" pattern="^[A-Za-z]" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="email" style="color: #fff;">Email:</label>
@@ -395,20 +454,56 @@ $(document).ready(function () {
                                     </div>
                                     <div class="form-group">
                                         <label for="phone" style="color: #fff;">Telefon:</label>
-                                        <input type="text" id="phone" class="form-control" placeholder="Telefon" required>
+                                        <input type="text" id="phone" class="form-control" placeholder="Telefon" maxlength="10" pattern="\d*" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="country" style="color: #fff;">Ülke:</label>
-                                        <input type="text" id="country" class="form-control" placeholder="Ülke" required>
+                                        <select id="country" class="form-control" required>
+                                            <option value="" disabled selected>Ülke Seçin</option>
+                                            <option value="Turkey">Türkiye</option>
+                                            <option value="United States">Amerika Birleşik Devletleri</option>
+                                            <option value="United Kingdom">Birleşik Krallık</option>
+                                            <option value="Germany">Almanya</option>
+                                            <option value="France">Fransa</option>
+                                            <option value="Canada">Kanada</option>
+                                            <option value="Australia">Avustralya</option>
+                                            <option value="Italy">İtalya</option>
+                                            <option value="Spain">İspanya</option>
+                                            <option value="Netherlands">Hollanda</option>
+                                            <option value="Brazil">Brezilya</option>
+                                            <option value="Japan">Japonya</option>
+                                            <option value="South Korea">Güney Kore</option>
+                                            <option value="India">Hindistan</option>
+                                            <option value="China">Çin</option>
+                                            <option value="Russia">Rusya</option>
+                                            <option value="Mexico">Meksika</option>
+                                            <option value="Sweden">İsveç</option>
+                                            <option value="Switzerland">İsviçre</option>
+                                            <option value="Argentina">Arjantin</option>
+                                        </select>
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="teamid" style="color: #fff;">Takım Id:</label>
+                                        <label for="teamid" style="color: #fff;">Takım:</label>
                                         <select id="teamid" placeholder="teamid" class="form-control">${teamOptions}</select>
                                     </div>
                                     <div class="form-group">
                                         <label for="preferredLineUp" style="color: #fff;">Favori Diziliş:</label>
-                                        <input type="text" id="preferredLineUp" class="form-control" placeholder="Favori Diziliş" required>
+                                        <select id="preferredLineUp" class="form-control" required>
+                                            <option value="" disabled selected>Diziliş Seçin</option>
+                                            <option value="4-4-2">4-4-2</option>
+                                            <option value="4-3-3">4-3-3</option>
+                                            <option value="3-5-2">3-5-2</option>
+                                            <option value="4-2-3-1">4-2-3-1</option>
+                                            <option value="3-4-3">3-4-3</option>
+                                            <option value="4-1-4-1">4-1-4-1</option>
+                                            <option value="5-3-2">5-3-2</option>
+                                            <option value="4-5-1">4-5-1</option>
+                                            <option value="3-6-1">3-6-1</option>
+                                            <option value="4-4-1-1">4-4-1-1</option>
+                                        </select>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="temporaryPassword" style="color: #fff;">Geçici Şifre:</label>
                                         <input type="text" id="temporaryPassword" class="form-control" placeholder="Geçici Şifre" required>
@@ -437,12 +532,49 @@ $(document).ready(function () {
                             temporaryPassword: document.getElementById('temporaryPassword').value
                         };
 
+                        // Validation koşulları
+                        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        const phonePattern = /^\d{10,15}$/; // Telefon numarası için örnek uzunluk
+
                         if (Object.values(updatedData).some(field => !field)) {
                             Swal.showValidationMessage("Lütfen tüm alanları doldurun.");
-                        } else {
-                            console.log("updatedData");
-                            return updatedData;
+                            return false;
                         }
+                        if (updatedData.username.length < 5) {
+                            Swal.showValidationMessage("Kullanıcı Adı en az 5 karakter olmalıdır.");
+                            return false;
+                        }
+                        if (updatedData.name.length < 2) {
+                            Swal.showValidationMessage("İsim en az 2 karakter olmalıdır.");
+                            return false;
+                        }
+                        if (updatedData.surname.length < 2) {
+                            Swal.showValidationMessage("Soyisim en az 2 karakter olmalıdır.");
+                            return false;
+                        }
+                        if (updatedData.username.length > 15) {
+                            Swal.showValidationMessage("Kullanıcı Adı en fazla 15 karakter olmalıdır.");
+                            return false;
+                        }
+                        if (updatedData.name.length > 15) {
+                            Swal.showValidationMessage("İsim en fazla 15 karakter olmalıdır.");
+                            return false;
+                        }
+                        if (updatedData.surname.length > 15) {
+                            Swal.showValidationMessage("Soyisim en falza 15 karakter olmalıdır.");
+                            return false;
+                        }
+                        if (!emailPattern.test(updatedData.email)) {
+                            Swal.showValidationMessage("Geçerli bir email adresi girin.");
+                            return false;
+                        }
+                        if (!phonePattern.test(updatedData.phone)) {
+                            Swal.showValidationMessage("Geçerli bir telefon numarası girin.");
+                            return false;
+                        }
+
+
+                        return updatedData;
                     }
                 }).then((result) => {
                     if (result.isConfirmed) {

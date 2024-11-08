@@ -2,6 +2,7 @@
 using Business.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Areas.Admin.Models;
+using WebUI.Areas.Admin.Models.MiniModels;
 
 namespace WebUI.Areas.Admin.Controllers
 {
@@ -31,19 +32,29 @@ namespace WebUI.Areas.Admin.Controllers
                 string players = item.Players == null ? "[]" : item.Players;
                 players = players.Trim('[', ']');
 
-                List<int> playerIds = players.Split(',')
-                    .Select(int.Parse).ToList();
-                string playersText = "|| ";
+                string accept = item.Accepts == null ? "[]" : item.Accepts;
+                accept = accept.Trim('[', ']');
 
-                List<string> playersList = new List<string>();
-                foreach (var playerId in playerIds)
+                List<int> playerIdsForName = players.Split(',')
+                    .Select(int.Parse).ToList();
+
+                List<int> playerIdsForAccept = accept.Split(',')
+                    .Select(int.Parse).ToList();
+
+                List<NameAcceptMiniModel> playerAndAccept = new List<NameAcceptMiniModel>();
+                foreach (var playerId in playerIdsForName)
                 {
+
                     var playerObject = _playerManager.TGetById(playerId);
+                    if (playerObject == null) continue;
                     var playerName = playerObject.Name;
                     var playerSurName = playerObject.SurName;
-                    playersText += playerName + " " + playerSurName + " || ";
 
-                    playersList.Add(playerName + " " + playerSurName);
+                    playerAndAccept.Add(new NameAcceptMiniModel
+                    {
+                        Name = playerName + " " + playerSurName,
+                        Accept = isAccepted(playerId , playerIdsForAccept)
+                    });
                 }
                 item.Team.Manager = item.Team.ManagerId != null ? _managerManager.TGetById(item.Team.ManagerId.Value) : _managerManager.TGetById(1);
                 model.Add(new TrainngViewModel
@@ -52,13 +63,35 @@ namespace WebUI.Areas.Admin.Controllers
                     TeamName = item.Team.TeamName,
                     TrainingName = item.TrainingName != null ? item.TrainingName : "",
                     Date = item.Date,
-                    Players = playersText,
                     ManagerName = item.Team.Manager.Name + " " + item.Team.Manager.SurName,
-                    ListPlayers = playersList
+                    players = playerAndAccept
                 });
             }
 
             return Json(model);
+        }
+        public bool isAccepted(int Id, List<int> accepts)
+        {
+            foreach (var item in accepts)
+            {
+                if(item == Id) return true;
+            }
+
+            return false;
+        }
+
+        public IActionResult DeleteTraining(int id)
+        {
+            var values = _trainingManager.TGetById(id);
+            if(values != null)
+            {
+                _trainingManager.TDelete(values);
+                return Json(new { success = true, message = "Antrenman Silindi" });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Antrenman Bulunmadı" });
+            }
         }
     }
 }

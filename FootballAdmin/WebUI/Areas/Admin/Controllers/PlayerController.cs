@@ -12,11 +12,25 @@ namespace WebUI.Areas.Admin.Controllers
     public class PlayerController : Controller
     {
         PlayerManager _playerManager = new PlayerManager(new EfPlayerRepository());
+        TeamManager _teamManager = new TeamManager(new EfTeamRepository());
         AdminNotificationManager _adminNotificationManager = new AdminNotificationManager(new EfAdminNotificationRepository());
         public IActionResult ListPlayers()
         {
             var values = _playerManager.GetList();
             return View(values);
+        }
+
+        public IActionResult GetPlayers()
+        {
+            var values = _playerManager.GetList();
+            foreach(var item in values)
+            {
+                if(item.TeamId != null)
+                {
+                    item.Team = _teamManager.TGetById(item.TeamId.Value);
+                }
+            }
+            return Json(values);
         }
 
         [HttpPost]

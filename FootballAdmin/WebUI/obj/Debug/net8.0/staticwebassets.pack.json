@@ -3721,6 +3721,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\futbolLogo.png",
+      "PackagePath": "staticwebassets\\image\\futbolLogo.png"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\futbolMiniLogo.png",
+      "PackagePath": "staticwebassets\\image\\futbolMiniLogo.png"
+    },
+    {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\inspinia-gh-pages\\.gitignore",
       "PackagePath": "staticwebassets\\inspinia-gh-pages\\.gitignore"
     },
@@ -10023,6 +10031,14 @@
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\inspinia-gh-pages\\widgets.html",
       "PackagePath": "staticwebassets\\inspinia-gh-pages\\widgets.html"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\date.js",
+      "PackagePath": "staticwebassets\\js\\Scripts\\date.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\translate.js",
+      "PackagePath": "staticwebassets\\js\\Scripts\\translate.js"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\managerDataTable.js",

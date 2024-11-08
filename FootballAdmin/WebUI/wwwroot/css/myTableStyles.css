@@ -91,3 +91,9 @@ swal2-show {
     color: #dddddd !important;
     background-color: #6c6c6c !important;
 }
+@media (max-width: 750px) {
+    .dataTables-example td, .dataTables-example th {
+        white-space: nowrap; /* Hücreleri satır içinde tutmak için */
+        font-size: 12px; /* Font boyutunu küçültmek için */
+    }
+}

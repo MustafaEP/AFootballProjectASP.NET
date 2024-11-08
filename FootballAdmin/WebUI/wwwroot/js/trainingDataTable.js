@@ -4,7 +4,7 @@
         responsive: true,
         paging: false,
         ordering: true,
-        dom: '<"html5buttons"B>lTfgitp',
+        dom: '<"row"<"col-md-6 html5buttons"B><"col-md-6"f>>lTgitp',
         columns: [
             { data: 'trainingName' },
             { data: 'teamName' },
@@ -13,9 +13,8 @@
         ],
         buttons: [
             { extend: 'copy', text: 'Kopyala' },
-            { extend: 'csv', text: 'CSV' },
-            { extend: 'excel', text: 'Excel', title: 'Oyuncular' },
-            { extend: 'pdf', text: 'PDF', title: 'Oyuncular' },
+            { extend: 'excel', text: 'Excel', title: 'Antrenmanlar' },
+            { extend: 'pdf', text: 'PDF', title: 'Antrenmanlar' },
             {
                 extend: 'print',
                 className: 'buttons-html5',
@@ -39,9 +38,9 @@
         language: {
             sProcessing: "İşleniyor...",
             sLengthMenu: "Göster _MENU_ Oyuncu",
-            sZeroRecords: "Menejerler Aranıyor...",
-            sInfo: "Gösterilen: _START_ - _END_, Toplam Menejer: _TOTAL_",
-            sInfoEmpty: "Gösterilen: 0 - 0, Toplam Menejer: 0",
+            sZeroRecords: "Antrenmanlar Aranıyor...",
+            sInfo: "Gösterilen: _START_ - _END_, Toplam Antrenman: _TOTAL_",
+            sInfoEmpty: "Gösterilen: 0 - 0, Toplam Antrenman: 0",
             sInfoFiltered: "( _MAX_ kayıt içinde bulundu)",
             sSearch: "Ara:",
             oPaginate: {
@@ -53,8 +52,142 @@
         },
         responsive: true
     });
+
     var allData;
-    const GetTables = () => {
+
+    GetTables();
+
+    // Tablo satırına tıklandığında
+    $('.dataTables-example tbody').on('click', 'tr', function () {
+        // Tıklanan satırdaki verileri al
+        var rowData = table.row(this).data();
+
+        // Konsola yazdır
+        console.log(rowData);
+
+        if (rowData) {
+            var tableRow = '';
+
+            rowData.players.forEach((item, index) => {
+                tableRow += `<tr class="trainTr">
+                <td class="text-center">${item.name}</td>
+                <td class="text-center">${item.accept ? "Onaylandı" : "Onaylanmadı"}</td>
+            </tr>`;
+            });
+
+            Swal.fire({
+                background: '#111111',
+                width: 1000,
+                customClass: {
+                    denyButton: 'pop-up-button btn-success',
+                    confirmButton: 'pop-up-button btn-primary',
+                    cancelButton: 'pop-up-button btn-danger',
+                },
+                confirmButtonText: "Çık",
+                showCancelButton: true,
+                cancelButtonText: "Antrenmanı Sil",
+                html: `
+                    <div class="wrapper wrapper-content animated fadeInRight">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="ibox">
+                                    <div class="ibox-content">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover issue-tracker">
+                                            <thead>
+                                                <th>
+                                                    Oyuncu İsmi
+                                                </th>
+                                                <th>
+                                                Durum
+                                                </th>
+
+                                            </thead>
+                                                <tbody>
+                                                    ${tableRow}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire({
+                        text: 'Bu İşlem Geri Alınamaz. Emin Misiniz?',
+                        icon: 'warning',
+                        background: '#111111',
+                        showCancelButton: true,
+                        confirmButtonText: "Çık",
+                        cancelButtonText: "Antrenmanı Sil",
+                        customClass: {
+                            confirmButton: 'pop-up-button btn-primary',
+                            cancelButton: 'pop-up-button btn-danger',
+                        }
+                    }).then(result => {
+                        if (result.dismiss === Swal.DismissReason.cancel) {
+                            $.ajax({
+                                url: '/Admin/Training/DeleteTraining/' + rowData.id,
+                                method: 'POST',
+                                success: function (data) {
+                                    if (data.success) {
+                                        Swal.fire({
+                                            text: data.message,
+                                            icon: 'success',
+                                            timer: 1500,
+                                            showConfirmButton: false,
+                                            background: '#111111'
+                                        });
+                                    }
+                                    else {
+                                        Swal.fire({
+                                            text: data.message,
+                                            icon: 'error',
+                                            timer: 1500,
+                                            showConfirmButton: false,
+                                            background: '#111111'
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    Swal.fire({
+                                        text: 'Sistemsel Bir Hata Gerçekleşti',
+                                        icon: 'error',
+                                        timer: 1500,
+                                        showConfirmButton: false,
+                                        background: '#111111'
+                                    });
+                                }
+                            });
+                        }
+                        else if (result.isConfirmed) {
+                            Swal.fire({
+                                text: 'Çıkış Gerçekleştiriliyor...',
+                                icon: 'success',
+                                background: '#111111',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    });
+                }
+                else if (result.isConfirmed) {
+                    Swal.fire({
+                        text: 'Çıkış Gerçekleştiriliyor...',
+                        icon: 'success',
+                        background: '#111111',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+        }
+    });
+
+    function GetTables() {
         $.ajax({
             url: '/Admin/Training/GetTrainings',
             method: 'GET',
@@ -70,59 +203,4 @@
             }
         });
     }
-    GetTables();
-
-    $('.dataTables-example tbody').on('click', 'tr', () => {
-        Swal.fire({
-            background: '#02365e',
-            width: 1000,
-            html: `
-                <div class="wrapper wrapper-content  animated fadeInRight">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox">
-                <div class="ibox-content">
-
-                    <div class="table-responsive">
-                        <table class="table table-hover issue-tracker">
-                            <tbody id="players">
-                                <tr class="trainTr">
-                                    <td>
-                                        Oyuncu Adı Soyadı
-                                    </td>
-                                    <td class="text-right">
-                                        Antrenmanı Onayladımı
-                                    </td>
-                                </tr>
-                                <tr class="trainTr">
-                                    <td>
-                                        Oyuncu Adı Soyadı
-                                    </td>
-                                    <td class="text-right">
-                                        Antrenmanı Onayladımı
-                                    </td>
-                                </tr>
-                                <tr class="trainTr">
-                                    <td>
-                                        Oyuncu Adı Soyadı
-                                    </td>
-                                    <td class="text-right">
-                                        Antrenmanı Onayladımı
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-</div>
-            `
-        });
-    });
-
-});  
+});

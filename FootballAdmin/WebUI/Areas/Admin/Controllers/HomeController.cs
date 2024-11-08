@@ -34,5 +34,14 @@ namespace WebUI.Areas.Admin.Controllers
 
             return View(model);
         }
+
+        public IActionResult Settings()
+        {
+            return View();
+        }
+        public IActionResult ToDoList()
+        {
+            return View();
+        }
     }
 }
