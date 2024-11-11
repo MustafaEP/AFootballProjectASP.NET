@@ -10,5 +10,6 @@ namespace Business.Abstract
 {
     public interface IManagerService : IGenericService<Manager>
     {
+        Manager Login(string username, string password);
     }
 }

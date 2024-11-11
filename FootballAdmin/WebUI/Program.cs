@@ -12,6 +12,18 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>));
 
+// Diðer servis yapýlandýrmalarý
+builder.Services.AddControllersWithViews();
+
+// Kimlik doðrulama servisini ekleyin
+builder.Services.AddAuthentication("MyCookieAuth")
+    .AddCookie("MyCookieAuth", options =>
+    {
+        options.LoginPath = "/Home/Login";
+    });
+
+
+
 
 var app = builder.Build();
 
@@ -28,8 +40,10 @@ app.UseStaticFiles();
 app.UseStatusCodePagesWithReExecute("/Home/Error", "?code={0}");
 
 app.UseRouting();
-
+app.UseAuthentication(); // Kimlik doðrulamayý ekleyin
 app.UseAuthorization();
+
+
 
 
 app.MapControllerRoute(

@@ -18,6 +18,12 @@ namespace Business.Concrete
             _managerDal = managerDal;
         }
 
+        public Manager Login(string username, string password)
+        {
+            var user = _managerDal.GetListAll().FirstOrDefault(x => x.UserName == username && x.Password == password);
+            return user;
+        }
+
         public List<Manager> GetList()
         {
             return _managerDal.GetListAll();

@@ -29,7 +29,7 @@ namespace WebUI.Areas.Admin.Controllers
             foreach (var team in teams)
             {
                 var managerId = team.ManagerId;
-                var manager = new Manager();
+                var manager = new Entities.Concrete.Manager();
                 if (managerId.HasValue)
                 {
                     manager = _managerManager.TGetById(managerId.Value);

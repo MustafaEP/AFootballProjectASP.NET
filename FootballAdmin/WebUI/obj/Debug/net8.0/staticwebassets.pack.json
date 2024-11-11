@@ -10041,6 +10041,10 @@
       "PackagePath": "staticwebassets\\js\\Scripts\\translate.js"
     },
     {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\loginPage\\login.js",
+      "PackagePath": "staticwebassets\\js\\loginPage\\login.js"
+    },
+    {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\managerDataTable.js",
       "PackagePath": "staticwebassets\\js\\managerDataTable.js"
     },

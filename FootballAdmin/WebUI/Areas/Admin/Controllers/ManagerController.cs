@@ -194,7 +194,7 @@ namespace WebUI.Areas.Admin.Controllers
                 var allPlayers = _playerManager.GetList();
                 foreach (var item in allPlayers) if (item.UserName == model.UserName) return Json(new { success = false, message = "Bu Kullanıcı Adında Bir Oyuncu Bulunuyor" });
 
-                var manager = new Manager
+                var manager = new Entities.Concrete.Manager
                 {
                     UserName = model.UserName,
                     Name = model.Name,

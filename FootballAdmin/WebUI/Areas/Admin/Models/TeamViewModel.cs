@@ -9,6 +9,6 @@ namespace WebUI.Areas.Admin.Models
         public string ManagerName {  get; set; }
         public DateTime CreatedTime {  get; set; }
         public DateTime UpdatedTime {  get; set; }
-        public List<Player>? players { get; set; }
+        public List<Entities.Concrete.Player>? players { get; set; }
     }
 }
