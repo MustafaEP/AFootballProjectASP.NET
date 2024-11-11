@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uDU21tcGvMvLGljdBnz7KvqSjE42bEmqjyzqni4nD/s=",
+  "Hash": "FN8JYiBDFJrJoPpOGx/C8/+jT11n9jtgj9VBRCHeU/k=",
   "Source": "WebUI",
   "BasePath": "_content/WebUI",
   "Mode": "Default",
@@ -48446,6 +48446,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Scripts\\date.js"
+    },
+    {
+      "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\logout.js",
+      "SourceId": "WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\",
+      "BasePath": "_content/WebUI",
+      "RelativePath": "js/Scripts/logout.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Scripts\\logout.js"
     },
     {
       "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\translate.js",

@@ -41,8 +41,8 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                <a class="sidebar-brand brand-logo" href="/Admin/Home/Index"><img src="~/image/futbolLogo.png" alt="logo" /></a>
-                <a class="sidebar-brand brand-logo-mini" href="/Admin/Home/Index"><img src="~/image/futbolMiniLogo.png" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo" href="/Manager/Home/Index"><img src="~/image/futbolLogo.png" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" href="/Manager/Home/Index"><img src="~/image/futbolMiniLogo.png" alt="logo" /></a>
             </div>
             <ul class="nav">
                 <li class="nav-item profile">
@@ -59,7 +59,7 @@
                         </div>
                         <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
                         <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
-                            <a href="/Admin/Home/Settings" class="dropdown-item preview-item">
+                            <a href="/Manager/Home/Settings" class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon bg-dark rounded-circle">
                                         <i class="mdi mdi-settings text-primary"></i>
@@ -71,7 +71,7 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-divider"></div>
-                            <a href="/Admin/Home/ToDoList" class="dropdown-item preview-item">
+                            <a href="/Manager/Home/ToDoList" class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon bg-dark rounded-circle">
                                         <i class="mdi mdi-calendar-today text-success"></i>
@@ -88,7 +88,7 @@
                     <span class="nav-link">Navigation</span>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="/Admin/Home/Index">
+                    <a class="nav-link" href="/Manager/Home/Index">
                         <span class="menu-icon">
                             <i class="mdi mdi-speedometer"></i>
                         </span>
@@ -105,15 +105,15 @@
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/Player/ListPlayers">Oyuncular Listesi</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/Manager/ListManagers">Menejerler Listesi</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/Team/ListTeams">Takımlar Listesi</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/Training/ListTraining">Takımların Antrenmanları</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/Manager/Player/ListPlayers">Oyuncular Listesi</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/Manager/Manager/ListManagers">Menejerler Listesi</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/Manager/Team/ListTeams">Takımlar Listesi</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/Manager/Training/ListTraining">Takımların Antrenmanları</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="/Admin/Match/Matches">
+                    <a class="nav-link" href="/Manager/Match/Matches">
                         <span class="menu-icon">
                             <i class="mdi mdi-soccer"></i>
                         </span>
@@ -121,7 +121,7 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="/Admin/Notification/ListNotifications">
+                    <a class="nav-link" href="/Manager/Notification/ListNotifications">
                         <span class="menu-icon">
                             <i class="mdi mdi-bell-ring"></i>
                         </span>
@@ -135,7 +135,7 @@
             <!-- partial:partials/_navbar.html -->
             <nav class="navbar p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/image/futbolMiniLogo.png" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="/Manager/Home/Index"><img src="~/image/futbolMiniLogo.png" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -280,7 +280,7 @@
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <p class="p-3 m-0 text-center ">
-                                    <a href="/Admin/Notification/ListNotifications" class="btn btn-dark p-2">Tüm Bildirimleri Gör</a>
+                                    <a href="/Manager/Notification/ListNotifications" class="btn btn-dark p-2">Tüm Bildirimleri Gör</a>
                                 </p>
                             </div>
                         </li>
@@ -295,7 +295,7 @@
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                                 <h6 class="p-3 mb-0">Profil</h6>
                                 <div class="dropdown-divider"></div>
-                                <a href="/Admin/Home/Settings" class="dropdown-item preview-item">
+                                <a href="/Manager/Home/Settings" class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
                                         <div class="preview-icon bg-dark rounded-circle">
                                             <i class="mdi mdi-settings text-success"></i>
@@ -306,16 +306,16 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="/Home/Logout" class="dropdown-item preview-item">
+                                <button onclick="Logout()" class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
                                         <div class="preview-icon bg-dark rounded-circle">
                                             <i class="mdi mdi-logout text-danger"></i>
                                         </div>
                                     </div>
                                     <div class="preview-item-content">
-                                        <p class="preview-subject mb-1">Çıkış Yap</p>
+                                        <p class="preview-subject mb-1">Çıkış Yaps</p>
                                     </div>
-                                </a>
+                                </button>
                                 <div class="dropdown-divider"></div>
                             </div>
                         </li>
@@ -370,6 +370,7 @@
     @* My Scripts *@
     <script src="~/js/Scripts/date.js"></script>
     <script src="~/js/Scripts/translate.js"></script>
+    <script src="~/js/Scripts/logout.js"></script>
     @RenderSection("scripts", required: false)
 
 </body>

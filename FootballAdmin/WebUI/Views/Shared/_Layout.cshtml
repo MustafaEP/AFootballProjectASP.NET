@@ -4,6 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="@Html.AntiForgeryToken()" />
+
     <title>@ViewData["Title"]</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -81,6 +83,22 @@
                 </li>
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/Admin/Home/Index">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        <span class="menu-title">Ana Sayfa</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/Admin/Home/Index">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        <span class="menu-title">Ana Sayfa</span>
+                    </a>
                 </li>
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="/Admin/Home/Index">
@@ -301,7 +319,7 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="/Home/Logout" class="dropdown-item preview-item">
+                                <a onclick="Logout()" class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
                                         <div class="preview-icon bg-dark rounded-circle">
                                             <i class="mdi mdi-logout text-danger"></i>
@@ -366,6 +384,9 @@
     <script src="~/js/Scripts/date.js"></script>
     <script src="~/js/Scripts/translate.js"></script>
     @RenderSection("scripts", required: false)
+
+    <script src="~/js/Scripts/logout.js"></script>
+
 
 </body>
 </html>

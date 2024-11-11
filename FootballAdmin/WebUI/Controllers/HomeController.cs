@@ -64,6 +64,7 @@ namespace WebUI.Controllers
                     new Claim("UserId", userManager.Id.ToString()),
                 };
 
+
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var authProperties = new AuthenticationProperties
                 {
@@ -72,7 +73,7 @@ namespace WebUI.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
-                return Json(new { success = true, message = "Hoþgeldin " + userManager.Name + " Giriþ Sayfasýna Yönlendiriliyorsun", role = "Manager" });
+                return Json(new { success = true, message = "Hoþgeldin " + userManager.Name + ", Giriþ Sayfasýna Yönlendiriliyorsun", role = "Manager" });
             }
 
             var userAdmin = _adminManager.Login(username, password);
@@ -96,6 +97,8 @@ namespace WebUI.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
+
+
                 return Json(new { success = true, message = "Hoþgeldin " + userAdmin.UserName + " Giriþ Sayfasýna Yönlendiriliyorsun", role = "Admin" });
             }
 
@@ -108,11 +111,17 @@ namespace WebUI.Controllers
 
 
         }
-
-        [HttpPost]
-        public IActionResult Logout()
+        [HttpGet]
+        public async Task<IActionResult> Logout()
         {
-            return RedirectToAction("Home", "Login");
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme); // Kullanýcýyý çýkýþ yapma
+
+            // Yönlendirme yerine sadece baþarýlý sonuç dönebilirsiniz
+            return Json(new { success = true, message = "Çýkýþ Gerçekleþtirildi." });
+        }
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
     }

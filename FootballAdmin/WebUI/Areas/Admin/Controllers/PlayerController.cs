@@ -1,6 +1,7 @@
 ﻿using Access.EntityFramework;
 using Business.Concrete;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Numerics;
@@ -8,7 +9,7 @@ using WebUI.Areas.Admin.Models;
 
 namespace WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize(Roles = "Admin")]
     public class PlayerController : Controller
     {
         PlayerManager _playerManager = new PlayerManager(new EfPlayerRepository());

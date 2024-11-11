@@ -1,11 +1,12 @@
 ﻿using Access.EntityFramework;
 using Business.Concrete;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize(Roles = "Admin")]
     public class MatchController : Controller
     {
         MatchManager _matchManager = new MatchManager(new EfMatchRepository());

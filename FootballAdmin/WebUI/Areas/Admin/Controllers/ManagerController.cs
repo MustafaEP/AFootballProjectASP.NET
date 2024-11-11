@@ -1,6 +1,7 @@
 ﻿using Access.EntityFramework;
 using Business.Concrete;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Areas.Admin.Models;
 using WebUI.Areas.Admin.Models.MiniModels;
@@ -8,7 +9,7 @@ using WebUI.Areas.Admin.Models.MiniModels;
 
 namespace WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize(Roles = "Admin")]
     public class ManagerController : Controller
     {
         ManagerManager _managerManager = new ManagerManager(new EfManagerRepository());

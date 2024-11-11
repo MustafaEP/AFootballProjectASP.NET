@@ -10037,6 +10037,10 @@
       "PackagePath": "staticwebassets\\js\\Scripts\\date.js"
     },
     {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\logout.js",
+      "PackagePath": "staticwebassets\\js\\Scripts\\logout.js"
+    },
+    {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\translate.js",
       "PackagePath": "staticwebassets\\js\\Scripts\\translate.js"
     },

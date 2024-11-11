@@ -3,6 +3,17 @@
 function LoginBtnClick() {
     var usernameValue = document.getElementById("username").value;
     var passwordValue = document.getElementById("password").value;
+    Swal.fire({
+        icon: 'info',
+        text: "Giriş Yapılıyor...",
+        background: '#111111',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        willOpen: () => {
+            Swal.showLoading(); // Yükleme animasyonunu göster
+        }
+
+    });
 
     $.ajax({
         url: '/Home/Login',
@@ -17,7 +28,10 @@ function LoginBtnClick() {
                         text: data.message,
                         background: '#111111',
                         timer: 2000,
-                        showConfirmButton: false
+                        showConfirmButton: false,
+                        timerProgressBar: true,
+                    }).then(() => {
+                        window.location.replace('/Manager/Home/Index');
                     });
                 } else if (data.role = "Admin") {
                     Swal.fire({
@@ -26,6 +40,8 @@ function LoginBtnClick() {
                         background: '#111111',
                         timer: 2000,
                         showConfirmButton: false
+                    }).then(() => {
+                        window.location.replace('/Admin/Home/Index');
                     });
                 } else {
                     Swal.fire({
@@ -51,5 +67,8 @@ function LoginBtnClick() {
             console.log(data);
         }
     });
+
+
+
 
 }

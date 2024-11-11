@@ -2,27 +2,33 @@ using Access.Abstract.GenericDal;
 using Access.Context;
 using Access.EntityFramework.GenericRepository;
 using System.Configuration;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>));
 
-// Diðer servis yapýlandýrmalarý
-builder.Services.AddControllersWithViews();
 
 // Kimlik doðrulama servisini ekleyin
-builder.Services.AddAuthentication("MyCookieAuth")
-    .AddCookie("MyCookieAuth", options =>
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
     {
-        options.LoginPath = "/Home/Login";
+        options.LoginPath = "/Home/Login"; // Giriþ sayfasýnýn yolu
+        options.AccessDeniedPath = "/Home/AccessDenied"; // Eriþim reddedildiðinde yönlendirme yolu
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // Çerez süresi
     });
+builder.Services.AddAuthorization();
 
+builder.Services.AddControllersWithViews();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin"));
+
+    options.AddPolicy("ManagerPolicy", policy => policy.RequireRole("Manager"));
+});
 
 
 var app = builder.Build();
@@ -40,6 +46,8 @@ app.UseStaticFiles();
 app.UseStatusCodePagesWithReExecute("/Home/Error", "?code={0}");
 
 app.UseRouting();
+
+
 app.UseAuthentication(); // Kimlik doðrulamayý ekleyin
 app.UseAuthorization();
 
