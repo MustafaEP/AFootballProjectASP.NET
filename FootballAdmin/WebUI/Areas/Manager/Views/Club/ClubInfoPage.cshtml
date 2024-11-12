@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "ClubInfoPage";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ClubInfoPage</h1>
+
+<div>
+    <div>
+
+    </div>
+</div>
+
+@section styles{
+    <style>
+        .swal2-actions {
+            margin-top: 0 !important;
+        }
+
+        .card-body {
+            margin : 0 !important;
+            padding-top : 0 !important;
+            padding-bottom : 0 !important;
+        }
+
+        .swal2-confirm, .swal2-styled{
+            font-size: smaller !important;
+        }
+
+        .swal2-validation-message {
+            margin-top: 0;
+            margin-bottom: 10px;
+            background-color: #2f2f2f;
+            color: #ffffff;
+            font-size: smaller;
+        }
+
+        div:where(.swal2-container) div:where(.swal2-validation-message)::before {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line] {
+            background-color: #ffffff;
+        }
+
+        div:where(.swal2-icon).swal2-error {
+            border-color: #000000;
+            color: #000000;
+        }
+
+        .swal2-modal .swal2-icon, .swal2-modal .swal2-success-ring {
+            margin-bottom: 10px;
+        }
+
+        .swal2-html-container {
+            color: white !important;
+        }
+
+        div:where(.swal2-icon).swal2-success [class^=swal2-success-line] {
+            background-color: #ffffff;
+        }
+
+        div:where(.swal2-icon).swal2-success .swal2-success-ring {
+            border: .25em solid rgb(0 0 0);
+        }
+
+    </style>
+}
+
+@section scripts{
+    
+    <script src="~/js/Manager/Club.js"></script>
+}

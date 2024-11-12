@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.Concrete.NewVersion;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -34,6 +35,9 @@ namespace Access.Context
         public DbSet<Match> Matches { get; set; }
         public DbSet<TrainingSession> TrainingSessions { get; set; }
         public DbSet<AdminNotification> AdminNotifications { get; set; }
+        public DbSet<ManagerClub> ManagerClubs { get; set; }
+        public DbSet<Footballer> Footballers { get; set; }
+        public DbSet<ClubsFootballer> ClubsFootballers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // HomeTeam ve AwayTeam ilişkileri

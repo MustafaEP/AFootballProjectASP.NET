@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FN8JYiBDFJrJoPpOGx/C8/+jT11n9jtgj9VBRCHeU/k=",
+  "Hash": "iU9SZaD4IkTYphBQ/qFAuFqAbP8TdigUGUcURHF1TC8=",
   "Source": "WebUI",
   "BasePath": "_content/WebUI",
   "Mode": "Default",
@@ -48351,6 +48351,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\loginPage\\login.js"
+    },
+    {
+      "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Club.js",
+      "SourceId": "WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\",
+      "BasePath": "_content/WebUI",
+      "RelativePath": "js/Manager/Club.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Manager\\Club.js"
     },
     {
       "Identity": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\managerDataTable.js",

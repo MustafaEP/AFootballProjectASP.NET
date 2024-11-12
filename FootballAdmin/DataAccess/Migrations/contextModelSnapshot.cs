@@ -92,6 +92,9 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ManagerClubId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -123,6 +126,8 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ManagerClubId");
 
                     b.ToTable("Managers");
                 });
@@ -160,6 +165,210 @@ namespace DataAccess.Migrations
                     b.HasIndex("HomeTeamId");
 
                     b.ToTable("Matches");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.NewVersion.ClubsFootballer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Abilities")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AltPositions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClubName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Confidence")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Defending")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DefendingUpgrade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Dribbling")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DribblingUpgrade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ManagerClubId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Pace")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PaceUpgrade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Passing")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PassingUpgrade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Physicality")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PhysicalityUpgrade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PreferredFoot")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Shooting")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShootingUpgrade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SurName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UptatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ManagerClubId");
+
+                    b.ToTable("ClubsFootballers");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.NewVersion.Footballer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Abilities")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AltPositions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClubName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Defending")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Dribbling")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MarketPrice")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Pace")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Passing")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Physicality")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PreferredFoot")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Shooting")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SurName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UptatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Footballers");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.NewVersion.ManagerClub", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LineUp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UptatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ManagerClubs");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Player", b =>
@@ -294,6 +503,15 @@ namespace DataAccess.Migrations
                     b.ToTable("TrainingSessions");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Manager", b =>
+                {
+                    b.HasOne("Entities.Concrete.NewVersion.ManagerClub", "ManagerClub")
+                        .WithMany()
+                        .HasForeignKey("ManagerClubId");
+
+                    b.Navigation("ManagerClub");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Match", b =>
                 {
                     b.HasOne("Entities.Concrete.Team", "AwayTeam")
@@ -311,6 +529,15 @@ namespace DataAccess.Migrations
                     b.Navigation("AwayTeam");
 
                     b.Navigation("HomeTeam");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.NewVersion.ClubsFootballer", b =>
+                {
+                    b.HasOne("Entities.Concrete.NewVersion.ManagerClub", null)
+                        .WithMany("Footballers")
+                        .HasForeignKey("ManagerClubId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.Concrete.Player", b =>
@@ -347,6 +574,11 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entities.Concrete.Manager", b =>
                 {
                     b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.NewVersion.ManagerClub", b =>
+                {
+                    b.Navigation("Footballers");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Team", b =>

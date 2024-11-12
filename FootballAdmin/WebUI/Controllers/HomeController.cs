@@ -59,6 +59,7 @@ namespace WebUI.Controllers
             {
                 var claims = new List<Claim>
                 {
+                    new Claim(ClaimTypes.NameIdentifier, userManager.Id.ToString()),
                     new Claim(ClaimTypes.Name, userManager.UserName),
                     new Claim(ClaimTypes.Role, "Manager"),
                     new Claim("UserId", userManager.Id.ToString()),
@@ -73,6 +74,9 @@ namespace WebUI.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
+                ViewBag.Name = userManager.Name;
+                ViewBag.SurName = userManager.SurName;
+
                 return Json(new { success = true, message = "Hoþgeldin " + userManager.Name + ", Giriþ Sayfasýna Yönlendiriliyorsun", role = "Manager" });
             }
 
@@ -84,6 +88,7 @@ namespace WebUI.Controllers
 
                 var claims = new List<Claim>
                 {
+                    new Claim(ClaimTypes.NameIdentifier, userAdmin.Id.ToString()),
                     new Claim(ClaimTypes.Name, userAdmin.UserName),
                     new Claim(ClaimTypes.Role, "Admin"),
                     new Claim("UserId", userAdmin.Id.ToString())
@@ -97,7 +102,7 @@ namespace WebUI.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
-
+                
 
                 return Json(new { success = true, message = "Hoþgeldin " + userAdmin.UserName + " Giriþ Sayfasýna Yönlendiriliyorsun", role = "Admin" });
             }

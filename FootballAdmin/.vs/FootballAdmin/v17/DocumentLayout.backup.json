@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\wwwroot\\js\\loginpage\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\wwwroot\\js\\loginpage\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\wwwroot\\js\\manager\\club.js||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\wwwroot\\js\\manager\\club.js||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\manager\\views\\club\\clubinfopage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\manager\\views\\club\\clubinfopage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\manager\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\manager\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\admin\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\admin\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\manager\\controllers\\clubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\manager\\controllers\\clubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\wwwroot\\js\\scripts\\logout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\wwwroot\\js\\scripts\\logout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|c:\\users\\porta\\onedrive\\belgeler\\footballadmin\\footballadmin\\footballadmin\\webui\\areas\\manager\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3DDBEB34-526A-46EC-B649-7B370F2448F7}|WebUI\\WebUI.csproj|solutionrelative:webui\\areas\\manager\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,66 +39,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "login.js",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\loginPage\\login.js",
-              "RelativeDocumentMoniker": "WebUI\\wwwroot\\js\\loginPage\\login.js",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\loginPage\\login.js",
-              "RelativeToolTip": "WebUI\\wwwroot\\js\\loginPage\\login.js",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBgAAAAfAAAAAAAAAA==",
+              "Title": "Club.js",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Club.js",
+              "RelativeDocumentMoniker": "WebUI\\wwwroot\\js\\Manager\\Club.js",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Club.js",
+              "RelativeToolTip": "WebUI\\wwwroot\\js\\Manager\\Club.js",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAwGQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-11-11T08:48:17.698Z",
+              "WhenOpened": "2024-11-12T10:44:17.566Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebUI\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "WebUI\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAuAAAAAAAAAA==",
+              "Title": "ClubInfoPage.cshtml",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Manager\\Views\\Club\\ClubInfoPage.cshtml",
+              "RelativeDocumentMoniker": "WebUI\\Areas\\Manager\\Views\\Club\\ClubInfoPage.cshtml",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Manager\\Views\\Club\\ClubInfoPage.cshtml",
+              "RelativeToolTip": "WebUI\\Areas\\Manager\\Views\\Club\\ClubInfoPage.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAgwDkAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-11T08:45:25.099Z",
+              "WhenOpened": "2024-11-12T10:31:29.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClubController.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Manager\\Controllers\\ClubController.cs",
+              "RelativeDocumentMoniker": "WebUI\\Areas\\Manager\\Controllers\\ClubController.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Manager\\Controllers\\ClubController.cs",
+              "RelativeToolTip": "WebUI\\Areas\\Manager\\Controllers\\ClubController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwEAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T08:22:02.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Manager\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebUI\\Areas\\Manager\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Manager\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebUI\\Areas\\Manager\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-12T08:18:28.181Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "WebUI\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "WebUI\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAswHcAAABQAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Manager\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebUI\\Areas\\Manager\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Manager\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebUI\\Areas\\Manager\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T08:40:19.042Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Shared\\AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "WebUI\\Areas\\Admin\\Views\\Shared\\AdminLayout.cshtml",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\Areas\\Admin\\Views\\Shared\\AdminLayout.cshtml",
-              "RelativeToolTip": "WebUI\\Areas\\Admin\\Views\\Shared\\AdminLayout.cshtml",
-              "ViewState": "AgIAAFYBAAAAAAAAAAAQwHQBAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-11T08:30:30.576Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "logout.js",
-              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\logout.js",
-              "RelativeDocumentMoniker": "WebUI\\wwwroot\\js\\Scripts\\logout.js",
-              "ToolTip": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\logout.js",
-              "RelativeToolTip": "WebUI\\wwwroot\\js\\Scripts\\logout.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-11-11T07:47:00.01Z",
+              "WhenOpened": "2024-11-12T08:17:34.085Z",
               "EditorCaption": ""
             }
           ]
