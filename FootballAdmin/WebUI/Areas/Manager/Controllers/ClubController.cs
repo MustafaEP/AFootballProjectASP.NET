@@ -19,7 +19,14 @@ namespace WebUI.Areas.Manager.Controllers
         {
             var managerId = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
 
-            return View();
+            ManagerClub club = _managerClubManager.OwnClub(managerId);
+            if(club == null)
+            {
+                ManagerClub managerClub = new ManagerClub();
+                return View(managerClub);
+            }
+
+            return View(club);
         }
 
         public IActionResult ClubInfo()

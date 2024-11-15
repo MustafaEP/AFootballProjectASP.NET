@@ -62,6 +62,8 @@ namespace WebUI.Controllers
                     new Claim(ClaimTypes.NameIdentifier, userManager.Id.ToString()),
                     new Claim(ClaimTypes.Name, userManager.UserName),
                     new Claim(ClaimTypes.Role, "Manager"),
+                    new Claim("Name", userManager.Name),
+                    new Claim("SurName", userManager.SurName),
                     new Claim("UserId", userManager.Id.ToString()),
                 };
 
@@ -74,8 +76,7 @@ namespace WebUI.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
-                ViewBag.Name = userManager.Name;
-                ViewBag.SurName = userManager.SurName;
+
 
                 return Json(new { success = true, message = "Hoþgeldin " + userManager.Name + ", Giriþ Sayfasýna Yönlendiriliyorsun", role = "Manager" });
             }
@@ -127,6 +128,38 @@ namespace WebUI.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register([FromBody]Manager manager)
+        {
+            var allManagers = _managerManager.GetList();
+            foreach(var item in allManagers)
+            {
+                if(item.UserName == manager.UserName) return Json(new { success = false, message = "Bu Kullanýcý Adý Kullanýlýyor." });
+            }
+
+            var allAdmins = _adminManager.GetList();
+            foreach(var item in allAdmins)
+            {
+                if (item.UserName == manager.UserName) return Json(new { success = false, message = "Bu Kullanýcý Adý Kullanýlýyor." });
+            }
+
+            manager.PreferredLineUp = "0";
+            manager.County = "";
+            manager.CreatedTime = DateTime.Now;
+            manager.UptatedTime = DateTime.Now;
+            manager.Phone = "";
+
+            _managerManager.TAdd(manager);
+
+            return Json(new { success = true, message = "Aramýza Hoþgeldin." });
         }
 
     }

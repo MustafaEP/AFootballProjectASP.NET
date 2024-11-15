@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Kayıt Ol";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Giriş Ekranı</title>
+    <link rel="stylesheet" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/css/style.css">
+    <link rel="shortcut icon" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/favicon.png" />
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="row w-100 m-0">
+                <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+                    <div class="card col-lg-4 mx-auto">
+                        <div class="card-body px-5 py-5">
+                            <h3 class="card-title text-left mb-3">Kayıt Ekranı</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label>Kullanıcı Adı</label>
+                                    <input type="text" class="form-control p_input" id="username" oninput="this.value = this.value.replace(/\s/g, '')">
+                                    <span class="small text-danger" id="usernameSpan"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ad</label>
+                                    <input type="text" class="form-control p_input" id="name">
+                                    <span class="small text-danger" id="nameSpan"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Soyad</label>
+                                    <input type="text" class="form-control p_input" id="surName">
+                                    <span class="small text-danger" id="surNameSpan"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>E-Mail</label>
+                                    <input type="email" class="form-control p_input" id="email" oninput="this.value = this.value.replace(/\s/g, '')">
+                                    <span class="small text-danger" id="emailSpan"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Şifre</label>
+                                    <input type="password" class="form-control p_input" id="password" oninput="this.value = this.value.replace(/\s/g, '')">
+                                    <span class="small text-danger" id="passwordSpan"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Şifre Tekrarı</label>
+                                    <input type="password" class="form-control p_input" id="passwordAgain" oninput="this.value = this.value.replace(/\s/g, '')">
+                                    <span class="small text-danger" id="passwordAgainSpan"></span>
+                                </div>
+                                <div class="form-group d-flex align-items-center justify-content-between">
+                                    <a href="/Home/Login" class="forgot-pass">Zaten Bir Hesabın Var Mı?</a>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-block enter-btn" onclick="RegisterBtnClick()">Giriş</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/off-canvas.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/hoverable-collapse.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/misc.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/settings.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/todolist.js"></script>
+
+    <!-- SweetAlert JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+    <script src="~/js/loginPage/register.js"></script>
+</body>
+</html>
+
+

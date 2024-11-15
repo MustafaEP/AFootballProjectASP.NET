@@ -15,11 +15,6 @@ namespace WebUI.Areas.Manager.Controllers
             var managerId = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
             var manager = _managerManager.TGetById(managerId);
 
-            ViewBag.Name = manager.Name;
-            ViewBag.SurName = manager.SurName;
-
-
-
             return View();
         }
     }

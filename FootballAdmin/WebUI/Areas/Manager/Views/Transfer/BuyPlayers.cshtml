@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewData["Title"] = "BuyPlayers";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+	<div class="d-flex flex-column flex-column-fluid">
+		<div id="kt_app_toolbar" class="app-toolbar pt-5">
+			<div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+				<div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+					<div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+						<ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+								<a href="../dist/index.html" class="text-gray-500">
+									<i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+								</a>
+							</li>
+							<li class="breadcrumb-item">
+								<i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+							</li>
+							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
+							<li class="breadcrumb-item">
+								<i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+							</li>
+							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Transfer</li>
+							<li class="breadcrumb-item">
+								<i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+							</li>
+							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Oyuncu Satın Al</li>
+							
+						</ul>
+						<h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Oyuncu Satın Al</h1>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div id="kt_app_content" class="app-content flex-column-fluid">
+			<div id="kt_app_content_container" class="app-container container-fluid">
+				<div class="card card-flush">
+					<div class="card-header align-items-center py-5 gap-2 gap-md-5">
+						<div class="card-title">
+							<div class="d-flex align-items-center position-relative my-1">
+								<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+									<span class="path1"></span>
+									<span class="path2"></span>
+								</i>
+								<input type="text" data-kt-ecommerce-product-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Oyuncu Ara" />
+							</div>
+						</div>
+						<!--begin::Card toolbar-->
+						<div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+							<div class="w-100 mw-150px">
+								<div class="text-right btn btn-primary" id="clubName">
+									Takım İsmi
+								</div>
+							</div>
+							<!--begin::Add product-->
+							<div class="btn btn-primary" id="clubBudget">
+								Bütçe
+							</div>
+							<!--end::Add product-->
+						</div>
+						<!--end::Card toolbar-->
+					</div>
+					<div class="card-body pt-0">
+						<table class="table align-middle table-row-dashed fs-6 gy-5 myTable" id="kt_ecommerce_products_table">
+							<thead>
+								<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+									<th class ="">İsim</th>
+									<th class="">Soyisim</th>
+									<th class="">Ülke</th>
+									<th class="">Pozisyon</th>
+									<th class="">Piyasa Değeri</th>
+								</tr>
+							</thead>
+							<tbody class="fw-semibold text-gray-600">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+
+@section styles{
+
+    <style>
+        .myTable tbody tr:hover {
+            cursor: pointer;
+        }
+
+		.swal2-container .swal2-html-container {
+			max-height: auto !important;
+		}
+    </style>
+}
+
+@section scripts{
+
+    <script src="~/js/Scripts/translate.js"></script>
+    <script src="~/js/Manager/BuyPlayers.js"></script>
+    <script src="~/js/Manager/Club.js"></script>
+}

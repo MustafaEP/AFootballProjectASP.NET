@@ -66,16 +66,20 @@ function reverseTranslateCountry(country) {
 function translatePosition(playerPosition) {
     const playerPositions = {
         'Goalkeeper': 'Kaleci',
+        'Sweeper Keeper': 'Libero Kaleci',
         'Right Back': 'Sağ Bek',
         'Center Back': 'Stoper',
         'Left Back': 'Sol Bek',
         'Defensive Midfielder': 'Defansif Orta Saha',
         'Central Midfielder': 'Merkez Orta Saha',
+        'Left Midfielder': 'Sol Orta Saha',
+        'Right Midfielder': 'Sağ Orta Saha',
         'Attacking Midfielder': 'Ofansif Orta Saha',
         'Right Winger': 'Sağ Kanat',
         'Left Winger': 'Sol Kanat',
         'Striker': 'Forvet',
-        'Second Striker': 'İkinci Forvet'
+        'Second Striker': 'İkinci Forvet',
+        'Forward': 'Forvet',
     };
     return playerPositions[playerPosition] || playerPosition; // Eğer çeviri yoksa orijinal pozisyonu döner
 }
@@ -87,4 +91,25 @@ function translateStrongFoot(strongFoot) {
         'Both': 'İkisi'
     };
     return feet[strongFoot] || strongFoot; // Eğer çeviri yoksa orijinal güçlü ayak bilgisini döner
+}
+
+
+function translateAttributes(attribute) {
+    const attributes = {
+        'Reflexes': 'Refleksler',
+        'Positioning': 'Pozisyon Alma',
+        'Crossing': 'Karmaşık Pas',
+        'Dribbling': 'Dribbling',
+        'Marking': 'İşaretleme',
+        'Tackling': 'Müdahale',
+        'Passing': 'Pas',
+        'Set Pieces': 'Serbest Vuruşlar',
+        'Vision': 'Vizyon',
+        'Long Shots': 'Uzun Şutlar',
+        'Aerial Duels': 'Hava Topu Mücadeleleri',
+        'Finishing': 'Bitiricilik',
+        'Strength': 'Güç',
+        'Pace': 'Hız'
+    };
+    return attributes[attribute] || attribute; // Eğer çeviri yoksa orijinal adı döner
 }

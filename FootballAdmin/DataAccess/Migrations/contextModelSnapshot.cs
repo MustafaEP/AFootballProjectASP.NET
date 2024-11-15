@@ -262,6 +262,10 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UptatedTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ManagerClubId");
@@ -336,6 +340,10 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UptatedTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Footballers");
@@ -348,6 +356,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("Budget")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");

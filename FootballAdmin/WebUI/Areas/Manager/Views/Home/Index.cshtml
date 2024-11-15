@@ -1,12 +1,60 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home";
     Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+    var name = User.FindFirst("Name")?.Value;
 }
 
-<div class="m-5 h-100">
-    <h3>
-        Ana Sayfaya Hoşgeldin @ViewBag.Name
-    </h3>
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+	<div class="d-flex flex-column flex-column-fluid">
+		<div id="kt_app_toolbar" class="app-toolbar pt-5">
+			<div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+				<div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+					<div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+						<ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+								<a href="../dist/index.html" class="text-gray-500">
+									<i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+								</a>
+							</li>
+							<li class="breadcrumb-item">
+								<i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+							</li>
+							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
+							<li class="breadcrumb-item">
+								<i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+							</li>
+							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Ev</li>
+							<li class="breadcrumb-item">
+								<i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+							</li>
+							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Ana Sayfa</li>
+
+						</ul>
+						<h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Ana Sayfa</h1>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div id="kt_app_content" class="app-content flex-column-fluid">
+			<div id="kt_app_content_container" class="app-container container-fluid">
+				<div class="card card-flush">
+					<div class="card-header align-items-center py-5 gap-2 gap-md-5">
+						<div class="card-title">
+							Ana Sayfaya Hoşgeldin @name
+						</div>
+					</div>
+					<div class="card-body pt-0">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
 </div>
+
+
 

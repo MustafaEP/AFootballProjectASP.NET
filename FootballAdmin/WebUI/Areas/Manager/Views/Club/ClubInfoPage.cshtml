@@ -1,30 +1,133 @@
-﻿
+﻿@using Entities.Concrete.NewVersion
+@model ManagerClub
+
 @{
     ViewData["Title"] = "ClubInfoPage";
     Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
 }
 
-<h1>ClubInfoPage</h1>
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+    <div class="d-flex flex-column flex-column-fluid">
+        <div id="kt_app_toolbar" class="app-toolbar pt-5">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+                <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+                    <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                <a href="../dist/index.html" class="text-gray-500">
+                                    <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Kulüp</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Takım</li>
 
-<div>
-    <div>
+                        </ul>
+                        <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Takım</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <div id="kt_app_content_container" class="app-container container-fluid">
+                <div class="card card-flush">
+                    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+
+                            <div class="col-12 fv-row">
+                                <label for="preferredLineUp" style="color: #fff;">Diziliş:</label>
+                                <select id="preferredLineUp" class="form-select form-select-solid form-select-lg fw-semibold" required>
+                                    <option value="" disabled selected>Diziliş Seçin</option>
+                                    <option value="4-4-2" @(Model.LineUp == "4-4-2" ? "selected" : "")>4-4-2</option>
+                                    <option value="4-3-3" @(Model.LineUp == "4-3-3" ? "selected" : "")>4-3-3</option>
+                                    <option value="3-5-2" @(Model.LineUp == "3-5-2" ? "selected" : "")>3-5-2</option>
+                                    <option value="4-2-3-1" @(Model.LineUp == "4-2-3-1" ? "selected" : "")>4-2-3-1</option>
+                                    <option value="3-4-3" @(Model.LineUp == "3-4-3" ? "selected" : "")>3-4-3</option>
+                                    <option value="4-1-4-1" @(Model.LineUp == "4-1-4-1" ? "selected" : "")>4-1-4-1</option>
+                                    <option value="5-3-2" @(Model.LineUp == "5-3-2" ? "selected" : "")>5-3-2</option>
+                                    <option value="4-5-1" @(Model.LineUp == "4-5-1" ? "selected" : "")>4-5-1</option>
+                                    <option value="3-6-1" @(Model.LineUp == "3-6-1" ? "selected" : "")>3-6-1</option>
+                                    <option value="4-4-1-1" @(Model.LineUp == "4-4-1-1" ? "selected" : "")>4-4-1-1</option>
+                                </select>
+                            </div>
+
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="col-12 d-flex row">
+                            <div class="col-md-12 col-lg-5">
+                                <div id="elevenId">
+                                    <div class="map card mb-5">
+                                        <div class="offensive line" id="offensiveId">
+                                            <div>.</div>
+                                        </div>
+                                        <div class="midfield line" id="midfieldId">
+                                            <div>.</div>
+                                            <div>.</div>
+                                            <div>.</div>
+                                        </div>
+                                        <div class="backmidfield line" id="backMidfieldId">
+                                            <div>.</div>
+                                            <div>.</div>
+                                        </div>
+                                        <div class="defence line" id="defenceId">
+                                            <div>.</div>
+                                            <div>.</div>
+                                            <div>.</div>
+                                            <div>.</div>
+                                        </div>
+                                        <div class="goalKeeper line" id="goalKeeperId">
+                                            <div>.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-7 p-5">
+                                <div>
+                                    Players
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
+
 </div>
 
-@section styles{
+
+<div class="container m-5">
+    
+
+    
+   
+</div>
+
+
+
+@section styles {
     <style>
         .swal2-actions {
             margin-top: 0 !important;
         }
 
         .card-body {
-            margin : 0 !important;
-            padding-top : 0 !important;
-            padding-bottom : 0 !important;
+            margin: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
         }
 
-        .swal2-confirm, .swal2-styled{
+        .swal2-confirm, .swal2-styled {
             font-size: smaller !important;
         }
 
@@ -66,10 +169,32 @@
             border: .25em solid rgb(0 0 0);
         }
 
+        .map {
+            position: relative;
+            aspect-ratio: 2/3;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .line {
+            display: flex;
+            justify-content: space-evenly; /* Her eleman arasında eşit mesafe */
+            align-items: center;
+            width: 100%;
+        }
+
+        .line div {
+            font-size: 30px; /* Noktaların boyutunu ayarlayın */
+            display: inline-block;
+        }
+
     </style>
 }
 
-@section scripts{
-    
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="~/js/Manager/Club.js"></script>
 }

@@ -21,7 +21,7 @@ namespace Business.Concrete
 
         public List<Admin> GetList()
         {
-            throw new NotImplementedException();
+            return _adminDal.GetListAll();
         }
 
         public Admin Login(string username, string password)

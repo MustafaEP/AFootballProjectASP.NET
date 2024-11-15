@@ -1,6 +1,5 @@
-﻿
-@{
-    ViewData["Title"] = "Login";
+﻿@{
+    ViewData["Title"] = "Giriş Yap";
     Layout = null;
 }
 
@@ -37,12 +36,8 @@
                                     <input type="password" class="form-control p_input" id="password">
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between">
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input"> Beni Hatırla
-                                        </label>
-                                    </div>
-                                    <a href="/Admin/Home/Index" class="forgot-pass">Şifremi Unuttum</a>
+                                    <a href="/Home/Register" class="forgot-pass">Kayıt Ol</a>
+                                    <a href="/Home/RememberPassword" class="forgot-pass">Şifremi Unuttum</a>
                                 </div>
                                 <div class="text-center">
                                     <button type="button" class="btn btn-primary btn-block enter-btn" onclick="LoginBtnClick()">Giriş</button>

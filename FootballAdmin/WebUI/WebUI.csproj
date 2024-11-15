@@ -13,6 +13,37 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\saul_theme\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\js\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\js\custom\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\js\custom\apps\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\features-logos\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\framework-logos\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\icons\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\icons\duotune\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\misc\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\stock\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\svg\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\svg\illustrations\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\media\svg\illustrations\sigma\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\plugins\%40form-validation\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\plugins\%40form-validation\umd\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\plugins\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\plugins\fonticon\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\plugins\keenicons\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\plugins\toastr\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\plugins\toastr\build\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\sass\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\sass\components\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\sass\layout\.DS_Store" />
+    <None Include="wwwroot\saul_theme\src\sass\vendors\.DS_Store" />
+    <None Include="wwwroot\saul_theme\tools\.DS_Store" />
+    <None Include="wwwroot\saul_theme\tools\webpack\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
       <PrivateAssets>all</PrivateAssets>
@@ -23,7 +54,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
     <PackageReference Include="SweetAlert2" Version="1.0.1" />
   </ItemGroup>
 
