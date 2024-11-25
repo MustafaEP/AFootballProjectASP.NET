@@ -123,7 +123,7 @@ namespace WebUI.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme); // Kullanýcýyý çýkýþ yapma
 
             // Yönlendirme yerine sadece baþarýlý sonuç dönebilirsiniz
-            return Json(new { success = true, message = "Çýkýþ Gerçekleþtirildi." });
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult AccessDenied()
         {

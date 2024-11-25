@@ -6,6 +6,7 @@ using Entities.Concrete.NewVersion;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using System.Text.Json.Nodes;
 
 namespace WebUI.Areas.Manager.Controllers
 {
@@ -14,13 +15,13 @@ namespace WebUI.Areas.Manager.Controllers
     {
         ManagerClubManager _managerClubManager = new ManagerClubManager(new EfManagerClubRepository());
         ManagerManager _manageerManager = new ManagerManager(new EfManagerRepository());
-        
+        ClubFootballerManager _clubFootballerManager = new ClubFootballerManager(new EfClubFootballerRepository());
         public IActionResult ClubInfoPage()
         {
             var managerId = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
 
             ManagerClub club = _managerClubManager.OwnClub(managerId);
-            if(club == null)
+            if (club == null)
             {
                 ManagerClub managerClub = new ManagerClub();
                 return View(managerClub);
@@ -41,6 +42,7 @@ namespace WebUI.Areas.Manager.Controllers
             }
             else
             {
+                club.Footballers = _clubFootballerManager.OwnFootballers(club.Id);
                 return Json(new { success = true, message = "Kulübü Var", values = club });
             }
         }
@@ -60,12 +62,12 @@ namespace WebUI.Areas.Manager.Controllers
             club.CreatedTime = DateTime.Now;
             club.UptatedTime = DateTime.Now;
             club.ManagerId = managerId;
-            club.LineUp = "0";
+            club.LineUp = "{\"formation\":\"4-4-2\",\"footballers\":[0,0,0,0,0,0,0,0,0,0,0]}";
 
             _managerClubManager.TAdd(club);
 
             var addedClub = _managerClubManager.GetList().FirstOrDefault(x => x.ManagerId == managerId);
-            if(addedClub != null)
+            if (addedClub != null)
             {
                 var manager = _manageerManager.TGetById(managerId);
                 manager.ManagerClubId = addedClub.Id;
@@ -73,6 +75,13 @@ namespace WebUI.Areas.Manager.Controllers
             }
 
             return Json(new { success = true, message = "Kulüp Başarıyla Eklendi" });
+        }
+
+        [HttpPost]
+        public IActionResult SaveFormation([FromBody] ManagerClub club)
+        {
+            _managerClubManager.TUpdate(club);
+            return Json(new { success = true, message = "Diziliş Güncellendi" });
         }
     }
 }

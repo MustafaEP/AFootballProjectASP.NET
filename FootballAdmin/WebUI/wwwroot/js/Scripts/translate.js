@@ -72,6 +72,7 @@ function translatePosition(playerPosition) {
         'Left Back': 'Sol Bek',
         'Defensive Midfielder': 'Defansif Orta Saha',
         'Central Midfielder': 'Merkez Orta Saha',
+        'Midfielder': 'Merkez Orta Saha',
         'Left Midfielder': 'Sol Orta Saha',
         'Right Midfielder': 'Sağ Orta Saha',
         'Attacking Midfielder': 'Ofansif Orta Saha',

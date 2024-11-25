@@ -187,9 +187,8 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Confidence")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Confidence")
+                        .HasColumnType("int");
 
                     b.Property<string>("Country")
                         .IsRequired()
@@ -201,16 +200,14 @@ namespace DataAccess.Migrations
                     b.Property<int>("Defending")
                         .HasColumnType("int");
 
-                    b.Property<string>("DefendingUpgrade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DefendingUpgrade")
+                        .HasColumnType("int");
 
                     b.Property<int>("Dribbling")
                         .HasColumnType("int");
 
-                    b.Property<string>("DribblingUpgrade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DribblingUpgrade")
+                        .HasColumnType("int");
 
                     b.Property<int>("ManagerClubId")
                         .HasColumnType("int");
@@ -222,23 +219,20 @@ namespace DataAccess.Migrations
                     b.Property<int>("Pace")
                         .HasColumnType("int");
 
-                    b.Property<string>("PaceUpgrade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PaceUpgrade")
+                        .HasColumnType("int");
 
                     b.Property<int>("Passing")
                         .HasColumnType("int");
 
-                    b.Property<string>("PassingUpgrade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PassingUpgrade")
+                        .HasColumnType("int");
 
                     b.Property<int>("Physicality")
                         .HasColumnType("int");
 
-                    b.Property<string>("PhysicalityUpgrade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PhysicalityUpgrade")
+                        .HasColumnType("int");
 
                     b.Property<string>("Position")
                         .IsRequired()
@@ -251,9 +245,8 @@ namespace DataAccess.Migrations
                     b.Property<int>("Shooting")
                         .HasColumnType("int");
 
-                    b.Property<string>("ShootingUpgrade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ShootingUpgrade")
+                        .HasColumnType("int");
 
                     b.Property<string>("SurName")
                         .IsRequired()

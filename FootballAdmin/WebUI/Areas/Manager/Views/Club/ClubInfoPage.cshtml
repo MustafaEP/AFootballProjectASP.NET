@@ -43,22 +43,22 @@
                 <div class="card card-flush">
                     <div class="card-header align-items-center py-5 gap-2 gap-md-5">
 
-                            <div class="col-12 fv-row">
-                                <label for="preferredLineUp" style="color: #fff;">Diziliş:</label>
-                                <select id="preferredLineUp" class="form-select form-select-solid form-select-lg fw-semibold" required>
-                                    <option value="" disabled selected>Diziliş Seçin</option>
-                                    <option value="4-4-2" @(Model.LineUp == "4-4-2" ? "selected" : "")>4-4-2</option>
-                                    <option value="4-3-3" @(Model.LineUp == "4-3-3" ? "selected" : "")>4-3-3</option>
-                                    <option value="3-5-2" @(Model.LineUp == "3-5-2" ? "selected" : "")>3-5-2</option>
-                                    <option value="4-2-3-1" @(Model.LineUp == "4-2-3-1" ? "selected" : "")>4-2-3-1</option>
-                                    <option value="3-4-3" @(Model.LineUp == "3-4-3" ? "selected" : "")>3-4-3</option>
-                                    <option value="4-1-4-1" @(Model.LineUp == "4-1-4-1" ? "selected" : "")>4-1-4-1</option>
-                                    <option value="5-3-2" @(Model.LineUp == "5-3-2" ? "selected" : "")>5-3-2</option>
-                                    <option value="4-5-1" @(Model.LineUp == "4-5-1" ? "selected" : "")>4-5-1</option>
-                                    <option value="3-6-1" @(Model.LineUp == "3-6-1" ? "selected" : "")>3-6-1</option>
-                                    <option value="4-4-1-1" @(Model.LineUp == "4-4-1-1" ? "selected" : "")>4-4-1-1</option>
-                                </select>
-                            </div>
+                        <div class="col-12 fv-row">
+                            <label for="preferredLineUp" style="color: #fff;">Diziliş:</label>
+                            <select id="preferredLineUp" class="form-select form-select-solid form-select-lg fw-semibold" required>
+                                <option value="" disabled selected>Diziliş Seçin</option>
+                                <option value="4-4-2" @(Model.LineUp == "4-4-2" ? "selected" : "")>4-4-2</option>
+                                <option value="4-3-3" @(Model.LineUp == "4-3-3" ? "selected" : "")>4-3-3</option>
+                                <option value="3-5-2" @(Model.LineUp == "3-5-2" ? "selected" : "")>3-5-2</option>
+                                <option value="4-2-3-1" @(Model.LineUp == "4-2-3-1" ? "selected" : "")>4-2-3-1</option>
+                                <option value="3-4-3" @(Model.LineUp == "3-4-3" ? "selected" : "")>3-4-3</option>
+                                <option value="4-1-4-1" @(Model.LineUp == "4-1-4-1" ? "selected" : "")>4-1-4-1</option>
+                                <option value="5-3-2" @(Model.LineUp == "5-3-2" ? "selected" : "")>5-3-2</option>
+                                <option value="4-5-1" @(Model.LineUp == "4-5-1" ? "selected" : "")>4-5-1</option>
+                                <option value="3-6-1" @(Model.LineUp == "3-6-1" ? "selected" : "")>3-6-1</option>
+                                <option value="4-4-1-1" @(Model.LineUp == "4-4-1-1" ? "selected" : "")>4-4-1-1</option>
+                            </select>
+                        </div>
 
                     </div>
                     <div class="card-body pt-0">
@@ -66,33 +66,46 @@
                             <div class="col-md-12 col-lg-5">
                                 <div id="elevenId">
                                     <div class="map card mb-5">
-                                        <div class="offensive line" id="offensiveId">
-                                            <div>.</div>
+                                        <div class="offensive line text-center" id="offensiveId">
+                                            <div class="d-flex flex-column align-items-center">
+                                                <span style="font-size: 24px;">.</span>
+                                            </div>
                                         </div>
-                                        <div class="midfield line" id="midfieldId">
-                                            <div>.</div>
-                                            <div>.</div>
-                                            <div>.</div>
-                                        </div>
-                                        <div class="backmidfield line" id="backMidfieldId">
-                                            <div>.</div>
-                                            <div>.</div>
-                                        </div>
-                                        <div class="defence line" id="defenceId">
-                                            <div>.</div>
+                                        <div class="midfield line text-center" id="midfieldId">
                                             <div>.</div>
                                             <div>.</div>
                                             <div>.</div>
                                         </div>
-                                        <div class="goalKeeper line" id="goalKeeperId">
+                                        <div class="backmidfield line text-center" id="backMidfieldId">
+                                            <div>.</div>
+                                            <div>.</div>
+                                        </div>
+                                        <div class="defence line text-center" id="defenceId">
+                                            <div>.</div>
+                                            <div>.</div>
+                                            <div>.</div>
+                                            <div>.</div>
+                                        </div>
+                                        <div class="goalKeeper line text-center" id="goalKeeperId">
                                             <div>.</div>
                                         </div>
                                     </div>
                                 </div>
+                                <button class="btn btn-secondary text-inserve-secondary w-100 mb-2" id="saveChangesButton">Değişiklikleri Kaydet</button>
                             </div>
                             <div class="col-md-12 col-lg-7 p-5">
                                 <div>
-                                    Players
+                                    <table class="table align-middle table-row-dashed fs-6 gy-5 myTable" id="club_player_list">
+                                        <thead>
+                                            <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                                <th class="">Pozisyon</th>
+                                                <th class="">Ad</th>
+                                                <th class="">Soyad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-semibold text-gray-600">
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -103,14 +116,6 @@
 
     </div>
 
-</div>
-
-
-<div class="container m-5">
-    
-
-    
-   
 </div>
 
 
@@ -185,16 +190,21 @@
             width: 100%;
         }
 
-        .line div {
-            font-size: 30px; /* Noktaların boyutunu ayarlayın */
-            display: inline-block;
-        }
+            .line div {
+                font-size: 30px; /* Noktaların boyutunu ayarlayın */
+                display: inline-block;
+            }
 
     </style>
+    <link href="~/css/SpecialStyle.css" rel="stylesheet" type="text/css" />
 }
 
 @section scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script src="~/js/Manager/CreateClub.js"></script>
     <script src="~/js/Manager/Club.js"></script>
+
+
+
 }

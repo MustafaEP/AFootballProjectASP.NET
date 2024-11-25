@@ -3713,6 +3713,10 @@
       "PackagePath": "staticwebassets\\corona-free-dark-bootstrap-admin-template-1.0.0\\template\\partials\\_sidebar.html"
     },
     {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\css\\SpecialStyle.css",
+      "PackagePath": "staticwebassets\\css\\SpecialStyle.css"
+    },
+    {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\css\\myTableStyles.css",
       "PackagePath": "staticwebassets\\css\\myTableStyles.css"
     },
@@ -10043,6 +10047,14 @@
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Club.js",
       "PackagePath": "staticwebassets\\js\\Manager\\Club.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\CreateClub.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\CreateClub.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\MainPage.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\MainPage.js"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\date.js",

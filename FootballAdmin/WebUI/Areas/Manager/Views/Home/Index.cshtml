@@ -1,60 +1,513 @@
-﻿
+﻿@using Entities.Concrete
+@model Manager
 @{
     ViewData["Title"] = "Home";
     Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
     var name = User.FindFirst("Name")?.Value;
+
+    List<string> offensivePositions = ["Forward", "Striker", "Left Winger", "Right Winger", "Center Forward"];
+    List<string> midfieldPositions = ["Central Midfielder", "Attacking Midfielder", "Midfielder", "Defensive Midfielder", "Left Midfielder", "Right Midfielder"];
+    List<string> defencePositions = ["Left Back", "Right Back", "Center Back"];
+    List<string> goalkeeperPositions = ["Goalkeeper", "Sweeper Keeper"];
+
 }
-
 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
-	<div class="d-flex flex-column flex-column-fluid">
-		<div id="kt_app_toolbar" class="app-toolbar pt-5">
-			<div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
-				<div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
-					<div class="page-title d-flex flex-column gap-1 me-3 mb-2">
-						<ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
-							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">
-								<a href="../dist/index.html" class="text-gray-500">
-									<i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
-								</a>
-							</li>
-							<li class="breadcrumb-item">
-								<i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
-							</li>
-							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
-							<li class="breadcrumb-item">
-								<i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
-							</li>
-							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Ev</li>
-							<li class="breadcrumb-item">
-								<i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
-							</li>
-							<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Ana Sayfa</li>
+    <div class="d-flex flex-column flex-column-fluid">
+        <div id="kt_app_toolbar" class="app-toolbar pt-5">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+                <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+                    <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                <a href="/Manager/Home/Index" class="text-gray-500">
+                                    <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Ev</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Ana Sayfa</li>
 
-						</ul>
-						<h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Ana Sayfa</h1>
-					</div>
+                        </ul>
+                        <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Ana Sayfa</h1>
+                    </div>
 
-				</div>
-			</div>
-		</div>
-		<div id="kt_app_content" class="app-content flex-column-fluid">
-			<div id="kt_app_content_container" class="app-container container-fluid">
-				<div class="card card-flush">
-					<div class="card-header align-items-center py-5 gap-2 gap-md-5">
-						<div class="card-title">
-							Ana Sayfaya Hoşgeldin @name
-						</div>
-					</div>
-					<div class="card-body pt-0">
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		
-	</div>
+                </div>
+            </div>
+        </div>
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <div id="kt_app_content_container" class="app-container container-fluid">
+                <div class="card card-flush">
+                    <div class="card-body pt-0">
+                        <div class="col-12 d-flex row">
+                            <div class="col-md-12 col-lg-5">
+                                <div id="elevenId">
+                                    <div id="elevenMapId" class="map card mb-5 mt-5">
+                                        <div class="offensive line text-center" id="offensiveId">
+                                        </div>
+                                        <div class="midfield line text-center" id="midfieldId">
+                                        </div>
+                                        <div class="backmidfield line text-center" id="backMidfieldId">
+                                        </div>
+                                        <div class="defence line text-center" id="defenceId">
+                                        </div>
+                                        <div class="goalKeeper line text-center" id="goalKeeperId">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-7">
+                                <div class="card mb-5 mt-5 mb-xl-8">
+                                    <div class="card-header align-items-center border-0">
+                                        <h3 class="fw-bold text-gray-900 m-0">Futbolcular</h3>
+                                    </div>
+                                    <div class="card-body pt-2">
+                                        <ul class="nav nav-pills nav-pills-custom mb-3">
+                                            <li class="nav-item mb-3 me-3 me-lg-6">
+                                                <a class="nav-link d-flex justify-content-between flex-column flex-center overflow-hidden active w-80px h-85px py-4" data-bs-toggle="pill" href="#kt_stats_widget_2_tab_1">
+                                                    <div class="nav-icon">
+                                                        <div class="symbol symbol-50px">
+                                                            <div class="symbol-label fs-1 fw-semibold bg-body">F</div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="nav-text text-gray-700 fw-bold fs-6 lh-1">Forvet</span>
+                                                    <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item mb-3 me-3 me-lg-6">
+                                                <a class="nav-link d-flex justify-content-between flex-column flex-center overflow-hidden w-80px h-85px py-4" data-bs-toggle="pill" href="#kt_stats_widget_2_tab_2">
+                                                    <div class="nav-icon">
+                                                        <div class="symbol symbol-50px">
+                                                            <div class="symbol-label fs-1 fw-semibold bg-body">O</div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="nav-text text-gray-700 fw-bold fs-6 lh-1">Orta S.</span>
+                                                    <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item mb-3 me-3 me-lg-6">
+                                                <a class="nav-link d-flex justify-content-between flex-column flex-center overflow-hidden w-80px h-85px py-4" data-bs-toggle="pill" href="#kt_stats_widget_2_tab_4">
+                                                    <div class="nav-icon">
+                                                        <div class="symbol symbol-50px">
+                                                            <div class="symbol-label fs-1 fw-semibold bg-body">D</div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="nav-text text-gray-600 fw-bold fs-6 lh-1">Defans</span>
+                                                    <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item mb-3">
+                                                <a class="nav-link d-flex justify-content-between flex-column flex-center overflow-hidden w-80px h-85px py-4" data-bs-toggle="pill" href="#kt_stats_widget_2_tab_5">
+                                                    <div class="nav-icon">
+                                                        <div class="symbol symbol-50px">
+                                                            <div class="symbol-label fs-1 fw-semibold bg-body">K</div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="nav-text text-gray-600 fw-bold fs-6 lh-1">Kaleci</span>
+                                                    <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade show active" id="kt_stats_widget_2_tab_1">
+                                                <div class="table-responsive">
+                                                    <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
+                                                        <thead>
+                                                            <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
+                                                                <th class="ps-0 w-50px">Oyuncu</th>
+                                                                <th class="min-w-125px"></th>
+                                                                <th class="text-end min-w-100px">Hız</th>
+                                                                <th class="pe-0 text-end min-w-100px">Şut</th>
+                                                                <th class="pe-0 text-end min-w-100px">Gelişim</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @if (Model.ManagerClub != null && Model.ManagerClub.Footballers != null)
+                                                            {
+                                                                @foreach (var item in Model.ManagerClub.Footballers)
+                                                                {
+                                                                    @foreach (var postionItem in offensivePositions)
+                                                                    {
+                                                                        @if (item.Position == postionItem)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="symbol symbol-40px">
+                                                                                        <div class="symbol-label fs-1 fw-semibold bg-body">@item.Name[0]</div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="ps-0">
+                                                                                    <p class="text-gray-800 fw-bold mb-1 fs-6 text-start pe-0">@item.Name @item.SurName</p>
+                                                                                    <span data-position="@item.Position" class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">@item.Position</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">
+                                                                                        @{
+                                                                                            var pace = item.Pace + item.PaceUpgrade;
+                                                                                        }@pace
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td class="text-end pe-0">
+                                                                                    <span class="text-gray-800 fw-bold d-block fs-6">
+                                                                                        @{
+                                                                                            var shooting = item.Shooting + item.ShootingUpgrade;
+                                                                                        }@shooting
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td class="text-end pe-0">
+                                                                                    @{
+                                                                                        var perc = (((item.ShootingUpgrade + item.PaceUpgrade + item.Confidence) * 100) / (item.Pace + item.Shooting));
+                                                                                        var color = perc > 0 ? "ki-arrow-up text-success" : perc == 0 ? "ki-minus  text-secondary" : "ki-arrow-down  text-danger";
+
+                                                                                        var colorBg = perc > 0 ? "badge-light-success" : perc == 0 ? "badge-light-secondary" : "badge-light-danger";
+                                                                                    }
+                                                                                    <div class="m-0">
+                                                                                        <span class="badge @colorBg fs-base">
+                                                                                            <i class="ki-duotone fs-5 @color ms-n1">
+                                                                                                <span class="path1"></span>
+                                                                                                <span class="path2"></span>
+                                                                                            </i>@perc%
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="kt_stats_widget_2_tab_2">
+                                                <!--begin::Table container-->
+                                                <div class="table-responsive">
+                                                    <!--begin::Table-->
+                                                    <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
+                                                        <!--begin::Table head-->
+                                                        <thead>
+                                                            <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
+                                                                <th class="ps-0 w-50px">Oyuncu</th>
+                                                                <th class="min-w-125px"></th>
+                                                                <th class="text-end min-w-100px">Dribling</th>
+                                                                <th class="pe-0 text-end min-w-100px">Pas</th>
+                                                                <th class="pe-0 text-end min-w-100px">Gelişim</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @if (Model.ManagerClub != null && Model.ManagerClub.Footballers != null)
+                                                            {
+                                                                @foreach (var item in Model.ManagerClub.Footballers)
+                                                                {
+                                                                    @foreach (var postionItem in midfieldPositions)
+                                                                    {
+                                                                        @if (item.Position == postionItem)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="symbol symbol-40px">
+                                                                                        <div class="symbol-label fs-1 fw-semibold bg-body">@item.Name[0]</div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="ps-0">
+                                                                                    <p class="text-gray-800 fw-bold mb-1 fs-6 text-start pe-0">@item.Name @item.SurName</p>
+                                                                                    <span data-position="@item.Position" class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">@item.Position</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">
+                                                                                        @{
+                                                                                            var gift = item.Dribbling + item.DribblingUpgrade;
+                                                                                        }@gift
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td class="text-end pe-0">
+                                                                                    <span class="text-gray-800 fw-bold d-block fs-6">
+                                                                                        @{
+                                                                                            var gift2 = item.Passing + item.PassingUpgrade;
+                                                                                        }@gift2
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td class="text-end pe-0">
+                                                                                    @{
+                                                                                        var perc = (((item.PassingUpgrade + item.DribblingUpgrade + item.Confidence) * 100) / (item.Passing + item.Dribbling));
+                                                                                        var color = perc > 0 ? "ki-arrow-up text-success" : perc == 0 ? "ki-minus  text-secondary" : "ki-arrow-down  text-danger";
+
+                                                                                        var colorBg = perc > 0 ? "badge-light-success" : perc == 0 ? "badge-light-secondary" : "badge-light-danger";
+                                                                                    }
+                                                                                    <div class="m-0">
+                                                                                        <span class="badge @colorBg fs-base">
+                                                                                            <i class="ki-duotone fs-5 @color ms-n1">
+                                                                                                <span class="path1"></span>
+                                                                                                <span class="path2"></span>
+                                                                                            </i>@perc%
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="kt_stats_widget_2_tab_4">
+                                                <div class="table-responsive">
+                                                    <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
+                                                        <thead>
+                                                            <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
+                                                                <th class="ps-0 w-50px">Oyuncu</th>
+                                                                <th class="min-w-125px"></th>
+                                                                <th class="text-end min-w-100px">Defans</th>
+                                                                <th class="pe-0 text-end min-w-100px">Fizik</th>
+                                                                <th class="pe-0 text-end min-w-100px">Gelişim</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @if (Model.ManagerClub != null && Model.ManagerClub.Footballers != null)
+                                                            {
+                                                                @foreach (var item in Model.ManagerClub.Footballers)
+                                                                {
+                                                                    @foreach (var postionItem in defencePositions)
+                                                                    {
+                                                                        @if (item.Position == postionItem)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="symbol symbol-40px">
+                                                                                        <div class="symbol-label fs-1 fw-semibold bg-body">@item.Name[0]</div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="ps-0">
+                                                                                    <p class="text-gray-800 fw-bold mb-1 fs-6 text-start pe-0">@item.Name @item.SurName</p>
+                                                                                    <span data-position="@item.Position" class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">@item.Position</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">
+                                                                                        @{
+                                                                                            var gift = item.Defending + item.DefendingUpgrade;
+                                                                                        }@gift
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td class="text-end pe-0">
+                                                                                    <span class="text-gray-800 fw-bold d-block fs-6">
+                                                                                        @{
+                                                                                            var gift2 = item.Physicality + item.PhysicalityUpgrade;
+                                                                                        }@gift2
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td class="text-end pe-0">
+                                                                                    @{
+                                                                                        var perc = (((item.PhysicalityUpgrade + item.DefendingUpgrade + item.Confidence) * 100) / (item.Physicality + item.Defending));
+                                                                                        var color = perc > 0 ? "ki-arrow-up text-success" : perc == 0 ? "ki-minus  text-secondary" : "ki-arrow-down  text-danger";
+
+                                                                                        var colorBg = perc > 0 ? "badge-light-success" : perc == 0 ? "badge-light-secondary" : "badge-light-danger";
+                                                                                    }
+                                                                                    <div class="m-0">
+                                                                                        <span class="badge @colorBg fs-base">
+                                                                                            <i class="ki-duotone fs-5 @color ms-n1">
+                                                                                                <span class="path1"></span>
+                                                                                                <span class="path2"></span>
+                                                                                            </i>@perc%
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="kt_stats_widget_2_tab_5">
+                                                <div class="table-responsive">
+                                                    <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
+                                                        <thead>
+                                                            <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
+                                                                <th class="ps-0 w-50px">Oyuncu</th>
+                                                                <th class="min-w-125px"></th>
+                                                                <th class="text-end min-w-100px">Refleks</th>
+                                                                <th class="pe-0 text-end min-w-100px">Çeviklik</th>
+                                                                <th class="pe-0 text-end min-w-100px">Gelişim</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @if (Model.ManagerClub != null && Model.ManagerClub.Footballers != null)
+                                                            {
+                                                                @foreach (var item in Model.ManagerClub.Footballers)
+                                                                {
+                                                                    @foreach (var postionItem in goalkeeperPositions)
+                                                                    {
+                                                                        @if (item.Position == postionItem)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="symbol symbol-40px">
+                                                                                        <div class="symbol-label fs-1 fw-semibold bg-body">@item.Name[0]</div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="ps-0">
+                                                                                    <p class="text-gray-800 fw-bold mb-1 fs-6 text-start pe-0">@item.Name @item.SurName</p>
+                                                                                    <span data-position="@item.Position" class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">@item.Position</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">
+                                                                                        @{
+                                                                                            var pace = item.Pace + item.PaceUpgrade;
+                                                                                        }@pace
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td class="text-end pe-0">
+                                                                                    <span class="text-gray-800 fw-bold d-block fs-6">
+                                                                                        @{
+                                                                                            var shooting = item.Shooting + item.ShootingUpgrade;
+                                                                                        }@shooting
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td class="text-end pe-0">
+                                                                                    @{
+                                                                                        var perc = (((item.ShootingUpgrade + item.PaceUpgrade + item.Confidence) * 100) / (item.Pace + item.Shooting));
+                                                                                        var color = perc > 0 ? "ki-arrow-up text-success" : perc == 0 ? "ki-minus  text-secondary" : "ki-arrow-down  text-danger";
+
+                                                                                        var colorBg = perc > 0 ? "badge-light-success" : perc == 0 ? "badge-light-secondary" : "badge-light-danger";
+                                                                                    }
+                                                                                    <div class="m-0">
+                                                                                        <span class="badge @colorBg fs-base">
+                                                                                            <i class="ki-duotone fs-5 @color ms-n1">
+                                                                                                <span class="path1"></span>
+                                                                                                <span class="path2"></span>
+                                                                                            </i>@perc%
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </div>
 
 
 
+@section styles {
+    <style>
+        .swal2-actions {
+            margin-top: 0 !important;
+        }
+
+        .card-body {
+            margin: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .swal2-confirm, .swal2-styled {
+            font-size: smaller !important;
+        }
+
+        .swal2-validation-message {
+            margin-top: 0;
+            margin-bottom: 10px;
+            background-color: #2f2f2f;
+            color: #ffffff;
+            font-size: smaller;
+        }
+
+        div:where(.swal2-container) div:where(.swal2-validation-message)::before {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line] {
+            background-color: #ffffff;
+        }
+
+        div:where(.swal2-icon).swal2-error {
+            border-color: #000000;
+            color: #000000;
+        }
+
+        .swal2-modal .swal2-icon, .swal2-modal .swal2-success-ring {
+            margin-bottom: 10px;
+        }
+
+        .swal2-html-container {
+            color: white !important;
+        }
+
+        div:where(.swal2-icon).swal2-success [class^=swal2-success-line] {
+            background-color: #ffffff;
+        }
+
+        div:where(.swal2-icon).swal2-success .swal2-success-ring {
+            border: .25em solid rgb(0 0 0);
+        }
+
+        .map {
+            position: relative;
+            aspect-ratio: 2/3;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .line {
+            display: flex;
+            justify-content: space-evenly; /* Her eleman arasında eşit mesafe */
+            align-items: center;
+            width: 100%;
+        }
+
+            .line div {
+                font-size: 30px; /* Noktaların boyutunu ayarlayın */
+                display: inline-block;
+            }
+
+    </style>
+    <link href="~/css/SpecialStyle.css" rel="stylesheet" type="text/css" />
+}
+
+@section scripts {
+    <script src="~/js/Manager/MainPage.js"></script>
+    <script src="~/js/Scripts/translate.js"></script>
+
+    <script>
+        document.querySelectorAll('[data-position]').forEach(span => {
+            const originalPosition = span.getAttribute('data-position');
+            const translatedPosition = translatePosition(originalPosition);
+            span.textContent = translatedPosition;
+        });
+    </script>
+}

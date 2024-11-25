@@ -1330,7 +1330,7 @@
 									<!--end::Menu separator-->
 									<!--begin::Menu item-->
 									<div class="menu-item px-5">
-										<a href="../dist/account/overview.html" class="menu-link px-5">Profil</a>
+										<a href="/Manager/Home/Profile" class="menu-link px-5">Profil</a>
 									</div>
 									<!--end::Menu item-->
 									<!--begin::Menu item-->
@@ -1434,12 +1434,12 @@
 									<!--end::Menu item-->
 									<!--begin::Menu item-->
 									<div class="menu-item px-5 my-1">
-										<a href="../dist/account/settings.html" class="menu-link px-5">Hesap Ayarları</a>
+									<a href="/Manager/Home/ProfileSettings" class="menu-link px-5">Hesap Ayarları</a>
 									</div>
 									<!--end::Menu item-->
 									<!--begin::Menu item-->
 									<div class="menu-item px-5">
-										<a href="../dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Çıkış Yap</a>
+										<a href="/Home/Logout" class="menu-link px-5">Çıkış Yap</a>
 									</div>
 									<!--end::Menu item-->
 								</div>
@@ -1552,7 +1552,53 @@
 									<!--end:Menu sub-->
 								</div>
 								<!--end:Menu item-->
-							</div>
+								<!--begin:Menu item-->
+								<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+									<!--begin:Menu link-->
+									<span class="menu-link">
+										<span class="menu-icon">
+										<i class="ki-duotone ki-element-6 fs-1">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+												<span class="path4"></span>
+											</i>
+										</span>
+										<span class="menu-title">Hesap</span>
+										<span class="menu-arrow"></span>
+									</span>
+									<!--end:Menu link-->
+									<!--begin:Menu sub-->
+									<div class="menu-sub menu-sub-accordion">
+										<!--begin:Menu item-->
+										<div class="menu-item">
+											<!--begin:Menu link-->
+											<a class="menu-link @(ViewData["Title"]?.ToString() == "Profile" ? "active" : "")" href="/Manager/Home/Profile">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Profil</span>
+											</a>
+											<!--end:Menu link-->
+										</div>
+										<!--end:Menu item-->
+										<!--begin:Menu item-->
+										<div class="menu-item">
+											<!--begin:Menu link-->
+										<a class="menu-link @(ViewData["Title"]?.ToString() == "ProfileSettings" ? "active" : "")" href="/Manager/Home/ProfileSettings">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Hesap Ayarları</span>
+											</a>
+											<!--end:Menu link-->
+										</div>
+										<!--end:Menu item-->
+									</div>
+									<!--end:Menu sub-->
+								</div>
+								<!--end:Menu item-->
+								</div>
 							<!--end::Sidebar menu-->
 
 						</div>
@@ -1627,6 +1673,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 	@* My Scripts *@
 	<script src="~/js/Scripts/date.js"></script>

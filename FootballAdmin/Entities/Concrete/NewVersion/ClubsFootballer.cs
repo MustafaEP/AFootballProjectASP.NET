@@ -32,13 +32,13 @@ namespace Entities.Concrete.NewVersion
 
         public string Abilities { get; set; }
         public string ClubName { get; set; }
-        public string PaceUpgrade { get; set; }
-        public string ShootingUpgrade { get; set; }
-        public string PassingUpgrade { get; set; }
-        public string DribblingUpgrade { get; set; }
-        public string DefendingUpgrade { get; set; }
-        public string PhysicalityUpgrade { get; set; }
-        public string Confidence {  get; set; } //Güven
+        public int PaceUpgrade { get; set; }
+        public int ShootingUpgrade { get; set; }
+        public int PassingUpgrade { get; set; }
+        public int DribblingUpgrade { get; set; }
+        public int DefendingUpgrade { get; set; }
+        public int PhysicalityUpgrade { get; set; }
+        public int Confidence { get; set; } //Güven
 
 
         public int ManagerClubId {  get; set; }
