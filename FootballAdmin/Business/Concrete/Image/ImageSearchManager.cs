@@ -14,8 +14,8 @@ namespace Business.Concrete.Image
 {
     public class ImageSearchManager : IImageSearchService
     {
-        private readonly string _apiKey = "AIzaSyB5xEvLP-U2SPIqJq-c43xLRCGSx2wtLmo"; //GOOGLE API KEY
-        private readonly string _cx = "00e263aadb33e4ce4"; //CSE_ID
+        private readonly string _apiKey = "Your APIKEY"; //GOOGLE API KEY
+        private readonly string _cx = "Your CSE_ID"; //CSE_ID
 
         public async Task<string> GetPlayerImageAsync(string playerName)
         {
