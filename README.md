@@ -1,7 +1,7 @@
 # FootballAdmin
- A Football Project with use Asp.net Core 8
+ * A Football Project with use Asp.net Core 8
  if you want to use you should change "FootballAdminConnection" value in WebUI/appsetting.json
- Asp.NET Core 8 ile bir futbol projesi
+ * Asp.NET Core 8 ile bir futbol projesi
  Eğer denemek isterseniz WebUI/appsetting.json daki "FootballAdminConnection" değerini değiştirmelisiniz.
 
  
