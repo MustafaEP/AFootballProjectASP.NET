@@ -9,6 +9,7 @@
 ![add_player](https://github.com/user-attachments/assets/81e01009-bda4-4209-b690-d2a00e09d3d7)
 * We can get the footballers atributes in EASport FC25 Official Web Site.
 * Futbolcu bilgilerini doğrudan EASport FC25 in sitesinden çekmemizi sağlıyor.
+  
 ![profile_manager](https://github.com/user-attachments/assets/b37360a8-926b-45eb-98f5-b961fb95aca6)
 ![match](https://github.com/user-attachments/assets/8330638d-9717-428a-8239-38ba13ec8fcf)
 ![matches](https://github.com/user-attachments/assets/f14888db-d3d3-431e-a0ca-536813871eba)
