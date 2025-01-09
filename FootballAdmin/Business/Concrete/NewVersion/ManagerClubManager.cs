@@ -20,6 +20,11 @@ namespace Business.Concrete.NewVersion
             _managerClubDal = managerClubDal;
         }
 
+        public List<ManagerClub> AnotherClubs(int managerId)
+        {
+            return _managerClubDal.GetListAll().Where(x =>  x.ManagerId != managerId).ToList();
+        }
+
         public List<ManagerClub> GetList()
         {
             return _managerClubDal.GetListAll();

@@ -1,0 +1,718 @@
+﻿@using Entities.Concrete.NewVersion
+@model Footballer
+@{
+    ViewData["Title"] = "Footballer";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+
+
+
+}
+
+
+<div class="d-flex flex-column flex-column-fluid">
+    <!--begin::Toolbar-->
+    <div id="kt_app_toolbar" class="app-toolbar pt-5">
+        <!--begin::Toolbar container-->
+        <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+            <!--begin::Toolbar wrapper-->
+            <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+                <!--begin::Page title-->
+                <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                    <!--begin::Breadcrumb-->
+                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                            <a href="../dist/index.html" class="text-gray-500">
+                                <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                            </a>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item">
+                            <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item">
+                            <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Transfer</li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item">
+                            <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-gray-700">Oyuncu Detay</li>
+                        <!--end::Item-->
+                    </ul>
+                    <!--end::Breadcrumb-->
+                    <!--begin::Title-->
+                    <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Oyuncu Profili</h1>
+                    <!--end::Title-->
+                </div>
+                <!--end::Page title-->
+            </div>
+            <!--end::Toolbar wrapper-->
+        </div>
+        <!--end::Toolbar container-->
+    </div>
+    <!--end::Toolbar-->
+    <!--begin::Content-->
+    <div id="kt_app_content" class="app-content flex-column-fluid">
+        <!--begin::Content container-->
+        <div id="kt_app_content_container" class="app-container container-fluid">
+            <!--begin::Navbar-->
+            <div class="card mb-5 mb-xl-10">
+                <div class="card-body pt-9 pb-0">
+                    <!--begin::Details-->
+                    <div class="d-flex flex-wrap flex-sm-nowrap mb-3">
+                        <!--begin: Pic-->
+                        <div class="me-7 mb-4">
+                            <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+                                <img id="footballerImg" data-name="@Model.Name @Model.SurName" alt="Footballer Image" style="width:200px; height:200px;" />
+                                <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
+                            </div>
+                        </div>
+                        <!--end::Pic-->
+                        <!--begin::Info-->
+                        <div class="flex-grow-1">
+                            <!--begin::Title-->
+                            <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+                                <!--begin::User-->
+                                <div class="d-flex flex-column">
+                                    <!--begin::Name-->
+                                    <div class="d-flex align-items-center mb-2">
+                                        <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">@Model.Name @Model.SurName</a>
+                                    </div>
+                                    <!--end::Name-->
+                                    <!--begin::Info-->
+                                    <div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
+
+                                        @foreach (var position in Model.FootballerPositions)
+                                        {
+                                            <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+                                                <i class="fa fa-map-marker-alt fs-4 me-1">
+
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                    <span class="path3"></span>
+                                                </i>
+                                                @position.Position
+                                            </a>
+                                        }
+
+                                    </div>
+                                    @if (Model.FootballerPositions != null && Model.FootballerPositions.Any())
+                                    {
+                                        <div class="d-flex align-items-center mb-2 ">
+                                            <p href="#" class="fw-bold me-1 p-3 border border-secondary bg-secondary rounded">@Model.FootballerPositions.First().ShortPosition</p>
+                                        </div>
+                                    }
+
+                                    <!--end::Info-->
+                                </div>
+                                <!--end::User-->
+                                <!--begin::Actions-->
+                                <div class="d-flex my-4">
+                                    <a href="#" class="btn btn-sm btn-light me-2" id="kt_user_follow_button">
+                                        <i class="ki-duotone ki-check fs-2 d-none"></i>
+                                        <!--begin::Indicator label-->
+                                        <span class="indicator-label">₺ @Model.MarketPrice</span>
+                                        <!--end::Indicator label-->
+                                        <!--begin::Indicator progress-->
+                                        <span class="indicator-progress">
+                                            Lütfen Bekleyiniz...
+                                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                        </span>
+                                        <!--end::Indicator progress-->
+                                    </a>
+                                    <button onclick="BuyFootboller(@Model.Id)" class="btn btn-sm btn-primary me-2">Satın Al</button>
+                                </div>
+                                <!--end::Actions-->
+                            </div>
+                            <!--end::Title-->
+                            <!--begin::Stats-->
+                            <div class="d-flex flex-wrap flex-stack">
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-column flex-grow-1 pe-8">
+                                    <!--begin::Stats-->
+                                    <div class="d-flex flex-wrap">
+                                        <!--begin::Stat-->
+                                        <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                                            <!--begin::Number-->
+                                            <div class="d-flex align-items-center">
+                                                <i class="ki-duotone ki-arrow-up fs-2 text-success me-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                                <div class="fs-2 fw-bold">0</div>
+                                            </div>
+                                            <!--end::Number-->
+                                            <!--begin::Label-->
+                                            <div class="fw-semibold fs-6 text-gray-400">Satın Alan</div>
+                                            <!--end::Label-->
+                                        </div>
+                                        <!--end::Stat-->
+                                    </div>
+                                    <!--end::Stats-->
+                                </div>
+                                <!--end::Wrapper-->
+                                <!--begin::Progress-->
+                                <div class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
+                                    <div class="d-flex justify-content-between w-100 mt-auto mb-2">
+                                        <span class="fw-semibold fs-6 text-gray-400">Oyuncu Gücü - @Model.Statistic.Power</span>
+                                        <span class="fw-bold fs-6"></span>
+                                    </div>
+                                    <div class="h-5px mx-3 w-100 bg-light mb-3">
+                                        <div class="bg-success rounded h-5px" role="progressbar" style="width: @Model.Statistic.Power%;" aria-valuenow="@Model.Statistic.Power" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <!--end::Progress-->
+                            </div>
+                            <!--end::Stats-->
+                        </div>
+                        <!--end::Info-->
+                    </div>
+                    <!--end::Details-->
+                </div>
+            </div>
+            <!--end::Navbar-->
+            <!--begin::Details view-->
+            <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+                <!--begin::Card header-->
+                <div class="card-header cursor-pointer">
+                    <!--begin::Card title-->
+                    <div class="card-title m-0">
+                        <h3 class="fw-bold m-0">Oyuncu Detayları</h3>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--begin::Card header-->
+                <!--begin::Card body-->
+                <div class="card-body p-9 row">
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+                        @{
+                            var attributeSub = Model.Statistic.PaceDetails.Acceleration;
+                            var color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-3 font-weight-bold">Hız</p>
+                            <p class="text-bold fs-3 font-weight-bold">@Model.Statistic.Pace</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Hızlanma</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = Model.Statistic.PaceDetails.SprintSpeed;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Sprint Hızı</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+                        @{
+                            attributeSub = Model.Statistic.ShootingDetails.Positioning;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-3 font-weight-bold">Şut</p>
+                            <p class="text-bold fs-3 font-weight-bold">@Model.Statistic.Shooting</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Pozisyon Alma</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = Model.Statistic.ShootingDetails.Finishing;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Bitiricilik</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+
+                        @{
+                            attributeSub = Model.Statistic.ShootingDetails.ShotPower;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Şut Gücü</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+
+                        @{
+                            attributeSub = Model.Statistic.ShootingDetails.LongShots;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Uzaktan Şut</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = Model.Statistic.ShootingDetails.Volleys;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Vole</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = Model.Statistic.ShootingDetails.Penalties;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Penaltı</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+                        @{
+                            attributeSub = Model.Statistic.PassingDetails.Vision;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-3 font-weight-bold">Pas</p>
+                            <p class="text-bold fs-3 font-weight-bold">@Model.Statistic.Passing</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Görüş</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = Model.Statistic.PassingDetails.Crossing;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Orta Açma</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+
+                        @{
+                            attributeSub = Model.Statistic.PassingDetails.FreeKickAccuracy;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Serbest Vuruş İsabeti</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+
+                        @{
+                            attributeSub = Model.Statistic.PassingDetails.ShortPassing;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Kısa Pas</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = Model.Statistic.PassingDetails.LongPassing;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Uzun Pas</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = Model.Statistic.PassingDetails.Curve;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Falso</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+                        @{
+                            var modelAtt = Model.Statistic.DribblingDetails;
+                            attributeSub = modelAtt.Agility;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-3 font-weight-bold">Dribling</p>
+                            <p class="text-bold fs-3 font-weight-bold">@Model.Statistic.Dribbling</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Çeviklik</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            modelAtt = Model.Statistic.DribblingDetails;
+                            attributeSub = modelAtt.Balance;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Denge</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            modelAtt = Model.Statistic.DribblingDetails;
+                            attributeSub = modelAtt.Reactions;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Reaksiyon</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            modelAtt = Model.Statistic.DribblingDetails;
+                            attributeSub = modelAtt.BallControl;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Top Kontrolü</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            modelAtt = Model.Statistic.DribblingDetails;
+                            attributeSub = modelAtt.DribblingP;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Dribling</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            modelAtt = Model.Statistic.DribblingDetails;
+                            attributeSub = modelAtt.Composure;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Soğuk Kanlılık</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+                        @{
+                            var modelAttDefend = Model.Statistic.DefendingDetails;
+                            attributeSub = modelAttDefend.Interceptions;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-3 font-weight-bold">Defans</p>
+                            <p class="text-bold fs-3 font-weight-bold">@Model.Statistic.Defending</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Top Kesme</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = modelAttDefend.HeadingAccuracy;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Kafa İsabeti</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = modelAttDefend.DefAwareness;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Defansif Farkındalık</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = modelAttDefend.StandingTackle;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Ayakta Müdahele</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = modelAttDefend.SlidingTackle;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Kayarak Müdahele</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+                        @{
+                            var modelAttPhy = Model.Statistic.PhysicalityDetails;
+                            attributeSub = modelAttPhy.Jumping;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-3 font-weight-bold">Fizik Gücü</p>
+                            <p class="text-bold fs-3 font-weight-bold">@Model.Statistic.Physicality</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Zıplama</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = modelAttPhy.Stamina;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Dayanıklılık</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = modelAttPhy.Strength;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Güç</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        @{
+                            attributeSub = modelAttPhy.Aggression;
+                            color = attributeSub >= 85 ? "bg-success" : attributeSub >= 70 ? "bg-primary" : attributeSub >= 50 ? "bg-warning" : "bg-danger";
+                        }
+                        <div class="d-flex justify-content-between">
+                            <p class="text-bold fs-4 font-weight-bold text-muted">Agresiflik</p>
+                            <p class="text-bold fs-4 font-weight-bold text-muted">@attributeSub</p>
+                        </div>
+                        <div class="h-5px w-100 bg-light mb-3">
+                            <div class="@color rounded h-5px" role="progressbar" style="width: @attributeSub%;" aria-valuenow="@attributeSub" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--end::details View-->
+            </div>
+
+            <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+                <!--begin::Card header-->
+                <div class="card-header cursor-pointer">
+                    <!--begin::Card title-->
+                    <div class="card-title m-0">
+                        <h3 class="fw-bold m-0">Oyuncu Yetenekleri</h3>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--begin::Card header-->
+                <!--begin::Card body-->
+                <div class="card-body p-9 row">
+
+                    @foreach (var item in Model.Statistic.footballerAbilities)
+                    {
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+                            <div class="card m-3 myCardHover">
+                                <div class="m-3">
+                                    <div class="fs-4 fw-bold mb-2">
+                                        <p>@item.AbilityName</p>
+                                    </div>
+                                    <div class="fw-light fs-6 mb-4">
+                                        <p class="text-muted">@item.Description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+                <!--end::details View-->
+            </div>
+        </div>
+        <!--end::Content-->
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Bu, oyuncunun resmini göstermek için kullanılacak alan -->
+@section stylesfirst {
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+
+    <style>
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+        }
+
+        /* Kartın başlangıç görünümü */
+        .myCardHover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+            /* Hover efekti */
+            .myCardHover:hover {
+                transform: scale(1.05); /* Kartı büyütür */
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Hafif gölge ekler */
+                border-color: #007bff; /* Sınır rengini değiştirir */
+            }
+
+    </style>
+
+
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Dark.js"></script>
+}
+
+@section styles {
+    <style>
+        .myTable tbody tr:hover {
+            cursor: pointer;
+        }
+
+        .swal2-container .swal2-html-container {
+            max-height: auto !important;
+        }
+    </style>
+}
+
+@section scripts {
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+
+
+    <script src="~/js/Manager/Transfer/Footballer.js"></script>
+    <script src="~/js/Manager/Transfer/BuyFootbollerFunc.js"></script>
+
+}

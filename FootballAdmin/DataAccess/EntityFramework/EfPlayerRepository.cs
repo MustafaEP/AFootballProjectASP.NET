@@ -1,5 +1,5 @@
 ﻿using Access.Abstract;
-using Access.EntityFramework.GenericRepository;
+using Core.Access.EntityFramework.GenericRepository;
 using Entities.Concrete;
 using Microsoft.Extensions.Configuration;
 using System;

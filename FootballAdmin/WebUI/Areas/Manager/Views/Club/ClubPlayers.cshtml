@@ -1,0 +1,103 @@
+﻿@using Entities.Concrete.NewVersion
+@model List<ClubsFootballer>
+@{
+    ViewData["Title"] = "ClubPlayers";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+    <div class="d-flex flex-column flex-column-fluid">
+        <div id="kt_app_toolbar" class="app-toolbar pt-5">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+                <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+                    <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                <a href="../dist/index.html" class="text-gray-500">
+                                    <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Kulüp</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Oyuncular</li>
+
+                        </ul>
+                        <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Takım</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <div id="kt_app_content_container" class="app-container container-fluid">
+                <div class="card card-flush">
+
+                    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+
+                        <div class="col-12 fv-row">
+                            <label for="preferredPlayer" style="color: #fff;">Oyuncu:</label>
+                            <select id="preferredPlayer" class="form-select form-select-solid form-select-lg fw-semibold" required>
+                                <option value="" disabled selected>Oyuncu Seçin</option>
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@item.Id">@item.Name @item.SurName</option>
+                                }
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="col-12 d-flex card m-5" id="chart_up_div">
+                            <div class="m-5">
+                                <div>Oyuncu İstatistikleri</div>
+                                <div id="chartdiv"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@section styles {
+    <!-- Styles -->
+    <style>
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+        }
+
+        #chartdiv2 {
+            width: 100%;
+            height: 500px;
+        }
+
+        #chartdiv3 {
+            width: 100%;
+            height: 500px;
+        }
+
+    </style>
+
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Frozen.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Dark.js"></script>
+}
+@section scripts {
+    <script src="~/js/Manager/Footballers/footballer.js"></script>
+    <script src="~/js/Manager/Charts/GoalAsistLollipop.js"></script>
+}

@@ -1,4 +1,4 @@
-﻿using Access.Abstract.GenericDal;
+﻿using Core.Access.Abstract.GenericDal;
 using Entities.Concrete.NewVersion;
 using System;
 using System.Collections.Generic;

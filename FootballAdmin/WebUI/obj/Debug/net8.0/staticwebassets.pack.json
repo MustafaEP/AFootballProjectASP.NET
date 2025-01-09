@@ -3717,6 +3717,14 @@
       "PackagePath": "staticwebassets\\css\\SpecialStyle.css"
     },
     {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\css\\ckeditor\\dark-theme.css",
+      "PackagePath": "staticwebassets\\css\\ckeditor\\dark-theme.css"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\css\\ckeditor\\light-theme.css",
+      "PackagePath": "staticwebassets\\css\\ckeditor\\light-theme.css"
+    },
+    {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\css\\myTableStyles.css",
       "PackagePath": "staticwebassets\\css\\myTableStyles.css"
     },
@@ -3725,16 +3733,52 @@
       "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\data\\Countries.json",
+      "PackagePath": "staticwebassets\\data\\Countries.json"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\data\\matchtext.json",
+      "PackagePath": "staticwebassets\\data\\matchtext.json"
+    },
+    {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\futbolLogo.png",
-      "PackagePath": "staticwebassets\\image\\futbolLogo.png"
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\FUTCARD.png",
+      "PackagePath": "staticwebassets\\image\\FUTCARD.png"
     },
     {
-      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\futbolMiniLogo.png",
-      "PackagePath": "staticwebassets\\image\\futbolMiniLogo.png"
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\FUTCARD2.png",
+      "PackagePath": "staticwebassets\\image\\FUTCARD2.png"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\FUTCARD3.png",
+      "PackagePath": "staticwebassets\\image\\FUTCARD3.png"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\FUTCARD4.png",
+      "PackagePath": "staticwebassets\\image\\FUTCARD4.png"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\FUTCARD5.png",
+      "PackagePath": "staticwebassets\\image\\FUTCARD5.png"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\FUTCARDBG.png",
+      "PackagePath": "staticwebassets\\image\\FUTCARDBG.png"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\Footballers\\footballer.png",
+      "PackagePath": "staticwebassets\\image\\Footballers\\footballer.png"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\Footballers\\kerem_akturkoglu.png",
+      "PackagePath": "staticwebassets\\image\\Footballers\\kerem_akturkoglu.png"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\image\\resim.png",
+      "PackagePath": "staticwebassets\\image\\resim.png"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\inspinia-gh-pages\\.gitignore",
@@ -10041,20 +10085,68 @@
       "PackagePath": "staticwebassets\\inspinia-gh-pages\\widgets.html"
     },
     {
-      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\BuyPlayers.js",
-      "PackagePath": "staticwebassets\\js\\Manager\\BuyPlayers.js"
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Admin\\Footballer\\AddFootballer.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\Footballer\\AddFootballer.js"
     },
     {
-      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Club.js",
-      "PackagePath": "staticwebassets\\js\\Manager\\Club.js"
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\ChangeProfile.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\ChangeProfile.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Charts\\GoalAsistLollipop.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\Charts\\GoalAsistLollipop.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Club\\ClubSetting.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\Club\\ClubSetting.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Club\\Formation.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\Club\\Formation.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\CountryMap.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\CountryMap.js"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\CreateClub.js",
       "PackagePath": "staticwebassets\\js\\Manager\\CreateClub.js"
     },
     {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Footballers\\footballer.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\Footballers\\footballer.js"
+    },
+    {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\MainPage.js",
       "PackagePath": "staticwebassets\\js\\Manager\\MainPage.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Match\\AddMatch.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\Match\\AddMatch.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Match\\ClickMatch.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\Match\\ClickMatch.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Transfer\\BuyFootbollerFunc.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\Transfer\\BuyFootbollerFunc.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Transfer\\BuyPlayers.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\Transfer\\BuyPlayers.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\Transfer\\Footballer.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\Transfer\\Footballer.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Manager\\avatar.js",
+      "PackagePath": "staticwebassets\\js\\Manager\\avatar.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\AnswerMessage.js",
+      "PackagePath": "staticwebassets\\js\\Scripts\\AnswerMessage.js"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\Scripts\\date.js",
@@ -10087,6 +10179,10 @@
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\natificationDataTable.js",
       "PackagePath": "staticwebassets\\js\\natificationDataTable.js"
+    },
+    {
+      "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\normal\\footballers.js",
+      "PackagePath": "staticwebassets\\js\\normal\\footballers.js"
     },
     {
       "Id": "C:\\Users\\porta\\OneDrive\\Belgeler\\FootballAdmin\\FootballAdmin\\FootballAdmin\\WebUI\\wwwroot\\js\\playerDataTable.js",

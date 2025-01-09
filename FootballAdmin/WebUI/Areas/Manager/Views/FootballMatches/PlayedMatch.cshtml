@@ -1,0 +1,277 @@
+﻿@using WebUI.Areas.Manager.Models
+@model MatchesViewModel
+@using Newtonsoft.Json
+
+@{
+    ViewData["Title"] = "PlayedMatch";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+    <div class="d-flex flex-column flex-column-fluid">
+        <div id="kt_app_toolbar" class="app-toolbar pt-5">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+                <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+                    <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                <a href="../dist/index.html" class="text-gray-500">
+                                    <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Maç</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+
+                        </ul>
+                        <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Oynanan Maçlar</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <div id="kt_app_content_container" class="app-container container-fluid">
+
+
+                <!--begin::Toolbar-->
+                <div class="d-flex flex-wrap flex-stack justify-content-center my-5">
+                    <!--begin::Heading-->
+                    <h2 class="fs-1 fw-semibold my-2" style="font-family: cursive;">
+                        @Model.FootballMatch.HomeClub.Name - @Model.FootballMatch.AwayClub.Name
+                    </h2>
+                    <!--end::Heading-->
+                </div>
+                <!--end::Toolbar-->
+                <!--begin::Row-->
+                <div class="row g-6 g-xl-9">
+                    <div class="col-12 d-flex row justify-content-around">
+                        <div class="col-md-10 col-lg-10">
+                            <div class="mt-5 mb-5">
+                                <div id="typewriter" class="fs-2" style="font-family: monospace;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Row-->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    @section styles {
+        <style>
+            .custom-col {
+                flex: 0 0 20%;
+                max-width: 20%;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+            }
+
+            .player-list {
+                width: 20%;
+                display: inline;
+            }
+
+            .players_list {
+                display: inline-flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 26px;
+                justify-content: space-between;
+            }
+
+            .position {
+                width: 100px;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: url('/Image/resim.png');
+                background-size: cover; /* Resmi tamamen div'in içine oturtur */
+                background-repeat: no-repeat; /* Tekrar etmesini engeller */
+                background-position: center; /* Ortalar */
+            }
+
+
+
+            .player {
+                color: white;
+                width: 100px;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: url('/Image/FUTCARD.png'); /* wwwroot'un altındaki Image klasörüne göre yol */
+                background-size: cover; /* Resmi tamamen div'in içine oturtur */
+                background-repeat: no-repeat; /* Resmin tekrar etmesini engeller */
+                background-position: center; /* Resmi ortalar */
+                cursor: grab; /* Fare imlecini 'tutma' şekline dönüştürür */
+            }
+
+
+
+
+            .fut_card {
+                position: relative;
+                top: -7px;
+            }
+
+                .fut_card .card_image {
+                    width: 50px;
+                    height: 50px;
+                    position: relative;
+                    left: 8px;
+                    top: 3px;
+                }
+
+            .player .powers {
+                font-size: 5px;
+                line-height: 0px;
+            }
+
+            .player .powers_left {
+                padding: 0;
+                position: relative;
+                left: 13px;
+            }
+
+            .player .powers_right {
+                padding: 0;
+                position: relative;
+                left: 10px;
+            }
+
+            .text_card {
+                position: relative;
+                top: 12px;
+            }
+
+                .text_card .fut_card_name {
+                    font-size: 7px;
+                    text-align: center;
+                }
+
+                .text_card .fut_card_position {
+                    font-size: 6px;
+                    text-align: center;
+                    font-weight: bold;
+                }
+
+            .text_card {
+                line-height: 0;
+            }
+
+            .text_powers {
+                position: relative;
+                top: 12px;
+                left: -2px;
+            }
+
+            .powers .power_1 {
+            }
+
+            .powers .power_2 {
+                position: relative;
+                top: -3px;
+            }
+
+            .powers .power_3 {
+                position: relative;
+                top: -6px;
+            }
+
+            .powers .power_4 {
+            }
+
+            .powers .power_5 {
+                position: relative;
+                top: -3px;
+            }
+
+            .powers .power_6 {
+                position: relative;
+                top: -6px;
+            }
+
+            .player {
+                transition: transform 0.3s ease, z-index 0.3s ease; /* Animasyon */
+
+                z-index: 1;
+                position: relative;
+            }
+
+                .player.zoomed {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(4); /* Ortada büyütme */
+                    z-index: 1000; /* Ön plana getir */
+                }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Sayfa karartma efekti */
+                z-index: 999;
+            }
+
+                .overlay.active {
+                    display: block;
+                }
+
+
+
+            .swal2-html-container .player-list .players_list .player .fut_card .text_powers {
+                left: -11px;
+            }
+        </style>
+    }
+
+    @section scripts {
+
+        <script>
+
+            document.addEventListener("DOMContentLoaded", () => {
+                var modelData = @Html.Raw(JsonConvert.SerializeObject(Model.FootballMatch.MatchString));
+                modelData = "- " + modelData;
+                const text = modelData.replace(/\\n/g, "\n"); // \n karakterlerini gerçek bir satır sonu karakterine dönüştür
+                const typewriterElement = document.getElementById("typewriter");
+                let index = 0;
+
+                function typeWriter() {
+                    if (index < text.length-2) {
+                        // Eğer karakter bir satır sonuysa, <br> ekle
+                        if (text.charAt(index) === "\n") {
+                            typewriterElement.innerHTML += "<br>- ";
+                        } else {
+                            typewriterElement.innerHTML += text.charAt(index);
+                        }
+                        index++;
+                        setTimeout(typeWriter, 50);
+                    }
+                }
+
+                typeWriter();
+            });
+
+        </script>
+    }

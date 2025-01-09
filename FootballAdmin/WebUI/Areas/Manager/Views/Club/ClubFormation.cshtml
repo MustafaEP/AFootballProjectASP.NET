@@ -1,0 +1,354 @@
+﻿@{
+    ViewData["Title"] = "ClubFormation";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+    <div class="d-flex flex-column flex-column-fluid">
+        <div id="kt_app_toolbar" class="app-toolbar pt-5">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+                <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+                    <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                <a href="../dist/index.html" class="text-gray-500">
+                                    <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Kulüp</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Takım</li>
+
+                        </ul>
+                        <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Takım</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <div id="kt_app_content_container" class="app-container container-fluid">
+                <div class="card card-flush">
+                    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+
+                        <div class="col-12 fv-row">
+                            <label for="preferredLineUp" style="color: #fff;">Diziliş:</label>
+                            <select id="preferredLineUp" class="form-select form-select-solid form-select-lg fw-semibold" required>
+                                <option value="" disabled selected>Diziliş Seçin</option>
+                                <option value="4-0-4-0-2">4-4-2</option>
+                                <option value="4-0-3-0-3">4-3-3</option>
+                                <option value="4-1-2-0-3">4-3-3 DOS</option>
+                                <option value="4-0-4-1-1">4-4-1-1</option>
+                                <option value="4-0-2-4-0">4-6-0</option>
+                                <option value="4-1-2-3-0">4-6-0 DOS</option>
+                                <option value="3-0-4-1-2">3-4-1-2</option>
+                                <option value="4-0-2-3-1">4-2-3-1</option>
+                                <option value="4-0-2-1-3">4-2-1-3</option>
+                                <option value="4-0-1-4-1">4-1-4-1</option>
+                                <option value="5-0-3-0-2">5-3-2</option>
+                                <option value="5-1-2-0-2">5-3-2 DOS</option>
+                                <option value="4-0-5-0-1">4-5-1</option>
+                                <option value="3-0-4-2-1">3-6-1</option>
+                                <option value="3-0-5-0-2">3-5-2</option>
+                                <option value="3-0-0-4-3">3-4-3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="col-12 d-flex row">
+                            <div class="col-md-12 col-lg-6">
+                                <div id="elevenId">
+                                    <div class=" card mb-5 mt-5">
+                                        <div class="container">
+                                            <div class="field">
+                                                <div id="formation">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="clear-field" class="btn btn-secondary text-inserve-secondary w-100 mb-2">11'i Temizle</button>
+                                <button class="btn btn-secondary text-inserve-secondary w-100 mb-2" onclick="PostXI()" id="saveChangesButton">Değişiklikleri Kaydet</button>
+                            </div>
+                            <div class="col-md-12 col-lg-6" id="player_list_div">
+                                <div class="player-list">
+                                    <div id="player-list" class="players_list card m-5 p-5" >
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+@section styles {
+        <style>
+            .swal2-actions {
+                margin-top: 0 !important;
+            }
+
+            .card-body {
+                margin: 0 !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+
+            .swal2-confirm, .swal2-styled {
+                font-size: smaller !important;
+            }
+
+            .swal2-validation-message {
+                margin-top: 0;
+                margin-bottom: 10px;
+                background-color: #2f2f2f;
+                color: #ffffff;
+                font-size: smaller;
+            }
+
+            div:where(.swal2-container) div:where(.swal2-validation-message)::before {
+                background-color: #000000;
+                color: #fff;
+            }
+
+            div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line] {
+                background-color: #ffffff;
+            }
+
+            div:where(.swal2-icon).swal2-error {
+                border-color: #000000;
+                color: #000000;
+            }
+
+            .swal2-modal .swal2-icon, .swal2-modal .swal2-success-ring {
+                margin-bottom: 10px;
+            }
+
+            .swal2-html-container {
+                color: white !important;
+            }
+
+            div:where(.swal2-icon).swal2-success [class^=swal2-success-line] {
+                background-color: #ffffff;
+            }
+
+            div:where(.swal2-icon).swal2-success .swal2-success-ring {
+                border: .25em solid rgb(0 0 0);
+            }
+
+
+
+            .line {
+                display: flex;
+                justify-content: space-evenly; /* Her eleman arasında eşit mesafe */
+                align-items: center;
+                width: 100%;
+            }
+
+                .line div {
+                    font-size: 30px; /* Noktaların boyutunu ayarlayın */
+                    display: inline-block;
+                }
+        </style>
+        <link href="~/css/SpecialStyle.css" rel="stylesheet" type="text/css" />
+
+        <link href="node_modules/gridstack/dist/gridstack.min.css" rel="stylesheet" />
+
+        <style>
+            .custom-col {
+                flex: 0 0 20%; 
+                max-width: 20%;
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+            }
+
+            .player-list {
+                width: 20%;
+                display: inline;
+            }
+
+            .players_list {
+                display: inline-flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 26px;
+                justify-content: space-between;
+            }
+
+            .position {
+                width: 100px;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: url('/Image/resim.png');
+                background-size: cover; /* Resmi tamamen div'in içine oturtur */
+                background-repeat: no-repeat; /* Tekrar etmesini engeller */
+                background-position: center; /* Ortalar */
+            }
+
+
+
+            .player {
+                color: white;
+                width: 100px;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: url('/Image/FUTCARD.png'); /* wwwroot'un altındaki Image klasörüne göre yol */
+                background-size: cover; /* Resmi tamamen div'in içine oturtur */
+                background-repeat: no-repeat; /* Resmin tekrar etmesini engeller */
+                background-position: center; /* Resmi ortalar */
+                cursor: grab; /* Fare imlecini 'tutma' şekline dönüştürür */
+            }
+
+
+
+
+            .fut_card {
+                position: relative;
+                top: -7px;
+            }
+
+                .fut_card .card_image {
+                    width: 50px;
+                    height: 50px;
+                    position: relative;
+                    left: 8px;
+                    top: 3px;
+                }
+
+                .player .powers {
+                    font-size: 5px;
+                    line-height: 0px;
+                }
+
+            .player .powers_left {
+                padding: 0;
+                position: relative;
+                left: 13px;
+            }
+
+            .player .powers_right {
+                padding: 0;
+                position: relative;
+                left: 10px;
+            }
+            .text_card {
+                position: relative;
+                top: 12px;
+            }
+
+            .text_card .fut_card_name {
+                font-size: 7px;
+                text-align: center;
+            }
+
+            .text_card .fut_card_position {
+                font-size: 6px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .text_card {
+                line-height: 0;
+            }
+
+            .text_powers {
+                position: relative;
+                top: 12px;
+                left: -2px;
+            }
+
+            .powers .power_1 {
+            }
+
+            .powers .power_2 {
+                position: relative;
+                top: -3px;
+            }
+
+            .powers .power_3 {
+                position: relative;
+                top: -6px;
+            }
+
+            .powers .power_4 {
+            }
+
+            .powers .power_5 {
+                position: relative;
+                top: -3px;
+            }
+
+            .powers .power_6 {
+                position: relative;
+                top: -6px;
+            }
+
+            .player {
+                transition: transform 0.3s ease, z-index 0.3s ease; /* Animasyon */
+
+                z-index: 1;
+                position: relative;
+            }
+
+                .player.zoomed {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(4); /* Ortada büyütme */
+                    z-index: 1000; /* Ön plana getir */
+                }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Sayfa karartma efekti */
+                z-index: 999;
+            }
+
+                .overlay.active {
+                    display: block;
+                }
+
+
+
+            .swal2-html-container .player-list .players_list .player .fut_card .text_powers {
+                left: -11px;
+            }
+        </style>
+}
+
+@section scripts {
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script src="~/js/Manager/CreateClub.js"></script>
+
+        <script src="~/js/Manager/Club/Formation.js"></script>
+}
+

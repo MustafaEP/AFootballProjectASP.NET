@@ -1,0 +1,108 @@
+﻿@using Entities.Concrete.NewVersion
+@model List<Footballer>
+@{
+    ViewData["Title"] = "YourClub";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+    <div class="d-flex flex-column flex-column-fluid">
+        <div id="kt_app_toolbar" class="app-toolbar pt-5">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+                <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+                    <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                <a href="../dist/index.html" class="text-gray-500">
+                                    <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menejer</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Kulüp</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Kulübün</li>
+                        </ul>
+                        <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Futbolcular</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <div id="kt_app_content_container" class="app-container container-fluid">
+                <div class="card card-flush">
+                    <div class="card-body pt-0 mt-4">
+                        <table id="example" class="display table align-middle table-row-dashed fs-6 gy-5 myTable">
+                            <thead>
+                                <tr class="align-middle text-success fw-bold fs-7 text-uppercase gs-0">
+                                    <th>OYUNCU</th>
+                                    <th class="text-start align-middle">UYR</th>
+                                    <th class="text-start align-middle">POZ</th>
+                                    <th class="text-start align-middle">GEN</th>
+                                    <th class="text-start align-middle">HIZ</th>
+                                    <th class="text-start align-middle">ŞUT</th>
+                                    <th class="text-start align-middle">PAS</th>
+                                    <th class="text-start align-middle">DRİ</th>
+                                    <th class="text-start align-middle">DEF</th>
+                                    <th class="text-start align-middle">FİZ</th>
+                                    <th class="text-start align-middle">MRKT</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-semibold list-group-item-light">
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="cursor-pointer" onclick="DetailFootballer(@item.Id)">
+                                        <td class="text-start align-middle">@item.Name @item.SurName</td>
+                                        <td class="text-start align-middle">@item.Country</td>
+                                        <td class="text-start align-middle">@item.FootballerPositions.FirstOrDefault().ShortPosition</td>
+                                        <td class="text-start align-middle">@item.Statistic.Power</td>
+                                        <td class="text-start align-middle">@item.Statistic.Pace</td>
+                                        <td class="text-start align-middle">@item.Statistic.Shooting</td>
+                                        <td class="text-start align-middle">@item.Statistic.Passing</td>
+                                        <td class="text-start align-middle">@item.Statistic.Dribbling</td>
+                                        <td class="text-start align-middle">@item.Statistic.Defending</td>
+                                        <td class="text-start align-middle">@item.Statistic.Physicality</td>
+                                        <td class="text-start align-middle">@item.MarketPrice</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section stylesfirst {
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
+}
+
+@section styles {
+
+
+}
+
+@section scripts {
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+    <script src="~/js/normal/footballers.js"></script>
+
+
+
+
+}
+

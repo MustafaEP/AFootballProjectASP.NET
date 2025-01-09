@@ -9,14 +9,16 @@ using Entities.Concrete.NewVersion;
 
 namespace Entities.Concrete
 {
-    public class Manager : Base
-    {
-        public string PreferredLineUp {  get; set; }
-        public int? TeamId { get; set; }
+	public class Manager : Base
+	{
+		public string? Avatar { get; set; }
+
+		public string PreferredLineUp { get; set; }
+		public int? TeamId { get; set; }
 
 
-        [ForeignKey("ManagerClub")]
-        public int? ManagerClubId {  get; set; }
-        public ManagerClub? ManagerClub { get; set; }
-    }
+		[ForeignKey("ManagerClub")]
+		public int? ManagerClubId { get; set; }
+		public ManagerClub? ManagerClub { get; set; }
+	}
 }

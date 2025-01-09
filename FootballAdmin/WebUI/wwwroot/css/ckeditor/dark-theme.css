@@ -1,0 +1,50 @@
+﻿.ck-editor__editable_inline {
+    background-color: #1E1E2D !important; /* Burada istediğiniz rengi kullanabilirsiniz */
+}
+
+.ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset, .ck.ck-reset_all {
+    background: #1E1E2D !important;
+    color: #aaaaaa !important;
+}
+
+.ck.ck-editor__editable_inline {
+    border: 2px solid #1B1B29 !important;
+    border-radius: 5px;
+}
+
+.ck.ck-toolbar {
+    background: #1B1B29 !important;
+    border: 1px solid #1B1B29 !important;
+    padding: 0 var(--ck-spacing-small);
+}
+
+/* Dropdown arka plan rengi */
+.ck  .ck-dropdown  .ck.ck-list  {
+    background-color: #2c3e50 !important; /* Koyu arka plan */
+    color: #aaaaaa; /* Açık metin rengi */
+    border: 1px solid #1B1B29 !important;
+}
+
+    /* Dropdown öğelerinin üzerine gelindiğinde */
+    .ck, .ck-dropdown , .ck.ck-list , .ck-button:hover {
+        background-color: #34495e; /* Daha koyu arka plan */
+        color: #ffffff; /* Beyaz metin */
+        border: 1px solid #1B1B29 !important;
+    }
+
+    /* Dropdown aktif öğe (seçili) */
+    .ck .ck-dropdown .ck.ck-list .ck-button.ck-on {
+        background-color: #1abc9c; /* Yeşil arka plan */
+        color: #ffffff; /* Beyaz metin */
+    }
+
+/* Dropdown kenarlık rengi */
+.ck.ck-dropdown .ck.ck-list {
+    border: 1px solid #34495e; 
+}
+
+        .ck.ck-toolbar {
+            background: #701c1c !important;
+            border: 1px solid var(--ck-color-toolbar-border);
+            padding: 0 var(--ck-spacing-small);
+        }

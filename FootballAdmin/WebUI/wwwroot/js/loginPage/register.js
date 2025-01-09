@@ -5,6 +5,7 @@ function RegisterBtnClick() {
     var isCorrectSurName = true;
     var isCorrectPassword = true;
     var isCorrectEmail = true;
+    var isCorrectAgree = true;
 
     var usernameValue = document.getElementById("username").value;
     var nameValue = document.getElementById("name").value;
@@ -12,6 +13,7 @@ function RegisterBtnClick() {
     var emailValue = document.getElementById("email").value;
     var passwordValue = document.getElementById("password").value;
     var passwordAgainValue = document.getElementById("passwordAgain").value;
+    var iAgreeValue = document.getElementById("i_agree_id");
 
     if (usernameValue.trim().length === 0) {
         document.getElementById("usernameSpan").innerText = "Kullanıcı Adı Boş Bırakılamaz";
@@ -100,11 +102,19 @@ function RegisterBtnClick() {
         isCorrectPassword = true;
     }
 
-    if (isCorrectUserName && isCorrectName && isCorrectSurName && isCorrectEmail && isCorrectPassword) {
+    if (iAgreeValue.checked) {
+        document.getElementById("i_agree_span_id").innerText = "";
+        isCorrectAgree = true;
+    }
+    else {
+        document.getElementById("i_agree_span_id").innerText = "Sözleşmeyi Onaylamalısınız";
+        isCorrectAgree = false;
+    }
+
+    if (isCorrectUserName && isCorrectName && isCorrectSurName && isCorrectEmail && isCorrectPassword && isCorrectAgree) {
         Swal.fire({
             icon: 'info',
             text: "Kayıt Yapılıyor...",
-            background: '#111111',
             showConfirmButton: false,
             timerProgressBar: true,
             willOpen: () => {
@@ -130,7 +140,6 @@ function RegisterBtnClick() {
                     Swal.fire({
                         icon: 'success',
                         text: data.message,
-                        background: '#111111',
                         timer: 2000,
                         showConfirmButton: false,
                         timerProgressBar: true,
@@ -142,7 +151,6 @@ function RegisterBtnClick() {
                     Swal.fire({
                         icon: 'error',
                         text: data.message,
-                        background: '#111111',
                         timer: 2000,
                         showConfirmButton: false
                     });

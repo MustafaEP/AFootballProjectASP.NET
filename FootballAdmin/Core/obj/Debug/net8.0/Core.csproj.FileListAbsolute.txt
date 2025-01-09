@@ -10,3 +10,10 @@ C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\obj\Debug\net8.0\refint\Core.dll
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\obj\Debug\net8.0\Core.pdb
 C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\obj\Debug\net8.0\ref\Core.dll
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\bin\Debug\net8.0\Access.dll
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\bin\Debug\net8.0\Entities.dll
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\bin\Debug\net8.0\Access.pdb
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\bin\Debug\net8.0\Entities.pdb
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\obj\Debug\net8.0\Core.csproj.AssemblyReference.cache
+C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\Core\obj\Debug\net8.0\Core.csproj.Up2Date

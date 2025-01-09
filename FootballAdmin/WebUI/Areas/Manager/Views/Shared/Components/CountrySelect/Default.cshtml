@@ -1,0 +1,7 @@
+﻿@using WebUI.Models
+@model Dictionary<string, CountryViewModel>
+
+@foreach (var item in Model)
+{
+    <option value="@item.Value.Name">@item.Value.Name_tr</option>
+}

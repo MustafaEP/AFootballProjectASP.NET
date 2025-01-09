@@ -3,12 +3,7 @@
 @{
     ViewData["Title"] = "Home";
     Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
-    var name = User.FindFirst("Name")?.Value;
-
-    List<string> offensivePositions = ["Forward", "Striker", "Left Winger", "Right Winger", "Center Forward"];
-    List<string> midfieldPositions = ["Central Midfielder", "Attacking Midfielder", "Midfielder", "Defensive Midfielder", "Left Midfielder", "Right Midfielder"];
-    List<string> defencePositions = ["Left Back", "Right Back", "Center Back"];
-    List<string> goalkeeperPositions = ["Goalkeeper", "Sweeper Keeper"];
+    var name = User.FindFirst("Name").Value;
 
 }
 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
@@ -48,366 +43,22 @@
                 <div class="card card-flush">
                     <div class="card-body pt-0">
                         <div class="col-12 d-flex row">
-                            <div class="col-md-12 col-lg-5">
-                                <div id="elevenId">
-                                    <div id="elevenMapId" class="map card mb-5 mt-5">
-                                        <div class="offensive line text-center" id="offensiveId">
-                                        </div>
-                                        <div class="midfield line text-center" id="midfieldId">
-                                        </div>
-                                        <div class="backmidfield line text-center" id="backMidfieldId">
-                                        </div>
-                                        <div class="defence line text-center" id="defenceId">
-                                        </div>
-                                        <div class="goalKeeper line text-center" id="goalKeeperId">
-                                        </div>
-                                    </div>
+                            <div class="col-md-12 col-lg-6">
+                                <div class="card mt-5 mb-5">
+                                    <div class="fs-4 mb-2">Formasyonun</div>
+                                    @if (Model.ManagerClub != null)
+                                        @await Component.InvokeAsync("Formation", new { clubId = Model.ManagerClubId })
                                 </div>
                             </div>
-                            <div class="col-md-12 col-lg-7">
-                                <div class="card mb-5 mt-5 mb-xl-8">
-                                    <div class="card-header align-items-center border-0">
-                                        <h3 class="fw-bold text-gray-900 m-0">Futbolcular</h3>
-                                    </div>
-                                    <div class="card-body pt-2">
-                                        <ul class="nav nav-pills nav-pills-custom mb-3">
-                                            <li class="nav-item mb-3 me-3 me-lg-6">
-                                                <a class="nav-link d-flex justify-content-between flex-column flex-center overflow-hidden active w-80px h-85px py-4" data-bs-toggle="pill" href="#kt_stats_widget_2_tab_1">
-                                                    <div class="nav-icon">
-                                                        <div class="symbol symbol-50px">
-                                                            <div class="symbol-label fs-1 fw-semibold bg-body">F</div>
-                                                        </div>
-                                                    </div>
-                                                    <span class="nav-text text-gray-700 fw-bold fs-6 lh-1">Forvet</span>
-                                                    <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item mb-3 me-3 me-lg-6">
-                                                <a class="nav-link d-flex justify-content-between flex-column flex-center overflow-hidden w-80px h-85px py-4" data-bs-toggle="pill" href="#kt_stats_widget_2_tab_2">
-                                                    <div class="nav-icon">
-                                                        <div class="symbol symbol-50px">
-                                                            <div class="symbol-label fs-1 fw-semibold bg-body">O</div>
-                                                        </div>
-                                                    </div>
-                                                    <span class="nav-text text-gray-700 fw-bold fs-6 lh-1">Orta S.</span>
-                                                    <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item mb-3 me-3 me-lg-6">
-                                                <a class="nav-link d-flex justify-content-between flex-column flex-center overflow-hidden w-80px h-85px py-4" data-bs-toggle="pill" href="#kt_stats_widget_2_tab_4">
-                                                    <div class="nav-icon">
-                                                        <div class="symbol symbol-50px">
-                                                            <div class="symbol-label fs-1 fw-semibold bg-body">D</div>
-                                                        </div>
-                                                    </div>
-                                                    <span class="nav-text text-gray-600 fw-bold fs-6 lh-1">Defans</span>
-                                                    <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item mb-3">
-                                                <a class="nav-link d-flex justify-content-between flex-column flex-center overflow-hidden w-80px h-85px py-4" data-bs-toggle="pill" href="#kt_stats_widget_2_tab_5">
-                                                    <div class="nav-icon">
-                                                        <div class="symbol symbol-50px">
-                                                            <div class="symbol-label fs-1 fw-semibold bg-body">K</div>
-                                                        </div>
-                                                    </div>
-                                                    <span class="nav-text text-gray-600 fw-bold fs-6 lh-1">Kaleci</span>
-                                                    <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div class="tab-pane fade show active" id="kt_stats_widget_2_tab_1">
-                                                <div class="table-responsive">
-                                                    <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
-                                                        <thead>
-                                                            <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
-                                                                <th class="ps-0 w-50px">Oyuncu</th>
-                                                                <th class="min-w-125px"></th>
-                                                                <th class="text-end min-w-100px">Hız</th>
-                                                                <th class="pe-0 text-end min-w-100px">Şut</th>
-                                                                <th class="pe-0 text-end min-w-100px">Gelişim</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @if (Model.ManagerClub != null && Model.ManagerClub.Footballers != null)
-                                                            {
-                                                                @foreach (var item in Model.ManagerClub.Footballers)
-                                                                {
-                                                                    @foreach (var postionItem in offensivePositions)
-                                                                    {
-                                                                        @if (item.Position == postionItem)
-                                                                        {
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div class="symbol symbol-40px">
-                                                                                        <div class="symbol-label fs-1 fw-semibold bg-body">@item.Name[0]</div>
-                                                                                    </div>
-                                                                                </td>
-                                                                                <td class="ps-0">
-                                                                                    <p class="text-gray-800 fw-bold mb-1 fs-6 text-start pe-0">@item.Name @item.SurName</p>
-                                                                                    <span data-position="@item.Position" class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">@item.Position</span>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">
-                                                                                        @{
-                                                                                            var pace = item.Pace + item.PaceUpgrade;
-                                                                                        }@pace
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td class="text-end pe-0">
-                                                                                    <span class="text-gray-800 fw-bold d-block fs-6">
-                                                                                        @{
-                                                                                            var shooting = item.Shooting + item.ShootingUpgrade;
-                                                                                        }@shooting
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td class="text-end pe-0">
-                                                                                    @{
-                                                                                        var perc = (((item.ShootingUpgrade + item.PaceUpgrade + item.Confidence) * 100) / (item.Pace + item.Shooting));
-                                                                                        var color = perc > 0 ? "ki-arrow-up text-success" : perc == 0 ? "ki-minus  text-secondary" : "ki-arrow-down  text-danger";
+                            <div class="col-md-12 col-lg-6">
+                                <div class="card mt-5 mb-5">
+                                    <div class="fs-4 mb-2">Son Oynanan Maçlar</div>
+                                    @if (Model.ManagerClub != null)
+                                        @await Component.InvokeAsync("AcceptedMatches", new { clubId = Model.ManagerClubId })
 
-                                                                                        var colorBg = perc > 0 ? "badge-light-success" : perc == 0 ? "badge-light-secondary" : "badge-light-danger";
-                                                                                    }
-                                                                                    <div class="m-0">
-                                                                                        <span class="badge @colorBg fs-base">
-                                                                                            <i class="ki-duotone fs-5 @color ms-n1">
-                                                                                                <span class="path1"></span>
-                                                                                                <span class="path2"></span>
-                                                                                            </i>@perc%
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="kt_stats_widget_2_tab_2">
-                                                <!--begin::Table container-->
-                                                <div class="table-responsive">
-                                                    <!--begin::Table-->
-                                                    <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
-                                                        <!--begin::Table head-->
-                                                        <thead>
-                                                            <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
-                                                                <th class="ps-0 w-50px">Oyuncu</th>
-                                                                <th class="min-w-125px"></th>
-                                                                <th class="text-end min-w-100px">Dribling</th>
-                                                                <th class="pe-0 text-end min-w-100px">Pas</th>
-                                                                <th class="pe-0 text-end min-w-100px">Gelişim</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @if (Model.ManagerClub != null && Model.ManagerClub.Footballers != null)
-                                                            {
-                                                                @foreach (var item in Model.ManagerClub.Footballers)
-                                                                {
-                                                                    @foreach (var postionItem in midfieldPositions)
-                                                                    {
-                                                                        @if (item.Position == postionItem)
-                                                                        {
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div class="symbol symbol-40px">
-                                                                                        <div class="symbol-label fs-1 fw-semibold bg-body">@item.Name[0]</div>
-                                                                                    </div>
-                                                                                </td>
-                                                                                <td class="ps-0">
-                                                                                    <p class="text-gray-800 fw-bold mb-1 fs-6 text-start pe-0">@item.Name @item.SurName</p>
-                                                                                    <span data-position="@item.Position" class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">@item.Position</span>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">
-                                                                                        @{
-                                                                                            var gift = item.Dribbling + item.DribblingUpgrade;
-                                                                                        }@gift
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td class="text-end pe-0">
-                                                                                    <span class="text-gray-800 fw-bold d-block fs-6">
-                                                                                        @{
-                                                                                            var gift2 = item.Passing + item.PassingUpgrade;
-                                                                                        }@gift2
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td class="text-end pe-0">
-                                                                                    @{
-                                                                                        var perc = (((item.PassingUpgrade + item.DribblingUpgrade + item.Confidence) * 100) / (item.Passing + item.Dribbling));
-                                                                                        var color = perc > 0 ? "ki-arrow-up text-success" : perc == 0 ? "ki-minus  text-secondary" : "ki-arrow-down  text-danger";
-
-                                                                                        var colorBg = perc > 0 ? "badge-light-success" : perc == 0 ? "badge-light-secondary" : "badge-light-danger";
-                                                                                    }
-                                                                                    <div class="m-0">
-                                                                                        <span class="badge @colorBg fs-base">
-                                                                                            <i class="ki-duotone fs-5 @color ms-n1">
-                                                                                                <span class="path1"></span>
-                                                                                                <span class="path2"></span>
-                                                                                            </i>@perc%
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="kt_stats_widget_2_tab_4">
-                                                <div class="table-responsive">
-                                                    <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
-                                                        <thead>
-                                                            <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
-                                                                <th class="ps-0 w-50px">Oyuncu</th>
-                                                                <th class="min-w-125px"></th>
-                                                                <th class="text-end min-w-100px">Defans</th>
-                                                                <th class="pe-0 text-end min-w-100px">Fizik</th>
-                                                                <th class="pe-0 text-end min-w-100px">Gelişim</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @if (Model.ManagerClub != null && Model.ManagerClub.Footballers != null)
-                                                            {
-                                                                @foreach (var item in Model.ManagerClub.Footballers)
-                                                                {
-                                                                    @foreach (var postionItem in defencePositions)
-                                                                    {
-                                                                        @if (item.Position == postionItem)
-                                                                        {
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div class="symbol symbol-40px">
-                                                                                        <div class="symbol-label fs-1 fw-semibold bg-body">@item.Name[0]</div>
-                                                                                    </div>
-                                                                                </td>
-                                                                                <td class="ps-0">
-                                                                                    <p class="text-gray-800 fw-bold mb-1 fs-6 text-start pe-0">@item.Name @item.SurName</p>
-                                                                                    <span data-position="@item.Position" class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">@item.Position</span>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">
-                                                                                        @{
-                                                                                            var gift = item.Defending + item.DefendingUpgrade;
-                                                                                        }@gift
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td class="text-end pe-0">
-                                                                                    <span class="text-gray-800 fw-bold d-block fs-6">
-                                                                                        @{
-                                                                                            var gift2 = item.Physicality + item.PhysicalityUpgrade;
-                                                                                        }@gift2
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td class="text-end pe-0">
-                                                                                    @{
-                                                                                        var perc = (((item.PhysicalityUpgrade + item.DefendingUpgrade + item.Confidence) * 100) / (item.Physicality + item.Defending));
-                                                                                        var color = perc > 0 ? "ki-arrow-up text-success" : perc == 0 ? "ki-minus  text-secondary" : "ki-arrow-down  text-danger";
-
-                                                                                        var colorBg = perc > 0 ? "badge-light-success" : perc == 0 ? "badge-light-secondary" : "badge-light-danger";
-                                                                                    }
-                                                                                    <div class="m-0">
-                                                                                        <span class="badge @colorBg fs-base">
-                                                                                            <i class="ki-duotone fs-5 @color ms-n1">
-                                                                                                <span class="path1"></span>
-                                                                                                <span class="path2"></span>
-                                                                                            </i>@perc%
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="kt_stats_widget_2_tab_5">
-                                                <div class="table-responsive">
-                                                    <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
-                                                        <thead>
-                                                            <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
-                                                                <th class="ps-0 w-50px">Oyuncu</th>
-                                                                <th class="min-w-125px"></th>
-                                                                <th class="text-end min-w-100px">Refleks</th>
-                                                                <th class="pe-0 text-end min-w-100px">Çeviklik</th>
-                                                                <th class="pe-0 text-end min-w-100px">Gelişim</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @if (Model.ManagerClub != null && Model.ManagerClub.Footballers != null)
-                                                            {
-                                                                @foreach (var item in Model.ManagerClub.Footballers)
-                                                                {
-                                                                    @foreach (var postionItem in goalkeeperPositions)
-                                                                    {
-                                                                        @if (item.Position == postionItem)
-                                                                        {
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div class="symbol symbol-40px">
-                                                                                        <div class="symbol-label fs-1 fw-semibold bg-body">@item.Name[0]</div>
-                                                                                    </div>
-                                                                                </td>
-                                                                                <td class="ps-0">
-                                                                                    <p class="text-gray-800 fw-bold mb-1 fs-6 text-start pe-0">@item.Name @item.SurName</p>
-                                                                                    <span data-position="@item.Position" class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">@item.Position</span>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">
-                                                                                        @{
-                                                                                            var pace = item.Pace + item.PaceUpgrade;
-                                                                                        }@pace
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td class="text-end pe-0">
-                                                                                    <span class="text-gray-800 fw-bold d-block fs-6">
-                                                                                        @{
-                                                                                            var shooting = item.Shooting + item.ShootingUpgrade;
-                                                                                        }@shooting
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td class="text-end pe-0">
-                                                                                    @{
-                                                                                        var perc = (((item.ShootingUpgrade + item.PaceUpgrade + item.Confidence) * 100) / (item.Pace + item.Shooting));
-                                                                                        var color = perc > 0 ? "ki-arrow-up text-success" : perc == 0 ? "ki-minus  text-secondary" : "ki-arrow-down  text-danger";
-
-                                                                                        var colorBg = perc > 0 ? "badge-light-success" : perc == 0 ? "badge-light-secondary" : "badge-light-danger";
-                                                                                    }
-                                                                                    <div class="m-0">
-                                                                                        <span class="badge @colorBg fs-base">
-                                                                                            <i class="ki-duotone fs-5 @color ms-n1">
-                                                                                                <span class="path1"></span>
-                                                                                                <span class="path2"></span>
-                                                                                            </i>@perc%
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -422,92 +73,289 @@
 
 @section styles {
     <style>
-        .swal2-actions {
-            margin-top: 0 !important;
+        .custom-col {
+            flex: 0 0 20%;
+            max-width: 20%;
         }
 
-        .card-body {
-            margin: 0 !important;
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-        }
-
-        .swal2-confirm, .swal2-styled {
-            font-size: smaller !important;
-        }
-
-        .swal2-validation-message {
-            margin-top: 0;
-            margin-bottom: 10px;
-            background-color: #2f2f2f;
-            color: #ffffff;
-            font-size: smaller;
-        }
-
-        div:where(.swal2-container) div:where(.swal2-validation-message)::before {
-            background-color: #000000;
-            color: #fff;
-        }
-
-        div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line] {
-            background-color: #ffffff;
-        }
-
-        div:where(.swal2-icon).swal2-error {
-            border-color: #000000;
-            color: #000000;
-        }
-
-        .swal2-modal .swal2-icon, .swal2-modal .swal2-success-ring {
-            margin-bottom: 10px;
-        }
-
-        .swal2-html-container {
-            color: white !important;
-        }
-
-        div:where(.swal2-icon).swal2-success [class^=swal2-success-line] {
-            background-color: #ffffff;
-        }
-
-        div:where(.swal2-icon).swal2-success .swal2-success-ring {
-            border: .25em solid rgb(0 0 0);
-        }
-
-        .map {
-            position: relative;
-            aspect-ratio: 2/3;
-            width: 100%;
+        .container {
             display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
+            justify-content: center;
         }
 
-        .line {
+        .player-list {
+            width: 20%;
+            display: inline;
+        }
+
+        .players_list {
+            display: inline-flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 26px;
+            justify-content: space-between;
+        }
+
+        .position {
+            width: 100px;
+            height: 150px;
             display: flex;
-            justify-content: space-evenly; /* Her eleman arasında eşit mesafe */
+            justify-content: center;
             align-items: center;
-            width: 100%;
+            background-image: url('/Image/resim.png');
+            background-size: cover; /* Resmi tamamen div'in içine oturtur */
+            background-repeat: no-repeat; /* Tekrar etmesini engeller */
+            background-position: center; /* Ortalar */
         }
 
-            .line div {
-                font-size: 30px; /* Noktaların boyutunu ayarlayın */
-                display: inline-block;
+
+
+        .player {
+            color: white;
+            width: 100px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('/Image/FUTCARD.png'); /* wwwroot'un altındaki Image klasörüne göre yol */
+            background-size: cover; /* Resmi tamamen div'in içine oturtur */
+            background-repeat: no-repeat; /* Resmin tekrar etmesini engeller */
+            background-position: center; /* Resmi ortalar */
+            cursor: grab; /* Fare imlecini 'tutma' şekline dönüştürür */
+        }
+
+
+
+
+        .fut_card {
+            position: relative;
+            top: -7px;
+        }
+
+            .fut_card .card_image {
+                width: 50px;
+                height: 50px;
+                position: relative;
+                left: 8px;
+                top: 3px;
             }
 
+        .player .powers {
+            font-size: 5px;
+            line-height: 0px;
+        }
+
+        .player .powers_left {
+            padding: 0;
+            position: relative;
+            left: 13px;
+        }
+
+        .player .powers_right {
+            padding: 0;
+            position: relative;
+            left: 10px;
+        }
+
+        .text_card {
+            position: relative;
+            top: 12px;
+        }
+
+            .text_card .fut_card_name {
+                font-size: 7px;
+                text-align: center;
+            }
+
+            .text_card .fut_card_position {
+                font-size: 6px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+        .text_card {
+            line-height: 0;
+        }
+
+        .text_powers {
+            position: relative;
+            top: 12px;
+            left: -2px;
+        }
+
+        .powers .power_1 {
+        }
+
+        .powers .power_2 {
+            position: relative;
+            top: -3px;
+        }
+
+        .powers .power_3 {
+            position: relative;
+            top: -6px;
+        }
+
+        .powers .power_4 {
+        }
+
+        .powers .power_5 {
+            position: relative;
+            top: -3px;
+        }
+
+        .powers .power_6 {
+            position: relative;
+            top: -6px;
+        }
+
+        .player {
+            transition: transform 0.3s ease, z-index 0.3s ease; /* Animasyon */
+
+            z-index: 1;
+            position: relative;
+        }
+
+            .player.zoomed {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(4); /* Ortada büyütme */
+                z-index: 1000; /* Ön plana getir */
+            }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Sayfa karartma efekti */
+            z-index: 999;
+        }
+
+            .overlay.active {
+                display: block;
+            }
+
+
+
+        .swal2-html-container .player-list .players_list .player .fut_card .text_powers {
+            left: -11px;
+        }
     </style>
-    <link href="~/css/SpecialStyle.css" rel="stylesheet" type="text/css" />
 }
 
 @section scripts {
-    <script src="~/js/Manager/MainPage.js"></script>
-    <script src="~/js/Scripts/translate.js"></script>
-
     <script>
-        document.querySelectorAll('[data-position]').forEach(span => {
-            const originalPosition = span.getAttribute('data-position');
-            const translatedPosition = translatePosition(originalPosition);
-            span.textContent = translatedPosition;
-        });
+        function DontCreateClub() {
+            Swal.fire({
+                title: '😎',
+                html: `<div>
+                                            <div class="card-body">
+                                            <p class="text-white">Daha Takım Oluşturmamışsın. Hemen Bir Takım Oluşturalım</p>
+                                                <form class="forms-sample" id="addClub">
+                                                    <div class="form-group">
+                                                        <label for="clubNameId" style="color: #fff;">Takım Adı:</label>
+                                                        <input type="text" id="clubNameId" class="text-white form-control" placeholder="Takım Adı" maxlength="20" required>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>`,
+                showConfirmButton: true,
+                background: '#2f2f2f',
+                confirmButtonText: "Takım Oluştur",
+                showCancelButton: true,
+                cancelButtonText: "Ana Sayfa",
+                allowOutsideClick: false,
+                customClass: {
+                    confirmButton: 'btn-secondary',
+                    cancelButton: 'btn-secondary'
+                },
+                preConfirm: () => {
+                    const addData = {
+                        Name: document.getElementById('clubNameId').value,
+                    };
+
+                    if (Object.values(addData).some(field => !field)) {
+                        Swal.showValidationMessage("Lütfen tüm alanları doldurun.");
+                        return false;
+                    }
+                    if (addData.Name.length < 2) {
+                        Swal.showValidationMessage("Takım İsmi en az 2 karakter olmalıdır.");
+                        return false;
+                    }
+                    if (addData.Name.length > 20) {
+                        Swal.showValidationMessage("Takım İsmi en fazla 20 karakter olmalıdır.");
+                        return false;
+                    }
+                    return addData;
+                }
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var addData = result.value;
+                    $.ajax({
+                        url: '/Manager/Club/AddClub',
+                        method: 'POST',
+                        data: JSON.stringify(addData),
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            if (data.success) {
+                                Swal.fire({
+                                    text: data.message,
+                                    timer: 1500,
+                                    icon: 'success',
+                                    showConfirmButton: false,
+                                    allowOutsideClick: false,
+                                    background: '#2f2f2f',
+                                });
+                                setTimeout(() => {
+                                    window.location.reload();
+                                }, 1500);
+                            }
+
+                            else {
+                                Swal.fire({
+                                    text: data.message,
+                                    timer: 1500,
+                                    icon: 'error',
+                                    showConfirmButton: false,
+                                    allowOutsideClick: false,
+                                    background: '#2f2f2f',
+                                });
+                                setTimeout(() => {
+                                    window.location.reload();
+                                }, 1500);
+                            }
+                        }
+                    })
+                }
+                else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'Ana Sayfaya Dönülüyor',
+                        timer: 1500,
+                        background: '#2f2f2f',
+                        showConfirmButton: false,
+                    });
+                    setTimeout(() => {
+                        window.location.assign('/Manager/Home/Index');
+                    }, 1500);
+                }
+            })
+        }
+        console.log("Burada");
+        // Razor modelini JavaScript değişkenine ata
+        const managerClubId = '@Model.ManagerClubId';
+
+        // Değerin null olup olmadığını kontrol et
+        if (managerClubId === '' || managerClubId === 'null') {
+            DontCreateClub();
+        }
+
+
+        
     </script>
 }

@@ -4,6 +4,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,5 +54,28 @@ namespace Business.Concrete
         {
             _managerDal.Update(entity);
         }
-    }
+
+		public bool PhoneControl(List<Manager> allManager, string phone, int managerId)
+		{
+			var value = allManager.FirstOrDefault(x => (x.Id != managerId) && (x.Phone == phone));
+            return value == null ? true : false;
+		}
+
+		public bool EMailControl(List<Manager> allManager, string email, int managerId)
+		{
+			var value = allManager.FirstOrDefault(x => (x.Id != managerId) && (x.Email == email));
+			return value == null ? true : false;
+		}
+
+		public bool UserNameControl(List<Manager> allManager, string username, int managerId)
+		{
+			var value = allManager.FirstOrDefault(x => (x.Id != managerId) && (x.UserName == username));
+			return value == null ? true : false;
+		}
+
+		public Manager FindManagerWithClubId(int clubId)
+		{
+            return _managerDal.GetListAll().FirstOrDefault(manager => manager.ManagerClubId == clubId);
+		}
+	}
 }

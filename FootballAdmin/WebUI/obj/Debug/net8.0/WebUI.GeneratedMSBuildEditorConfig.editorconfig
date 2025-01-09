@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebUI
 build_property.RootNamespace = WebUI
@@ -18,20 +26,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\porta\OneDrive\Belgeler\FootballAdmin\FootballAdmin\FootballAdmin\WebUI
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Admin/Views/Footballer/AddFootballer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRm9vdGJhbGxlclxBZGRGb290YmFsbGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Admin/Views/Home/Components/LastAdminNotification/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDb21wb25lbnRzXExhc3RBZG1pbk5vdGlmaWNhdGlvblxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Admin/Views/Home/Settings.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxTZXR0aW5ncy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Admin/Views/Home/ToDoList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxUb0RvTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Admin/Views/Manager/ListManagers.cshtml]
@@ -54,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEFkbWluTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Admin/Views/Team/ListTeams.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGVhbVxMaXN0VGVhbXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -62,8 +70,44 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhaW5pbmdcTGlzdFRyYWluaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Club/ClubInfoPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xDbHViXENsdWJJbmZvUGFnZS5jc2h0bWw=
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Club/Club.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xDbHViXENsdWIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Club/ClubFormation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xDbHViXENsdWJGb3JtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Club/ClubPlayerMap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xDbHViXENsdWJQbGF5ZXJNYXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Club/ClubPlayers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xDbHViXENsdWJQbGF5ZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Club/ClubSettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xDbHViXENsdWJTZXR0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Club/YourClub.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xDbHViXFlvdXJDbHViLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/FootballMatches/Matches.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xGb290YmFsbE1hdGNoZXNcTWF0Y2hlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/FootballMatches/PlayedMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xGb290YmFsbE1hdGNoZXNcUGxheWVkTWF0Y2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/FootballMatches/ProposeMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xGb290YmFsbE1hdGNoZXNcUHJvcG9zZU1hdGNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/FootballMatches/UpcomingPropose.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xGb290YmFsbE1hdGNoZXNcVXBjb21pbmdQcm9wb3NlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Home/Index.cshtml]
@@ -78,12 +122,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xIb21lXFByb2ZpbGVTZXR0aW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Manager/Rival.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xNYW5hZ2VyXFJpdmFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Manager/Rivals.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xNYW5hZ2VyXFJpdmFscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Shared/Components/AcceptedMatches/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xBY2NlcHRlZE1hdGNoZXNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Shared/Components/CountrySelect/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xDb3VudHJ5U2VsZWN0XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Shared/Components/Formation/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xGb3JtYXRpb25cRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xTaGFyZWRcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Transfer/BuyPlayers.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xUcmFuc2ZlclxCdXlQbGF5ZXJzLmNzaHRtbA==
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Areas/Manager/Views/Transfer/Footballer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlclxWaWV3c1xUcmFuc2ZlclxGb290YmFsbGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Views/Footballer/Footballer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vdGJhbGxlclxGb290YmFsbGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Views/Footballer/Footballers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vdGJhbGxlclxGb290YmFsbGVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/porta/OneDrive/Belgeler/FootballAdmin/FootballAdmin/FootballAdmin/WebUI/Views/Home/AccessDenied.cshtml]

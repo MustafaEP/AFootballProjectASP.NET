@@ -1,0 +1,141 @@
+﻿{
+  "Attack": [
+    "Defans arkasına bir top, hızla ilerliyorlar!",
+    "Uzaktan bir şut geliyor... Kaleci dikkatli olmalı.",
+    "Kanattan içeriye sert bir orta, gol kokusu alıyoruz!",
+    "Top sağ kanatta, oyuncu rakibini geçmeye çalışıyor.",
+    "Defans çizgisine kadar ilerlediler, ceza sahasında tehlike büyüyor.",
+    "Bir ara pas... Ve top tam isabet, gol şansı çok yüksek!",
+    "Kaleyi karşısına aldı, vuracak mı? Bekliyoruz.",
+    "Kanattan ceza sahasına sızıyorlar, savunma hazırlıklı mı?",
+    "Hızlı bir kontra atak, rakip savunma yerini alamadı.",
+    "Paslaşmalarla ceza sahasına doğru yaklaşıyorlar, savunma şaşkın.",
+    "Sol çaprazdan bir şut... Kaleci zorlanabilir!",
+    "Defans arkasına bir sızma, oyuncu topla buluşuyor.",
+    "Köşe bayrağından gelen orta, kafa vuruşu mu gelecek?",
+    "Topla ceza sahası dışındalar, uzaktan bir deneme olabilir.",
+    "Rakip ceza sahasına nüfuz ediyorlar, gol an meselesi!",
+    "Kanat oyuncusu topu kontrol etti, içeriye tehlikeli bir orta yapabilir.",
+    "Hızlı bir üçgen paslaşma, defans afalladı.",
+    "Rakip ceza sahası çevresinde pres yapıyorlar, savunma panik halinde.",
+    "Kritik bir ara pas, oyuncu kaleciyle karşı karşıya.",
+    "Savunmayı delip geçtiler, ceza sahasında gol fırsatı!"
+  ],
+
+  "Goal": [
+    "Ooofff gole bak Arda Güler'in olduğu evrendeki oyuncudan harika gol. Süpersin Arda.",
+    "GOOOOOOOOOOOOOOOL! Harika bir vuruşla top ağlarla buluştu!",
+    "GOOOL! Kaleci çaresiz kaldı, adeta bir füze gönderdi.",
+    "Ve gol! Stadyum adeta yıkılıyor!",
+    "GOL! Tam köşeye müthiş bir plase, sanat eseri!",
+    "Bir gol daha! Takım farka koşuyor.",
+    "GOOOOL! Bu bir futbol resitali.",
+    "Ve top ağlarda! Rakip kaleci şokta."
+  ],
+  "Feint": [
+    "Bir çalım... Ve bir çalım daha! Adeta dans ediyor.",
+    "Rakibiyle kedinin fareyle oynadığı gibi oynuyor!",
+    "O nasıl bir hareket! Tribünlerden alkış sesleri yükseliyor.",
+    "Ayağındaki top yapışmış sanki, geçilemez bir duvar oldu.",
+    "Hoop, rakip yerde! İşte futbolda estetik bu.",
+    "Napıyorsun, o nasıl bir hareket! İzleyenler hayran kaldı.",
+    "Marsilya dönüşüyle rakiplerini şaşkına çevirdi."
+  ],
+  "GoalKeeper": [
+    "Kaleci uçtu ve topu çıkardı! İnanılmaz bir kurtarış!",
+    "Son anda müdahale... Top hala oyunda.",
+    "Kaleci devleşti adeta, gol izni yok!",
+    "Şimdi bir kurtarış daha, bu maçı kaleci alıyor resmen.",
+    "Top kornere gidiyor, kaleci çok iyi kapadı köşeyi.",
+    "Son anda bir tokat! Rakip oyuncular inanamıyor.",
+    "Kaleci mükemmel pozisyon aldı, gol şansı vermiyor."
+  ],
+  "Defance": [
+    "Defans müthiş bir müdahaleyle topu kazandı.",
+    "Tandem savunma mükemmel çalışıyor.",
+    "Stoperden harika bir kesme, tehlike geçti.",
+    "Rakip hücumunu kesen bir hamle... Top taca çıktı.",
+    "Defans oyuncusu risk aldı ve kazandı, harika bir hamle.",
+    "Son adam yetişti, ceza sahası rahatladı.",
+    "İşte bu, savunmanın hakkını teslim etmek lazım."
+  ],
+
+  "Pass": [
+    "Kısa paslarla rakip savunmayı açmaya çalışıyorlar.",
+    "Harika bir verkaç, oyun hızlandı!",
+    "Orta sahada pas trafiği çok yoğun, baskı altından çıkmaya çalışıyorlar.",
+    "Bir pas... İki pas... Oyuncuların uyumu göz kamaştırıyor!",
+    "Uzun bir top, kanat oyuncusuna... Ve top kontrol edildi!",
+    "Pas hatası! Rakip şimdi hızlı bir atak başlatabilir.",
+    "Tek dokunuşla harika bir paslaşma, savunma tamamen çaresiz kaldı."
+  ],
+
+  "SetPiece": [
+    "Korner kullanıldı, ceza sahasında büyük bir karambol!",
+    "Köşe vuruşu tehlike yaratabilir, savunma dikkatli olmalı.",
+    "Baraj kuruluyor... Hakem düdüğünü çaldı, şimdi vuruş gelecek.",
+    "Hızlı bir taç atışı, oyun bir anda hızlandı."
+  ],
+
+  "SetPieceFail": [
+    "Serbest vuruş geldi... Barajdan döndü, şanssız bir an.",
+    "Uzaktan serbest vuruş... Kaleci topu güçlükle çeldi!",
+    "Top direğin hemen üzerinden dışarı çıktı, ne kadar yakın bir vuruş!",
+    "Direkt kaleye vurdu! Kaleci son anda kornere çeldi.",
+    "Serbest vuruşta harika bir orta, savunma güçlükle uzaklaştırdı."
+  ],
+
+  "Foul": [
+    "Hakem düdüğünü çaldı, bu çok sert bir müdahaleydi.",
+    "Faul! Rakip oyuncu yerde kaldı, sağlık ekibi oyuna giriyor.",
+    "Hakem avantaja bıraktı... Ama oyun durdu, faul kararı geldi.",
+    "Sert bir müdahale, hakem oyuncuyu yanına çağırıyor.",
+    "Ve kart çıkıyor! Bu faul, hakemin sabrını taşırdı.",
+    "Oyuncular arasında gerginlik, hakem araya giriyor.",
+    "Tehlikeli bir faul! Rakip oyuncu sakatlanabilir.",
+    "Bariz bir faul, hakemin düdüğü gecikmedi.",
+    "Omuz omuza mücadele derken, rakip oyuncu yere düştü. Faul kararı.",
+    "Hızlı bir kontratak başlamadan hakem düdüğü çaldı, faul yapıldı."
+  ],
+
+  "MatchStart": [
+    "Ve hakem düdüğü çaldı, maç başladı! İyi seyirler!",
+    "Büyük heyecan başladı, iki takım da sahada kazanmak için mücadele edecek.",
+    "Tribünler dolu, futbolseverler hazır, şimdi sahne oyuncuların!",
+    "İlk düdük geldi, 90 dakikalık futbol şöleni başlıyor!"
+  ],
+  "SecondHalfStart": [
+    "Ve ikinci yarı başladı! Takımlar sahaya daha enerjik döndü.",
+    "Hakem düdüğünü çaldı, ikinci yarıdayız. Oyun yeniden hareketlendi.",
+    "İkinci yarıda bakalım hangi takım üstünlük sağlayacak?",
+    "Devre arasından sonra heyecan kaldığı yerden devam ediyor!"
+  ],
+  "MatchEnd": [
+    "Ve son düdük çaldı! Maç sona erdi.",
+    "Hakemin son düdüğü geldi, mücadele burada tamamlanıyor.",
+    "Maç bitti, sonuç sahadaki mücadelenin karşılığı oldu.",
+    "Futbol dolu bir 90 dakikanın ardından maç sona erdi."
+  ],
+
+  "ThirtiethMinute": [
+    "30. dakika geride kaldı, oyun giderek daha çekişmeli bir hal alıyor.",
+    "İlk yarının üçte biri tamamlandı, iki takım da oyunda kalmaya çalışıyor.",
+    "30 dakikadır sahada büyük bir mücadele var, gol sesi hala çıkmadı.",
+    "30. dakikada tempo yüksek, oyun her an değişebilir."
+  ],
+  "SixtiethMinute": [
+    "Saatler 60’ı gösteriyor, oyunda yorgunluklar başlamış olabilir.",
+    "60. dakikadayız, takımlar skor tabelasında üstünlük arıyor.",
+    "İkinci yarının ortası geldi, oyun iyice kızıştı.",
+    "60. dakikada değişiklik sinyalleri gelmeye başladı."
+  ],
+  "NinetiethMinute": [
+    "90. dakika! Hakem uzatma sürelerini işaret etti.",
+    "Maçın son anları, iki takım da son kozlarını oynuyor.",
+    "90. dakikaya geldik, tribünler nefeslerini tuttu.",
+    "90 dakika dolmak üzere, bakalım son düdük öncesi bir gol daha görecek miyiz?"
+  ]
+
+
+
+}

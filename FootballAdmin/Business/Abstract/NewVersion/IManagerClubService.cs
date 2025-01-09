@@ -11,5 +11,6 @@ namespace Business.Abstract.NewVersion
     public interface IManagerClubService : IGenericService<ManagerClub>
     {
         ManagerClub OwnClub(int managerId);
+        List<ManagerClub> AnotherClubs(int managerId);
     }
 }

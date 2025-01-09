@@ -1,0 +1,25 @@
+﻿@using Entities.Concrete.Matches
+@model List<FootballMatch>
+
+
+@foreach(var item in Model)
+{
+    <div class="card border-hover-primary">
+        <a href="/Manager/FootballMatches/PlayedMatch/@item.Id" class="d-flex justify-content-around align-items-center p-4 card-body  mt-1 mb-1">
+            <div class="d-flex align-items-center">
+                <img src="@item.HomeClub.Avatar" class="rounded-circle me-2" alt="Home Club Avatar" style="width: 50px; height: 50px;" />
+                <span>@item.HomeClub.Name</span>
+            </div>
+            <div>@item.HomeClubGoal</div>
+            <div>-</div>
+            <div>@item.AwayClubGoal</div>
+            <div class="d-flex align-items-center">
+                <span class="me-2">@item.AwayClub.Name</span>
+                <img src="@item.AwayClub.Avatar" class="rounded-circle" alt="Away Club Avatar" style="width: 50px; height: 50px;" />
+            </div>
+        </a>
+    </div>
+    <hr class="mx-5" />
+
+}
+

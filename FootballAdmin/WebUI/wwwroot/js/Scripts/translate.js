@@ -12,26 +12,26 @@
 
 function translateCountry(country) {
     const countries = {
-        'Turkey': 'Türkiye',
-        'United States': 'Amerika Birleşik Devletleri',
-        'United Kingdom': 'Birleşik Krallık',
-        'Germany': 'Almanya',
-        'France': 'Fransa',
-        'Canada': 'Kanada',
+        'Argentina': 'Arjantin',
         'Australia': 'Avustralya',
-        'Italy': 'İtalya',
-        'Spain': 'İspanya',
-        'Netherlands': 'Hollanda',
         'Brazil': 'Brezilya',
-        'Japan': 'Japonya',
-        'South Korea': 'Güney Kore',
-        'India': 'Hindistan',
+        'Canada': 'Kanada',
         'China': 'Çin',
-        'Russia': 'Rusya',
+        'France': 'Fransa',
+        'Germany': 'Almanya',
+        'India': 'Hindistan',
+        'Italy': 'İtalya',
+        'Japan': 'Japonya',
         'Mexico': 'Meksika',
+        'Netherlands': 'Hollanda',
+        'Russia': 'Rusya',
+        'South Korea': 'Güney Kore',
+        'Spain': 'İspanya',
         'Sweden': 'İsveç',
         'Switzerland': 'İsviçre',
-        'Argentina': 'Arjantin'
+        'Turkey': 'Türkiye',
+        'United Kingdom': 'Birleşik Krallık',
+        'United States': 'Amerika Birleşik Devletleri'
     };
     return countries[country] || country; // Eğer çeviri yoksa orijinal ülke ismini döner
 }

@@ -18,9 +18,19 @@ namespace Business.Concrete.NewVersion
             _clubfootballerDal = clubfootballerDal;
         }
 
+        public ClubsFootballer GetFootballerWithUserNameClubId(string username, int clubId)
+        {
+            return _clubfootballerDal.GetListAll().FirstOrDefault(x => (x.username == username) && (x.ManagerClubId == clubId));
+        }
+
         public List<ClubsFootballer> GetList()
         {
             return _clubfootballerDal.GetListAll();
+        }
+
+        public int HowManyPlayerinCountry(string country, int clubId)
+        {
+            return _clubfootballerDal.GetListAll().Where(x => (x.ManagerClubId == clubId) && (x.Country == country)).Count();
         }
 
         public List<ClubsFootballer> OwnFootballers(int clubId)

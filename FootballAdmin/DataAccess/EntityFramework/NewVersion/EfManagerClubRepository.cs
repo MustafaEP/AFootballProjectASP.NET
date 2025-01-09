@@ -1,5 +1,5 @@
 ﻿using Access.Abstract.NewVersion;
-using Access.EntityFramework.GenericRepository;
+using Core.Access.EntityFramework.GenericRepository;
 using Entities.Concrete.NewVersion;
 using System;
 using System.Collections.Generic;

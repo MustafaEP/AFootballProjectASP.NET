@@ -6,7 +6,7 @@ function LoginBtnClick() {
     Swal.fire({
         icon: 'info',
         text: "Giriş Yapılıyor...",
-        background: '#111111',
+
         showConfirmButton: false,
         timerProgressBar: true,
         willOpen: () => {
@@ -26,7 +26,7 @@ function LoginBtnClick() {
                     Swal.fire({
                         icon: 'success',
                         text: data.message,
-                        background: '#111111',
+                
                         timer: 2000,
                         showConfirmButton: false,
                         timerProgressBar: true,
@@ -37,7 +37,7 @@ function LoginBtnClick() {
                     Swal.fire({
                         icon: 'success',
                         text: data.message,
-                        background: '#111111',
+                
                         timer: 2000,
                         showConfirmButton: false
                     }).then(() => {
@@ -47,7 +47,7 @@ function LoginBtnClick() {
                     Swal.fire({
                         icon: 'error',
                         text: 'Kullanıcının Rolü Tanımlanamadı',
-                        background: '#111111',
+                
                         timer: 2000,
                         showConfirmButton: false
                     });
@@ -57,7 +57,7 @@ function LoginBtnClick() {
                 Swal.fire({
                     icon: 'error',
                     text: data.message,
-                    background: '#111111',
+            
                     timer: 2000,
                     showConfirmButton: false
                 });

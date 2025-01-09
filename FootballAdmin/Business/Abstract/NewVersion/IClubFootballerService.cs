@@ -11,5 +11,7 @@ namespace Business.Abstract.NewVersion
     public interface IClubFootballerService : IGenericService<ClubsFootballer>
     {
         List<ClubsFootballer> OwnFootballers(int clubId);
+        int HowManyPlayerinCountry(string country, int managerId);
+        ClubsFootballer GetFootballerWithUserNameClubId(string username, int id);
     }
 }

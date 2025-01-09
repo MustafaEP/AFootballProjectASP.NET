@@ -1,27 +1,35 @@
-using Access.Abstract.GenericDal;
 using Access.Context;
-using Access.EntityFramework.GenericRepository;
 using System.Configuration;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Business.Concrete.Image;
+using Business.Abstract.Image;
+using Core.Access.EntityFramework.GenericRepository;
+using Core.Access.Abstract.GenericDal;
+using Business.Concrete.NewVersion;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 
 builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>));
-
+builder.Services.AddScoped<IImageSearchService, ImageSearchManager>();
 
 // Kimlik doðrulama servisini ekleyin
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Home/Login"; // Giriþ sayfasýnýn yolu
-        options.AccessDeniedPath = "/Home/AccessDenied"; // Eriþim reddedildiðinde yönlendirme yolu
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // Çerez süresi
+        options.LoginPath = "/Home/Login"; 
+        options.AccessDeniedPath = "/Home/AccessDenied"; 
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(60); 
     });
 builder.Services.AddAuthorization();
-
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+});
+
 
 builder.Services.AddAuthorization(options =>
 {
@@ -50,8 +58,6 @@ app.UseRouting();
 
 app.UseAuthentication(); // Kimlik doðrulamayý ekleyin
 app.UseAuthorization();
-
-
 
 
 app.MapControllerRoute(

@@ -1,0 +1,183 @@
+﻿@using WebUI.Areas.Manager.Models
+@model List<MatchesViewModel>
+
+@{
+    ViewData["Title"] = "UpcomingPropose";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+    //Teklifi ben Gönderdiysem Kısmı Eklenecek --- Eklendi
+}
+
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+    <div class="d-flex flex-column flex-column-fluid">
+        <div id="kt_app_toolbar" class="app-toolbar pt-5">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+                <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+                    <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                <a href="../dist/index.html" class="text-gray-500">
+                                    <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Menajer</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Maç</li>
+                            <li class="breadcrumb-item">
+                                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Maç Teklifleri</li>
+
+                        </ul>
+                        <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Maç Teklifleri</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <div id="kt_app_content_container" class="app-container container-fluid">
+
+
+                <!--begin::Toolbar-->
+                <div class="d-flex flex-wrap flex-stack my-5">
+                    <!--begin::Heading-->
+                    <h2 class="fs-2 fw-semibold my-2">
+                        Maçlar
+                        <span class="fs-6 text-gray-400 ms-1">Rakipler</span>
+                    </h2>
+                    <!--end::Heading-->
+                    <!--begin::Controls-->
+                    <div class="d-flex flex-wrap my-1">
+                        <!--begin::Select wrapper-->
+                        <div class="m-0">
+                            <!--begin::Select-->
+                            <select name="status" data-control="select2" id="statusFilter" data-hide-search="true" class="form-select form-select-sm form-select-solid fw-bold w-125px">
+                                <option value="all">Tüm Durumlar</option>
+                                <option value="accepted">Kabul Edildi</option>
+                                <option value="rejected">Reddedildi</option>
+                                <option value="waiting">Bekliyor</option>
+                                <option value="answerWaiting">Cevap Bekleniyor</option>
+                            </select>
+                            <!--end::Select-->
+                        </div>
+                        <!--end::Select wrapper-->
+                    </div>
+                    <!--end::Controls-->
+                </div>
+                <!--end::Toolbar-->
+                <!--begin::Row-->
+                <div class="row g-6 g-xl-9">
+                    @foreach (var item in Model)
+                    {
+
+                        var status = (item.isHomeClub == true && item.FootballMatch.status == false && item.FootballMatch.isAccepted == false && item.FootballMatch.isRejected == false) ? "answerWaiting" : (item.FootballMatch.isRejected == true) ? "rejected" : (item.FootballMatch.isAccepted) ? "accepted" : "waiting";
+                        var write = status == "answerWaiting" ? "Cevap Bekleniyor" : status == "waiting" ? "Bekliyor" : status == "accepted" ? "Kabul Edildi" : "Reddedildi"; //EvTakımıysa ve rakip teklife bakmadıysa
+                        var color = status == "answerWaiting" ? "badge-light-primary" : status == "waiting" ? "badge-light" : status == "accepted" ? "badge-light-success" : "badge-light-danger";
+
+
+                        <!--begin::Col-->
+                        <div class="col-md-6 col-xl-4" data-status="@status">
+
+                            <!--begin::Card-->
+                            <div href="#" class="match-card card border-hover-primary cursor-pointer" data-id="@item.FootballMatch.Id">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0 pt-9">
+                                    <!--begin::Card Title-->
+                                    <div class="card-title m-0">
+                                        <!--begin::Avatar-->
+                                        <div class="symbol symbol-50px w-50px bg-light">
+                                            @{
+                                                var avatar = item.isHomeClub == true ? item.FootballMatch.AwayClub.Avatar : item.FootballMatch.HomeClub.Avatar;
+                                            }
+                                            <img src=@avatar alt="image" class="p-3" />
+                                        </div>
+                                        <!--end::Avatar-->
+                                    </div>
+                                    <!--end::Car Title-->
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <span class="badge @color fw-bold me-auto px-4 py-3">@write</span>
+                                    </div>
+                                    <!--end::Card toolbar-->
+                                </div>
+                                <!--end:: Card header-->
+                                <!--begin:: Card body-->
+                                <div class="card-body p-9">
+                                    <!--begin::Name-->
+                                    @{
+                                        var clubName = item.isHomeClub == true ? item.FootballMatch.AwayClub.Name : item.FootballMatch.HomeClub.Name;
+                                    }
+                                    <div class="fs-3 fw-bold text-dark">@clubName</div>
+                                    <!--end::Name-->
+                                    <!--begin::Description-->
+                                    <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">|</p>
+                                    <!--end::Description-->
+                                    <!--begin::Info-->
+                                    @{
+                                        var victoryPercent = item.isHomeClub == true ? item.awayWinning : item.homeWinning;
+                                        var bgColor = victoryPercent >= 80 ? "bg-success" : victoryPercent >= 60 ? "bg-info" : victoryPercent >= 40 ? "bg-primary" :
+                                        victoryPercent >= 20 ? "bg-warning" : "bg-danger";
+                                    }
+                                    <div class="d-flex flex-wrap mb-5">
+                                        <!--begin::Due-->
+                                        <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                            <div class="fs-6 text-gray-800 fw-bold"> @Convert.ToDateTime(item.FootballMatch.CreatedTime).ToString("dd/MM/yyyy")</div>
+                                            <div class="fw-semibold text-gray-400">Davet Tarihi</div>
+                                        </div>
+                                        <!--end::Due-->
+                                        <!--begin::Budget-->
+                                        <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 mb-3">
+                                            <div class="fs-6 text-gray-800 fw-bold">%@victoryPercent</div>
+                                            <div class="fw-semibold text-gray-400">Galibiyet Oranı</div>
+                                        </div>
+                                        <!--end::Budget-->
+                                    </div>
+                                    <!--end::Info-->
+                                    <!--begin::Progress-->
+
+                                    <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip" title="İstatistikler %@victoryPercent oranda kazanacağınızı söylüyor.">
+                                        <div class="@bgColor rounded h-4px" role="progressbar" style="width: @victoryPercent%" aria-valuenow="@victoryPercent" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <!--end::Progress-->
+                                    <!--begin::Users-->
+                                    <div class="symbol-group symbol-hover">
+                                        <!--begin::User-->
+                                        <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="@item.HomeTeamManagerName">
+                                            <img alt="Pic" src="@item.HomeTeamManagerAvatar" />
+                                        </div>
+                                        <!--begin::User-->
+                                        <!--begin::User-->
+                                        <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="@item.AwayTeamManagerName">
+                                            <img alt="Pic" src="@item.AwayTeamManagerAvatar" />
+                                        </div>
+                                        <!--begin::User-->
+                                    </div>
+                                    <!--end::Users-->
+                                </div>
+                                <!--end:: Card body-->
+                            </div>
+                            <!--end::Card-->
+                        </div>
+                        <!--end::Col-->
+                    }
+
+                </div>
+                <!--end::Row-->
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+
+    <script src="~/js/Manager/Match/ClickMatch.js"></script>
+}

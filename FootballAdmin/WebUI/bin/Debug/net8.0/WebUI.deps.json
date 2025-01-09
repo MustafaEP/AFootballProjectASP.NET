@@ -2016,7 +2016,8 @@
       "Business/1.0.0": {
         "dependencies": {
           "Access": "1.0.0",
-          "Entities": "1.0.0"
+          "Entities": "1.0.0",
+          "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "Business.dll": {

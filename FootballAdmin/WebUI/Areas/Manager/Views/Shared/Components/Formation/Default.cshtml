@@ -1,0 +1,366 @@
+﻿@using Entities.Concrete.ClubFormation
+@model Formation
+
+@{
+
+    string formation = Model.FotmationType;
+    int[] LineUp = formation
+        .Split('-')
+        .Select(int.Parse)
+        .ToArray();
+
+    var formationHTML = "";
+
+    if (LineUp[4] == 3)
+    {
+        formationHTML += @"
+        <div class='row d-flex justify-content-center' id='frw'>
+             <div class='col-3 d-flex justify-content-center'>
+                   <div class='position' data-position='SLK' style='position: relative; top: 5px;'></div>
+            </div>
+            <div class='col-3 d-flex justify-content-center'>
+                   <div class='position' data-position='SNT'></div>
+            </div>
+            <div class='col-3 d-flex justify-content-center'>
+                   <div class='position' data-position='SĞK' style='position: relative; top: 5px'></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[4] == 2)
+    {
+        formationHTML += @"
+        <div class='row d-flex justify-content-center' id='frw'>
+             <div class='col-3 d-flex justify-content-center'>
+                <div class='position' data-position='SNT 1'></div>
+            </div>
+            <div class='col-3 d-flex justify-content-center'>
+                <div class='position' data-position='SNT 2'></div>
+            </div>
+
+
+        </div>
+        ";
+    }
+    else if (LineUp[4] == 1)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'frw' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SNT' ></div>
+            </div>
+        </div>
+        ";
+    }
+
+    if (LineUp[3] == 1)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'oos' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'OOS' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[3] == 2)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'oos' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'OOS 1' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'OOS 2' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[3] == 3)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'oos' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SLO' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'OOS' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SĞO' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[3] == 4)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'oos' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SLO' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'OOS 1' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'OOS 2' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SĞO' ></div>
+            </div>
+        </div>
+        ";
+    }
+
+    if (LineUp[2] == 1)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'mo' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[2] == 2)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'mo' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 1' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 2' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[2] == 3)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'mo' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 1' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 2' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 3' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[2] == 4)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'mo' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SKB' style = 'position: relative; top: 5px;' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 1' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 2' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SĞB' style = 'position: relative; top: 5px;' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[2] == 5)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'mo' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SLKB' style = 'position: relative; top: 20px;' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 1' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 2' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'MO 3' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SĞKB' style = 'position: relative; top: 20px;' ></div>
+            </div>
+        </div>
+        ";
+    }
+
+    if (LineUp[1] == 1)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'dos' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'DOS' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[1] == 2)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'dos' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'DOS 1' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'DOS 2' ></div>
+            </div>
+        </div>
+        ";
+    }
+
+    if (LineUp[0] == 3)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'dos' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'STP 1' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'STP 2' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'STP 3' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[0] == 4)
+    {
+        formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'dos' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SLB' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'STP 1' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'STP 2' ></div>
+            </div>
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SĞB' ></div>
+            </div>
+        </div>
+        ";
+    }
+    else if (LineUp[0] == 5)
+    {
+        formationHTML += @"
+       <div class= 'row d-flex justify-content-center' id = 'dos' >
+            <div class= 'custom-col d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SLB' style = 'position: relative; top: -20px;' ></div>
+            </div>
+            <div class= 'custom-col d-flex justify-content-center' >
+               <div class= 'position' data-position = 'STP 1' ></div>
+            </div>
+            <div class= 'custom-col d-flex justify-content-center' >
+               <div class= 'position' data-position = 'STP 2' ></div>
+            </div>
+            <div class= 'custom-col d-flex justify-content-center' >
+               <div class= 'position' data-position = 'STP 3' ></div>
+            </div>
+            <div class= 'custom-col d-flex justify-content-center' >
+               <div class= 'position' data-position = 'SĞB' style = 'position: relative; top: -20px;' ></div>
+            </div>
+        </div>
+        ";
+    }
+
+    formationHTML += @"
+        <div class= 'row d-flex justify-content-center' id = 'gk' >
+            <div class= 'col-3 d-flex justify-content-center' >
+               <div class= 'position' data-position = 'GK' ></div>
+            </div>
+        </div>
+        ";
+
+}
+
+<div class='container'>
+    <div class='field'>
+        <div id='formation'>
+            @Html.Raw(formationHTML)
+        </div>
+    </div>
+</div>
+
+@{
+    var options = new System.Text.Json.JsonSerializerOptions
+            {
+                ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve,
+                WriteIndented = true
+            };
+
+    var jsonData = System.Text.Json.JsonSerializer.Serialize(Model, options);
+}
+
+<script>
+    (function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            var modelData = @Html.Raw(jsonData);
+            console.log(modelData);
+            
+            for(var i = 0; i < 11; i++){
+                
+
+                const player = modelData.XIPlayers.$values[i]
+                if (player.AddedFootballer == null){
+                    continue;
+                }
+                var playerPosition = player.Position;
+                var positionDiv = document.querySelector('[data-position = "' + playerPosition + '"]');
+                const footballer = player.AddedFootballer.Footballer;
+
+                const power = footballer.Statistic.Power;
+                const url = power >= 90 ? '5' : power >= 85 ? '4' : power >= 80 ? '3' : power >= 75 ? '2' : '';
+
+                if (positionDiv) {
+                   const playerCardHTML = `
+                            <div draggable="true" class="player" data-id="${footballer.Id}" style="background-image: url('/Image/FUTCARD${url}.png')">
+                            <div class="flex-column fut_card">
+                                <div class="fut_card_img">
+                                    <img id="footballer_img" alt="Futbolcu Resmi" class="card_image" src="/image/Footballers/footballer.png" />
+                                </div>
+                                <div class="flex-column text_card">
+                                    <p class="fut_card_name">${footballer.Name} ${footballer.SurName}</p>
+                                    
+                                </div>
+                                <div class="d-flex row text_powers">
+                                    <div class="col-6 powers powers_left">
+                                            <p class="power_1"><b>${footballer.Statistic.Pace}</b> PAC</p>
+                                            <p class="power_2"><b>${footballer.Statistic.Shooting}</b> SHO</p>
+                                            <p class="power_3"><b>${footballer.Statistic.Passing}</b> PAS</p>
+                                    </div>
+                                    <div class="col-6 powers powers_right">
+                                            <p class="power_4"><b>${footballer.Statistic.Pace}</b> DRI</p>
+                                            <p class="power_5"><b>${footballer.Statistic.Dribbling}</b> DEF</p>
+                                            <p class="power_6"><b>${footballer.Statistic.Physicality}</b> PHY</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    positionDiv.innerHTML = playerCardHTML; 
+                    
+                } else {
+                    console.error("Element bulunamadı!");
+                }
+
+            }
+
+            
+
+            
+        });
+    })();
+</script>

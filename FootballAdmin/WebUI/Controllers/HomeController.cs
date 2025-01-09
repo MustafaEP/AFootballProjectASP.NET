@@ -64,6 +64,7 @@ namespace WebUI.Controllers
                     new Claim(ClaimTypes.Role, "Manager"),
                     new Claim("Name", userManager.Name),
                     new Claim("SurName", userManager.SurName),
+                    new Claim("Avatar", userManager.Avatar == null ? "" : userManager.Avatar),
                     new Claim("UserId", userManager.Id.ToString()),
                 };
 
@@ -103,7 +104,7 @@ namespace WebUI.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
-                
+
 
                 return Json(new { success = true, message = "Hoþgeldin " + userAdmin.UserName + " Giriþ Sayfasýna Yönlendiriliyorsun", role = "Admin" });
             }
@@ -137,16 +138,16 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register([FromBody]Manager manager)
+        public IActionResult Register([FromBody] Manager manager)
         {
             var allManagers = _managerManager.GetList();
-            foreach(var item in allManagers)
+            foreach (var item in allManagers)
             {
-                if(item.UserName == manager.UserName) return Json(new { success = false, message = "Bu Kullanýcý Adý Kullanýlýyor." });
+                if (item.UserName == manager.UserName) return Json(new { success = false, message = "Bu Kullanýcý Adý Kullanýlýyor." });
             }
 
             var allAdmins = _adminManager.GetList();
-            foreach(var item in allAdmins)
+            foreach (var item in allAdmins)
             {
                 if (item.UserName == manager.UserName) return Json(new { success = false, message = "Bu Kullanýcý Adý Kullanýlýyor." });
             }
@@ -162,5 +163,12 @@ namespace WebUI.Controllers
             return Json(new { success = true, message = "Aramýza Hoþgeldin." });
         }
 
+        [Authorize]
+        public IActionResult GetUserRole()
+        {
+            var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+            return Content(role ?? "Rol bulunamadý.");
+        }
     }
 }

@@ -31,8 +31,16 @@
 			<div class="d-flex flex-column flex-lg-row-auto bg-primary w-xl-600px positon-xl-relative">
 				<div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
 					<div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
-						<a href="../dist/index.html" class="py-2 py-lg-20">
-							<img alt="Logo" src="~/saul_theme/dist/assets/media/logos/mail.svg" class="h-40px h-lg-50px" />
+					
+						<a href="../dist/index.html" class="py-2 py-lg-20 d-flex" style="align-items: center; justify-content: center;">
+							<img alt="Logo" src="~/saul_theme/dist/assets/media/logos/default-dark.svg" class="h-40px h-lg-50px theme-light-show" />
+							<span class="d-none d-sm-block theme-light-show my-2 align-content-center" style="margin-left: 10px; color: black; font-size: 25px;">
+								Efix
+							</span>
+							<img alt="Logo" src="~/saul_theme/dist/assets/media/logos/default-dark.svg" class="h-40px h-lg-50px theme-dark-show" />
+							<span class="d-none d-sm-block theme-dark-show my-2 align-content-center" style="margin-left: 10px; color: white; font-size: 25px;">
+								Efix
+							</span>
 						</a>
 						<h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">Efix | Futbol İnovasyonuna Hoşgeldin</h1>
 						<p class="d-none d-lg-block fw-semibold fs-2 text-white">
@@ -52,7 +60,7 @@
 								<h1 class="text-dark mb-3">Efix' e Giriş Yap</h1>
 								<div class="text-gray-400 fw-semibold fs-4">
 									Yeni misin?
-									<a href="../dist/authentication/sign-up/basic.html" class="link-primary fw-bold">Hemen Kayıt Ol</a>
+									<a href="/Home/Register" class="link-primary fw-bold">Hemen Kayıt Ol</a>
 								</div>
 							</div>
 							<div class="fv-row mb-10">
@@ -61,7 +69,7 @@
 							</div>
 							<div class="fv-row mb-10">
 								<div class="d-flex flex-stack mb-2">
-									<label class="form-label fw-bold text-dark fs-6 mb-0">Password</label>
+									<label class="form-label fw-bold text-dark fs-6 mb-0">Şifre</label>
 									<a href="/Home/PasswordReset" class="link-primary fs-6 fw-bold">Şifremi Unuttum ?</a>
 								</div>
 								<input class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off" id="password" />
@@ -74,17 +82,7 @@
 										<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
 									</span>
 								</button>
-								<div class="text-center text-muted text-uppercase fw-bold mb-5">VEYA</div>
-								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-									<img alt="Logo" src="~/saul_theme/dist/assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Google ile Devam Et
-								</a>
-								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-									<img alt="Logo" src="~/saul_theme/dist/assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-3" />Facebook ile Devam Et
-								</a>
-								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
-									<img alt="Logo" src="~/saul_theme/dist/assets/media/svg/brand-logos/apple-black.svg" class="theme-light-show h-20px me-3" />
-									<img alt="Logo" src="~/saul_theme/dist/assets/media/svg/brand-logos/apple-black-dark.svg" class="theme-dark-show h-20px me-3" />Apple ile Devam Et
-								</a>
+								
 							</div>
 						</form>
 					</div>
