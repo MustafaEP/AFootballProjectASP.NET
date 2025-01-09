@@ -5,6 +5,7 @@
  Eğer denemek isterseniz WebUI/appsetting.json daki "FootballAdminConnection" değerini değiştirmelisiniz.
 
  *If you want the footballers phote you should enter your Google API and CSE_ID in /FootballAdmin/Business/Concrete/Image/ImageSearchManager.cs
+ 
  *Eğer futbolcularınınızın resmini görmek istiyorsanız Google API ve CSE_ID nizi kaydetmeniz lazım bu adrese : /FootballAdmin/Business/Concrete/Image/ImageSearchManager.cs
 
 ![add_player](https://github.com/user-attachments/assets/81e01009-bda4-4209-b690-d2a00e09d3d7)
